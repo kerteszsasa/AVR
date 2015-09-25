@@ -1,0 +1,390 @@
+
+futofeny.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001ee  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000020  00000000  00000000  00000242  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 00000049  00000000  00000000  00000262  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   00000210  00000000  00000000  000002ab  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 00000152  00000000  00000000  000004bb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   00000368  00000000  00000000  0000060d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000050  00000000  00000000  00000978  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    000000f7  00000000  00000000  000009c8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_loc    0000005b  00000000  00000000  00000abf  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 46 00 	jmp	0x8c	; 0x8c <__ctors_end>
+   4:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+   8:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+   c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  10:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  14:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  18:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  1c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  20:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  24:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  28:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  2c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  30:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  34:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  38:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  3c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  40:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  44:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  48:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  4c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  50:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  54:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  58:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  5c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  60:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  64:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  68:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  6c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  70:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  74:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  78:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  7c:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  80:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  84:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+  88:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
+
+0000008c <__ctors_end>:
+  8c:	11 24       	eor	r1, r1
+  8e:	1f be       	out	0x3f, r1	; 63
+  90:	cf ef       	ldi	r28, 0xFF	; 255
+  92:	d0 e1       	ldi	r29, 0x10	; 16
+  94:	de bf       	out	0x3e, r29	; 62
+  96:	cd bf       	out	0x3d, r28	; 61
+
+00000098 <__do_copy_data>:
+  98:	11 e0       	ldi	r17, 0x01	; 1
+  9a:	a0 e0       	ldi	r26, 0x00	; 0
+  9c:	b1 e0       	ldi	r27, 0x01	; 1
+  9e:	ee ee       	ldi	r30, 0xEE	; 238
+  a0:	f1 e0       	ldi	r31, 0x01	; 1
+  a2:	00 e0       	ldi	r16, 0x00	; 0
+  a4:	0b bf       	out	0x3b, r16	; 59
+  a6:	02 c0       	rjmp	.+4      	; 0xac <__do_copy_data+0x14>
+  a8:	07 90       	elpm	r0, Z+
+  aa:	0d 92       	st	X+, r0
+  ac:	a0 30       	cpi	r26, 0x00	; 0
+  ae:	b1 07       	cpc	r27, r17
+  b0:	d9 f7       	brne	.-10     	; 0xa8 <__do_copy_data+0x10>
+  b2:	0e 94 83 00 	call	0x106	; 0x106 <main>
+  b6:	0c 94 f5 00 	jmp	0x1ea	; 0x1ea <_exit>
+
+000000ba <__bad_interrupt>:
+  ba:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000be <Beolvas8bitADC>:
+
+
+unsigned char Beolvas8bitADC(unsigned char csatorna)
+{
+
+ADMUX = (ADMUX & 0b11110000) | csatorna;   // ADC csatorna kivalasztasa
+  be:	97 b1       	in	r25, 0x07	; 7
+  c0:	90 7f       	andi	r25, 0xF0	; 240
+  c2:	98 2b       	or	r25, r24
+  c4:	97 b9       	out	0x07, r25	; 7
+
+ADCSRA |= (1<<ADSC);    // ADC konverzio elinditasa
+  c6:	36 9a       	sbi	0x06, 6	; 6
+
+while (ADCSRA & (1<<ADSC));    // varas az atalakitasra
+  c8:	36 99       	sbic	0x06, 6	; 6
+  ca:	fe cf       	rjmp	.-4      	; 0xc8 <Beolvas8bitADC+0xa>
+
+ADCSRA |= (1<<ADSC);         // konverzió elindítás
+  cc:	36 9a       	sbi	0x06, 6	; 6
+
+while (ADCSRA & (1<<ADSC));    // varas az atalakitasra
+  ce:	36 99       	sbic	0x06, 6	; 6
+  d0:	fe cf       	rjmp	.-4      	; 0xce <Beolvas8bitADC+0x10>
+
+return (ADCH);     // ADC ertek visszaadasa (csak a felso 8 bit (ADCH), az also 2 zajos bit elhagyasa)
+  d2:	85 b1       	in	r24, 0x05	; 5
+
+}
+  d4:	08 95       	ret
+
+000000d6 <Konfig8bitADC>:
+
+   
+void Konfig8bitADC()    // ADC konfiguralas (beallitas)
+{
+
+ ADMUX |= (1<<REFS0)|(1<<ADLAR);    // Vcc mint referencia, balra rendezett ADC eredmeny
+  d6:	87 b1       	in	r24, 0x07	; 7
+  d8:	80 66       	ori	r24, 0x60	; 96
+  da:	87 b9       	out	0x07, r24	; 7
+
+ ADCSRA = (1<<ADEN) | (1<<ADPS1) | (1<<ADPS0);  // ADC engedelyezese, ADC eloosztas = 8 (125 KHz)
+  dc:	83 e8       	ldi	r24, 0x83	; 131
+  de:	86 b9       	out	0x06, r24	; 6
+
+}
+  e0:	08 95       	ret
+
+000000e2 <Wait>:
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  e2:	80 e5       	ldi	r24, 0x50	; 80
+  e4:	93 ec       	ldi	r25, 0xC3	; 195
+  e6:	01 97       	sbiw	r24, 0x01	; 1
+  e8:	f1 f7       	brne	.-4      	; 0xe6 <Wait+0x4>
+
+void Wait()
+{
+_delay_ms(200);
+   uint8_t i=0;
+   uint8_t loops = Beolvas8bitADC(0);
+  ea:	80 e0       	ldi	r24, 0x00	; 0
+  ec:	0e 94 5f 00 	call	0xbe	; 0xbe <Beolvas8bitADC>
+  f0:	90 e0       	ldi	r25, 0x00	; 0
+  f2:	22 ee       	ldi	r18, 0xE2	; 226
+  f4:	34 e0       	ldi	r19, 0x04	; 4
+  f6:	04 c0       	rjmp	.+8      	; 0x100 <Wait+0x1e>
+  f8:	f9 01       	movw	r30, r18
+  fa:	31 97       	sbiw	r30, 0x01	; 1
+  fc:	f1 f7       	brne	.-4      	; 0xfa <Wait+0x18>
+
+   for(i;i<loops;i++)
+  fe:	9f 5f       	subi	r25, 0xFF	; 255
+ 100:	98 17       	cp	r25, r24
+ 102:	d0 f3       	brcs	.-12     	; 0xf8 <Wait+0x16>
+      _delay_ms(5);
+	   
+}
+ 104:	08 95       	ret
+
+00000106 <main>:
+
+void main()
+{
+ 106:	5f 92       	push	r5
+ 108:	6f 92       	push	r6
+ 10a:	7f 92       	push	r7
+ 10c:	8f 92       	push	r8
+ 10e:	9f 92       	push	r9
+ 110:	af 92       	push	r10
+ 112:	bf 92       	push	r11
+ 114:	cf 92       	push	r12
+ 116:	df 92       	push	r13
+ 118:	ef 92       	push	r14
+ 11a:	ff 92       	push	r15
+ 11c:	0f 93       	push	r16
+ 11e:	1f 93       	push	r17
+   DDRD=0b00011111;
+ 120:	8f e1       	ldi	r24, 0x1F	; 31
+ 122:	81 bb       	out	0x11, r24	; 17
+
+   
+void Konfig8bitADC()    // ADC konfiguralas (beallitas)
+{
+
+ ADMUX |= (1<<REFS0)|(1<<ADLAR);    // Vcc mint referencia, balra rendezett ADC eredmeny
+ 124:	87 b1       	in	r24, 0x07	; 7
+ 126:	80 66       	ori	r24, 0x60	; 96
+ 128:	87 b9       	out	0x07, r24	; 7
+
+ ADCSRA = (1<<ADEN) | (1<<ADPS1) | (1<<ADPS0);  // ADC engedelyezese, ADC eloosztas = 8 (125 KHz)
+ 12a:	83 e8       	ldi	r24, 0x83	; 131
+ 12c:	86 b9       	out	0x06, r24	; 6
+ 12e:	80 e5       	ldi	r24, 0x50	; 80
+ 130:	93 ec       	ldi	r25, 0xC3	; 195
+ 132:	29 e1       	ldi	r18, 0x19	; 25
+ 134:	30 e0       	ldi	r19, 0x00	; 0
+ 136:	f9 01       	movw	r30, r18
+ 138:	31 97       	sbiw	r30, 0x01	; 1
+ 13a:	f1 f7       	brne	.-4      	; 0x138 <main+0x32>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 13c:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 13e:	d9 f7       	brne	.-10     	; 0x136 <main+0x30>
+
+   while(1)
+   {
+
+   //jobbra fut
+PORTD = 1;
+ 140:	55 24       	eor	r5, r5
+ 142:	53 94       	inc	r5
+Wait();
+PORTD = 3;
+ 144:	f3 e0       	ldi	r31, 0x03	; 3
+ 146:	6f 2e       	mov	r6, r31
+Wait();
+PORTD = 7;
+ 148:	e7 e0       	ldi	r30, 0x07	; 7
+ 14a:	7e 2e       	mov	r7, r30
+Wait();
+PORTD = 15;
+ 14c:	7f e0       	ldi	r23, 0x0F	; 15
+ 14e:	87 2e       	mov	r8, r23
+Wait();
+PORTD = 31;
+ 150:	1f e1       	ldi	r17, 0x1F	; 31
+Wait();
+PORTD = 0;
+Wait();
+PORTD = 16;
+ 152:	60 e1       	ldi	r22, 0x10	; 16
+ 154:	96 2e       	mov	r9, r22
+Wait();
+PORTD = 24;
+ 156:	58 e1       	ldi	r21, 0x18	; 24
+ 158:	a5 2e       	mov	r10, r21
+Wait();
+PORTD = 28;
+ 15a:	4c e1       	ldi	r20, 0x1C	; 28
+ 15c:	b4 2e       	mov	r11, r20
+Wait();
+PORTD = 30;
+ 15e:	3e e1       	ldi	r19, 0x1E	; 30
+ 160:	c3 2e       	mov	r12, r19
+PORTD = 0;
+Wait();
+
+
+
+PORTD = 4;
+ 162:	24 e0       	ldi	r18, 0x04	; 4
+ 164:	d2 2e       	mov	r13, r18
+Wait();
+PORTD = 14;
+ 166:	9e e0       	ldi	r25, 0x0E	; 14
+ 168:	e9 2e       	mov	r14, r25
+Wait();
+PORTD = 31;
+Wait();
+PORTD = 0;
+Wait();
+PORTD = 17;
+ 16a:	81 e1       	ldi	r24, 0x11	; 17
+ 16c:	f8 2e       	mov	r15, r24
+Wait();
+PORTD = 27;
+ 16e:	0b e1       	ldi	r16, 0x1B	; 27
+
+   while(1)
+   {
+
+   //jobbra fut
+PORTD = 1;
+ 170:	52 ba       	out	0x12, r5	; 18
+Wait();
+ 172:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 3;
+ 176:	62 ba       	out	0x12, r6	; 18
+Wait();
+ 178:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 7;
+ 17c:	72 ba       	out	0x12, r7	; 18
+Wait();
+ 17e:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 15;
+ 182:	82 ba       	out	0x12, r8	; 18
+Wait();
+ 184:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 31;
+ 188:	12 bb       	out	0x12, r17	; 18
+Wait();
+ 18a:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 0;
+ 18e:	12 ba       	out	0x12, r1	; 18
+Wait();
+ 190:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 16;
+ 194:	92 ba       	out	0x12, r9	; 18
+Wait();
+ 196:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 24;
+ 19a:	a2 ba       	out	0x12, r10	; 18
+Wait();
+ 19c:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 28;
+ 1a0:	b2 ba       	out	0x12, r11	; 18
+Wait();
+ 1a2:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 30;
+ 1a6:	c2 ba       	out	0x12, r12	; 18
+Wait();
+ 1a8:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 31;
+ 1ac:	12 bb       	out	0x12, r17	; 18
+Wait();
+ 1ae:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 0;
+ 1b2:	12 ba       	out	0x12, r1	; 18
+Wait();
+ 1b4:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+
+
+
+PORTD = 4;
+ 1b8:	d2 ba       	out	0x12, r13	; 18
+Wait();
+ 1ba:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 14;
+ 1be:	e2 ba       	out	0x12, r14	; 18
+Wait();
+ 1c0:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 31;
+ 1c4:	12 bb       	out	0x12, r17	; 18
+Wait();
+ 1c6:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 0;
+ 1ca:	12 ba       	out	0x12, r1	; 18
+Wait();
+ 1cc:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 17;
+ 1d0:	f2 ba       	out	0x12, r15	; 18
+Wait();
+ 1d2:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 27;
+ 1d6:	02 bb       	out	0x12, r16	; 18
+Wait();
+ 1d8:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 31;
+ 1dc:	12 bb       	out	0x12, r17	; 18
+Wait();
+ 1de:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+PORTD = 0;
+ 1e2:	12 ba       	out	0x12, r1	; 18
+Wait();
+ 1e4:	0e 94 71 00 	call	0xe2	; 0xe2 <Wait>
+ 1e8:	c3 cf       	rjmp	.-122    	; 0x170 <main+0x6a>
+
+000001ea <_exit>:
+ 1ea:	f8 94       	cli
+
+000001ec <__stop_program>:
+ 1ec:	ff cf       	rjmp	.-2      	; 0x1ec <__stop_program>

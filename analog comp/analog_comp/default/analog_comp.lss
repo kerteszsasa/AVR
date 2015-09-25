@@ -1,0 +1,172 @@
+
+analog_comp.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000009a  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .debug_aranges 00000020  00000000  00000000  000000ee  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  2 .debug_pubnames 00000024  00000000  00000000  0000010e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_info   000000a8  00000000  00000000  00000132  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_abbrev 00000072  00000000  00000000  000001da  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_line   000000c9  00000000  00000000  0000024c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_frame  00000030  00000000  00000000  00000318  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_str    00000096  00000000  00000000  00000348  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_ranges 00000018  00000000  00000000  000003de  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	2a c0       	rjmp	.+84     	; 0x58 <__bad_interrupt>
+   4:	29 c0       	rjmp	.+82     	; 0x58 <__bad_interrupt>
+   6:	28 c0       	rjmp	.+80     	; 0x58 <__bad_interrupt>
+   8:	27 c0       	rjmp	.+78     	; 0x58 <__bad_interrupt>
+   a:	26 c0       	rjmp	.+76     	; 0x58 <__bad_interrupt>
+   c:	25 c0       	rjmp	.+74     	; 0x58 <__bad_interrupt>
+   e:	24 c0       	rjmp	.+72     	; 0x58 <__bad_interrupt>
+  10:	23 c0       	rjmp	.+70     	; 0x58 <__bad_interrupt>
+  12:	22 c0       	rjmp	.+68     	; 0x58 <__bad_interrupt>
+  14:	21 c0       	rjmp	.+66     	; 0x58 <__bad_interrupt>
+  16:	20 c0       	rjmp	.+64     	; 0x58 <__bad_interrupt>
+  18:	1f c0       	rjmp	.+62     	; 0x58 <__bad_interrupt>
+  1a:	1e c0       	rjmp	.+60     	; 0x58 <__bad_interrupt>
+  1c:	1d c0       	rjmp	.+58     	; 0x58 <__bad_interrupt>
+  1e:	1c c0       	rjmp	.+56     	; 0x58 <__bad_interrupt>
+  20:	1b c0       	rjmp	.+54     	; 0x58 <__bad_interrupt>
+  22:	1a c0       	rjmp	.+52     	; 0x58 <__bad_interrupt>
+  24:	19 c0       	rjmp	.+50     	; 0x58 <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf ed       	ldi	r28, 0xDF	; 223
+  2c:	cd bf       	out	0x3d, r28	; 61
+
+0000002e <__do_copy_data>:
+  2e:	10 e0       	ldi	r17, 0x00	; 0
+  30:	a0 e6       	ldi	r26, 0x60	; 96
+  32:	b0 e0       	ldi	r27, 0x00	; 0
+  34:	ea e9       	ldi	r30, 0x9A	; 154
+  36:	f0 e0       	ldi	r31, 0x00	; 0
+  38:	02 c0       	rjmp	.+4      	; 0x3e <.do_copy_data_start>
+
+0000003a <.do_copy_data_loop>:
+  3a:	05 90       	lpm	r0, Z+
+  3c:	0d 92       	st	X+, r0
+
+0000003e <.do_copy_data_start>:
+  3e:	a0 36       	cpi	r26, 0x60	; 96
+  40:	b1 07       	cpc	r27, r17
+  42:	d9 f7       	brne	.-10     	; 0x3a <.do_copy_data_loop>
+
+00000044 <__do_clear_bss>:
+  44:	10 e0       	ldi	r17, 0x00	; 0
+  46:	a0 e6       	ldi	r26, 0x60	; 96
+  48:	b0 e0       	ldi	r27, 0x00	; 0
+  4a:	01 c0       	rjmp	.+2      	; 0x4e <.do_clear_bss_start>
+
+0000004c <.do_clear_bss_loop>:
+  4c:	1d 92       	st	X+, r1
+
+0000004e <.do_clear_bss_start>:
+  4e:	a0 36       	cpi	r26, 0x60	; 96
+  50:	b1 07       	cpc	r27, r17
+  52:	e1 f7       	brne	.-8      	; 0x4c <.do_clear_bss_loop>
+  54:	02 d0       	rcall	.+4      	; 0x5a <main>
+  56:	1f c0       	rjmp	.+62     	; 0x96 <_exit>
+
+00000058 <__bad_interrupt>:
+  58:	d3 cf       	rjmp	.-90     	; 0x0 <__vectors>
+
+0000005a <main>:
+#include <avr/io.h>
+
+int
+main (void)
+{
+        DDRD = 255;               /* PC0 is digital output */
+  5a:	8f ef       	ldi	r24, 0xFF	; 255
+  5c:	81 bb       	out	0x11, r24	; 17
+}
+
+
+int comp(void)
+{
+	DIDR=3; //digital io disable for ANI1 and ANI0
+  5e:	33 e0       	ldi	r19, 0x03	; 3
+        DDRD = 255;               /* PC0 is digital output */
+         
+        while (1)                       /* loop forever */
+        {
+
+		if(comp())PORTD=255; 
+  60:	2f ef       	ldi	r18, 0xFF	; 255
+}
+
+
+int comp(void)
+{
+	DIDR=3; //digital io disable for ANI1 and ANI0
+  62:	31 b9       	out	0x01, r19	; 1
+	ACSR=0; //start comparator
+  64:	18 b8       	out	0x08, r1	; 8
+	if(ACSR&0b00010000)return(ACSR&0b00100000); //if finished comp, return with result whitch is 1 or 0
+  66:	44 9b       	sbis	0x08, 4	; 8
+  68:	04 c0       	rjmp	.+8      	; 0x72 <main+0x18>
+  6a:	88 b1       	in	r24, 0x08	; 8
+  6c:	90 e0       	ldi	r25, 0x00	; 0
+  6e:	80 72       	andi	r24, 0x20	; 32
+  70:	90 70       	andi	r25, 0x00	; 0
+        DDRD = 255;               /* PC0 is digital output */
+         
+        while (1)                       /* loop forever */
+        {
+
+		if(comp())PORTD=255; 
+  72:	00 97       	sbiw	r24, 0x00	; 0
+  74:	11 f0       	breq	.+4      	; 0x7a <main+0x20>
+  76:	22 bb       	out	0x12, r18	; 18
+  78:	f4 cf       	rjmp	.-24     	; 0x62 <main+0x8>
+		else PORTD=0;
+  7a:	12 ba       	out	0x12, r1	; 18
+  7c:	f2 cf       	rjmp	.-28     	; 0x62 <main+0x8>
+
+0000007e <comp>:
+}
+
+
+int comp(void)
+{
+	DIDR=3; //digital io disable for ANI1 and ANI0
+  7e:	83 e0       	ldi	r24, 0x03	; 3
+  80:	81 b9       	out	0x01, r24	; 1
+	ACSR=0; //start comparator
+  82:	18 b8       	out	0x08, r1	; 8
+	if(ACSR&0b00010000)return(ACSR&0b00100000); //if finished comp, return with result whitch is 1 or 0
+  84:	44 9b       	sbis	0x08, 4	; 8
+  86:	06 c0       	rjmp	.+12     	; 0x94 <comp+0x16>
+  88:	28 b1       	in	r18, 0x08	; 8
+  8a:	30 e0       	ldi	r19, 0x00	; 0
+  8c:	20 72       	andi	r18, 0x20	; 32
+  8e:	30 70       	andi	r19, 0x00	; 0
+// nem törli a flaget, ha kész akkor kell törölni és visszalépni addig egy while ciklusban várni
+
+}
+  90:	c9 01       	movw	r24, r18
+  92:	08 95       	ret
+  94:	08 95       	ret
+
+00000096 <_exit>:
+  96:	f8 94       	cli
+
+00000098 <__stop_program>:
+  98:	ff cf       	rjmp	.-2      	; 0x98 <__stop_program>

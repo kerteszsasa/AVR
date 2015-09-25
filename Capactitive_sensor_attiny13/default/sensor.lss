@@ -1,0 +1,309 @@
+
+sensor.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000142  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000003  00800060  00800060  000001b6  2**0
+                  ALLOC
+  2 .debug_aranges 00000020  00000000  00000000  000001b6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 0000005e  00000000  00000000  000001d6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   0000023a  00000000  00000000  00000234  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000130  00000000  00000000  0000046e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   0000024b  00000000  00000000  0000059e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000040  00000000  00000000  000007ec  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000000fb  00000000  00000000  0000082c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    000000e8  00000000  00000000  00000927  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000048  00000000  00000000  00000a0f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	09 c0       	rjmp	.+18     	; 0x14 <__ctors_end>
+   2:	16 c0       	rjmp	.+44     	; 0x30 <__bad_interrupt>
+   4:	15 c0       	rjmp	.+42     	; 0x30 <__bad_interrupt>
+   6:	15 c0       	rjmp	.+42     	; 0x32 <__vector_3>
+   8:	13 c0       	rjmp	.+38     	; 0x30 <__bad_interrupt>
+   a:	12 c0       	rjmp	.+36     	; 0x30 <__bad_interrupt>
+   c:	11 c0       	rjmp	.+34     	; 0x30 <__bad_interrupt>
+   e:	10 c0       	rjmp	.+32     	; 0x30 <__bad_interrupt>
+  10:	0f c0       	rjmp	.+30     	; 0x30 <__bad_interrupt>
+  12:	0e c0       	rjmp	.+28     	; 0x30 <__bad_interrupt>
+
+00000014 <__ctors_end>:
+  14:	11 24       	eor	r1, r1
+  16:	1f be       	out	0x3f, r1	; 63
+  18:	cf e9       	ldi	r28, 0x9F	; 159
+  1a:	cd bf       	out	0x3d, r28	; 61
+
+0000001c <__do_clear_bss>:
+  1c:	10 e0       	ldi	r17, 0x00	; 0
+  1e:	a0 e6       	ldi	r26, 0x60	; 96
+  20:	b0 e0       	ldi	r27, 0x00	; 0
+  22:	01 c0       	rjmp	.+2      	; 0x26 <.do_clear_bss_start>
+
+00000024 <.do_clear_bss_loop>:
+  24:	1d 92       	st	X+, r1
+
+00000026 <.do_clear_bss_start>:
+  26:	a3 36       	cpi	r26, 0x63	; 99
+  28:	b1 07       	cpc	r27, r17
+  2a:	e1 f7       	brne	.-8      	; 0x24 <.do_clear_bss_loop>
+  2c:	42 d0       	rcall	.+132    	; 0xb2 <main>
+  2e:	87 c0       	rjmp	.+270    	; 0x13e <_exit>
+
+00000030 <__bad_interrupt>:
+  30:	e7 cf       	rjmp	.-50     	; 0x0 <__vectors>
+
+00000032 <__vector_3>:
+
+
+
+//*******************
+ISR(TIM0_OVF_vect )
+{
+  32:	1f 92       	push	r1
+  34:	0f 92       	push	r0
+  36:	0f b6       	in	r0, 0x3f	; 63
+  38:	0f 92       	push	r0
+  3a:	11 24       	eor	r1, r1
+  3c:	8f 93       	push	r24
+  3e:	9f 93       	push	r25
+	timer_int_divider++;
+  40:	80 91 60 00 	lds	r24, 0x0060
+  44:	8f 5f       	subi	r24, 0xFF	; 255
+  46:	80 93 60 00 	sts	0x0060, r24
+	if(timer_int_divider==2 ){
+  4a:	80 91 60 00 	lds	r24, 0x0060
+  4e:	82 30       	cpi	r24, 0x02	; 2
+  50:	c1 f4       	brne	.+48     	; 0x82 <__SREG__+0x43>
+		if(blink_counter>0){
+  52:	80 91 61 00 	lds	r24, 0x0061
+  56:	90 91 62 00 	lds	r25, 0x0062
+  5a:	18 16       	cp	r1, r24
+  5c:	19 06       	cpc	r1, r25
+  5e:	7c f4       	brge	.+30     	; 0x7e <__SREG__+0x3f>
+			on;
+  60:	80 e1       	ldi	r24, 0x10	; 16
+  62:	88 bb       	out	0x18, r24	; 24
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  64:	86 e9       	ldi	r24, 0x96	; 150
+  66:	90 e0       	ldi	r25, 0x00	; 0
+  68:	01 97       	sbiw	r24, 0x01	; 1
+  6a:	f1 f7       	brne	.-4      	; 0x68 <__SREG__+0x29>
+			_delay_ms(1);
+			blink_counter--;
+  6c:	80 91 61 00 	lds	r24, 0x0061
+  70:	90 91 62 00 	lds	r25, 0x0062
+  74:	01 97       	sbiw	r24, 0x01	; 1
+  76:	90 93 62 00 	sts	0x0062, r25
+  7a:	80 93 61 00 	sts	0x0061, r24
+		}
+		timer_int_divider=0;
+  7e:	10 92 60 00 	sts	0x0060, r1
+				
+	}
+}
+  82:	9f 91       	pop	r25
+  84:	8f 91       	pop	r24
+  86:	0f 90       	pop	r0
+  88:	0f be       	out	0x3f, r0	; 63
+  8a:	0f 90       	pop	r0
+  8c:	1f 90       	pop	r1
+  8e:	18 95       	reti
+
+00000090 <GetData>:
+
+//////////////////////////////////
+uint16_t GetData(){
+	uint16_t clk =0;
+	DDRB |= 8; //set output
+  90:	bb 9a       	sbi	0x17, 3	; 23
+	PORTB |= 8; //set high
+  92:	c3 9a       	sbi	0x18, 3	; 24
+  94:	88 eb       	ldi	r24, 0xB8	; 184
+  96:	9b e0       	ldi	r25, 0x0B	; 11
+  98:	01 97       	sbiw	r24, 0x01	; 1
+  9a:	f1 f7       	brne	.-4      	; 0x98 <GetData+0x8>
+	_delay_ms(20);
+		DDRB &= ~8; //set input
+  9c:	bb 98       	cbi	0x17, 3	; 23
+	PORTB &= ~8; //set tri state
+  9e:	c3 98       	cbi	0x18, 3	; 24
+  a0:	20 e0       	ldi	r18, 0x00	; 0
+  a2:	30 e0       	ldi	r19, 0x00	; 0
+  a4:	02 c0       	rjmp	.+4      	; 0xaa <__stack+0xb>
+	while((PINB&8) ){
+		clk++;
+  a6:	2f 5f       	subi	r18, 0xFF	; 255
+  a8:	3f 4f       	sbci	r19, 0xFF	; 255
+	DDRB |= 8; //set output
+	PORTB |= 8; //set high
+	_delay_ms(20);
+		DDRB &= ~8; //set input
+	PORTB &= ~8; //set tri state
+	while((PINB&8) ){
+  aa:	b3 99       	sbic	0x16, 3	; 22
+  ac:	fc cf       	rjmp	.-8      	; 0xa6 <__stack+0x7>
+		clk++;
+		}
+	return clk;
+	}
+  ae:	c9 01       	movw	r24, r18
+  b0:	08 95       	ret
+
+000000b2 <main>:
+
+
+
+
+int main(void)
+{
+  b2:	ff 92       	push	r15
+  b4:	0f 93       	push	r16
+  b6:	1f 93       	push	r17
+  b8:	cf 93       	push	r28
+  ba:	df 93       	push	r29
+	DDRB=0b00010000;
+  bc:	80 e1       	ldi	r24, 0x10	; 16
+  be:	87 bb       	out	0x17, r24	; 23
+
+
+	TCCR0B =  (1<<CS02) |(1<<CS00); //clock prescaler
+  c0:	85 e0       	ldi	r24, 0x05	; 5
+  c2:	83 bf       	out	0x33, r24	; 51
+	TIMSK0 = 1<<TOIE0; //int enable
+  c4:	82 e0       	ldi	r24, 0x02	; 2
+  c6:	89 bf       	out	0x39, r24	; 57
+
+	sei(); //int enable
+  c8:	78 94       	sei
+
+	set_sleep_mode(SLEEP_MODE_IDLE);
+  ca:	85 b7       	in	r24, 0x35	; 53
+  cc:	87 7e       	andi	r24, 0xE7	; 231
+  ce:	85 bf       	out	0x35, r24	; 53
+	sleep_mode(); 
+  d0:	85 b7       	in	r24, 0x35	; 53
+  d2:	80 62       	ori	r24, 0x20	; 32
+  d4:	85 bf       	out	0x35, r24	; 53
+  d6:	88 95       	sleep
+  d8:	85 b7       	in	r24, 0x35	; 53
+  da:	8f 7d       	andi	r24, 0xDF	; 223
+  dc:	85 bf       	out	0x35, r24	; 53
+			if(blink_counter){ //switch off it is running
+				blink_counter=0;
+				_delay_ms(2000);
+			}
+			else{					//switch on
+				on;
+  de:	80 e1       	ldi	r24, 0x10	; 16
+  e0:	f8 2e       	mov	r15, r24
+  e2:	cf e0       	ldi	r28, 0x0F	; 15
+  e4:	d0 e0       	ldi	r29, 0x00	; 0
+				_delay_ms(1000);
+				blink_counter=BLINK_TIMES;
+  e6:	0c e2       	ldi	r16, 0x2C	; 44
+  e8:	11 e0       	ldi	r17, 0x01	; 1
+	sleep_mode(); 
+
+
+	while(1){
+
+		off;
+  ea:	18 ba       	out	0x18, r1	; 24
+		if(GetData() >22){
+  ec:	d1 df       	rcall	.-94     	; 0x90 <GetData>
+  ee:	47 97       	sbiw	r24, 0x17	; 23
+  f0:	f0 f0       	brcs	.+60     	; 0x12e <main+0x7c>
+
+
+			if(blink_counter){ //switch off it is running
+  f2:	80 91 61 00 	lds	r24, 0x0061
+  f6:	90 91 62 00 	lds	r25, 0x0062
+  fa:	89 2b       	or	r24, r25
+  fc:	61 f0       	breq	.+24     	; 0x116 <main+0x64>
+				blink_counter=0;
+  fe:	10 92 62 00 	sts	0x0062, r1
+ 102:	10 92 61 00 	sts	0x0061, r1
+ 106:	80 e2       	ldi	r24, 0x20	; 32
+ 108:	9e e4       	ldi	r25, 0x4E	; 78
+ 10a:	fe 01       	movw	r30, r28
+ 10c:	31 97       	sbiw	r30, 0x01	; 1
+ 10e:	f1 f7       	brne	.-4      	; 0x10c <main+0x5a>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 110:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 112:	d9 f7       	brne	.-10     	; 0x10a <main+0x58>
+ 114:	0c c0       	rjmp	.+24     	; 0x12e <main+0x7c>
+				_delay_ms(2000);
+			}
+			else{					//switch on
+				on;
+ 116:	f8 ba       	out	0x18, r15	; 24
+ 118:	80 e1       	ldi	r24, 0x10	; 16
+ 11a:	97 e2       	ldi	r25, 0x27	; 39
+ 11c:	fe 01       	movw	r30, r28
+ 11e:	31 97       	sbiw	r30, 0x01	; 1
+ 120:	f1 f7       	brne	.-4      	; 0x11e <main+0x6c>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 122:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 124:	d9 f7       	brne	.-10     	; 0x11c <main+0x6a>
+				_delay_ms(1000);
+				blink_counter=BLINK_TIMES;
+ 126:	10 93 62 00 	sts	0x0062, r17
+ 12a:	00 93 61 00 	sts	0x0061, r16
+			}
+
+		}
+			
+
+		sleep_mode(); 
+ 12e:	85 b7       	in	r24, 0x35	; 53
+ 130:	80 62       	ori	r24, 0x20	; 32
+ 132:	85 bf       	out	0x35, r24	; 53
+ 134:	88 95       	sleep
+ 136:	85 b7       	in	r24, 0x35	; 53
+ 138:	8f 7d       	andi	r24, 0xDF	; 223
+ 13a:	85 bf       	out	0x35, r24	; 53
+ 13c:	d6 cf       	rjmp	.-84     	; 0xea <main+0x38>
+
+0000013e <_exit>:
+ 13e:	f8 94       	cli
+
+00000140 <__stop_program>:
+ 140:	ff cf       	rjmp	.-2      	; 0x140 <__stop_program>

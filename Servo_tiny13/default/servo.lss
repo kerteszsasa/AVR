@@ -1,0 +1,346 @@
+
+servo.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000172  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000004  00800060  00800060  000001e6  2**0
+                  ALLOC
+  2 .debug_aranges 00000020  00000000  00000000  000001e6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 00000049  00000000  00000000  00000206  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000316  00000000  00000000  0000024f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000156  00000000  00000000  00000565  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000257  00000000  00000000  000006bb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000040  00000000  00000000  00000914  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000000fe  00000000  00000000  00000954  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    000000f6  00000000  00000000  00000a52  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 000000d8  00000000  00000000  00000b48  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	09 c0       	rjmp	.+18     	; 0x14 <__ctors_end>
+   2:	19 c0       	rjmp	.+50     	; 0x36 <__vector_1>
+   4:	15 c0       	rjmp	.+42     	; 0x30 <__bad_interrupt>
+   6:	14 c0       	rjmp	.+40     	; 0x30 <__bad_interrupt>
+   8:	13 c0       	rjmp	.+38     	; 0x30 <__bad_interrupt>
+   a:	12 c0       	rjmp	.+36     	; 0x30 <__bad_interrupt>
+   c:	11 c0       	rjmp	.+34     	; 0x30 <__bad_interrupt>
+   e:	10 c0       	rjmp	.+32     	; 0x30 <__bad_interrupt>
+  10:	0f c0       	rjmp	.+30     	; 0x30 <__bad_interrupt>
+  12:	0e c0       	rjmp	.+28     	; 0x30 <__bad_interrupt>
+
+00000014 <__ctors_end>:
+  14:	11 24       	eor	r1, r1
+  16:	1f be       	out	0x3f, r1	; 63
+  18:	cf e9       	ldi	r28, 0x9F	; 159
+  1a:	cd bf       	out	0x3d, r28	; 61
+
+0000001c <__do_clear_bss>:
+  1c:	10 e0       	ldi	r17, 0x00	; 0
+  1e:	a0 e6       	ldi	r26, 0x60	; 96
+  20:	b0 e0       	ldi	r27, 0x00	; 0
+  22:	01 c0       	rjmp	.+2      	; 0x26 <.do_clear_bss_start>
+
+00000024 <.do_clear_bss_loop>:
+  24:	1d 92       	st	X+, r1
+
+00000026 <.do_clear_bss_start>:
+  26:	a4 36       	cpi	r26, 0x64	; 100
+  28:	b1 07       	cpc	r27, r17
+  2a:	e1 f7       	brne	.-8      	; 0x24 <.do_clear_bss_loop>
+  2c:	53 d0       	rcall	.+166    	; 0xd4 <main>
+  2e:	9f c0       	rjmp	.+318    	; 0x16e <_exit>
+
+00000030 <__bad_interrupt>:
+  30:	e7 cf       	rjmp	.-50     	; 0x0 <__vectors>
+
+00000032 <PWM>:
+
+}
+
+
+void PWM (char i){
+	OCR0A= i;
+  32:	86 bf       	out	0x36, r24	; 54
+}
+  34:	08 95       	ret
+
+00000036 <__vector_1>:
+
+volatile int servo =0;
+volatile int watchdog=0;
+
+ISR (INT0_vect)               // Interrupt on PCINT0 vector
+{
+  36:	1f 92       	push	r1
+  38:	0f 92       	push	r0
+  3a:	0f b6       	in	r0, 0x3f	; 63
+  3c:	0f 92       	push	r0
+  3e:	11 24       	eor	r1, r1
+  40:	2f 93       	push	r18
+  42:	3f 93       	push	r19
+  44:	4f 93       	push	r20
+  46:	5f 93       	push	r21
+  48:	6f 93       	push	r22
+  4a:	7f 93       	push	r23
+  4c:	8f 93       	push	r24
+  4e:	9f 93       	push	r25
+  50:	af 93       	push	r26
+  52:	bf 93       	push	r27
+  54:	ef 93       	push	r30
+  56:	ff 93       	push	r31
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  58:	80 e6       	ldi	r24, 0x60	; 96
+  5a:	99 e0       	ldi	r25, 0x09	; 9
+  5c:	01 97       	sbiw	r24, 0x01	; 1
+  5e:	f1 f7       	brne	.-4      	; 0x5c <__SREG__+0x1d>
+
+		_delay_ms(1);
+		servo=0;
+  60:	10 92 61 00 	sts	0x0061, r1
+  64:	10 92 60 00 	sts	0x0060, r1
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+  68:	26 e0       	ldi	r18, 0x06	; 6
+  6a:	0c c0       	rjmp	.+24     	; 0x84 <__SREG__+0x45>
+		while( PINB & (1<< PB1)) {
+		//LED_ON;
+		servo++;
+  6c:	80 91 60 00 	lds	r24, 0x0060
+  70:	90 91 61 00 	lds	r25, 0x0061
+  74:	01 96       	adiw	r24, 0x01	; 1
+  76:	90 93 61 00 	sts	0x0061, r25
+  7a:	80 93 60 00 	sts	0x0060, r24
+  7e:	82 2f       	mov	r24, r18
+  80:	8a 95       	dec	r24
+  82:	f1 f7       	brne	.-4      	; 0x80 <__SREG__+0x41>
+ISR (INT0_vect)               // Interrupt on PCINT0 vector
+{
+
+		_delay_ms(1);
+		servo=0;
+		while( PINB & (1<< PB1)) {
+  84:	b1 99       	sbic	0x16, 1	; 22
+  86:	f2 cf       	rjmp	.-28     	; 0x6c <__SREG__+0x2d>
+		if (servo ) servo -= 124; 
+		OCR0A= 10*servo;
+
+		*/
+
+		if(servo<255) PWM(servo);
+  88:	80 91 60 00 	lds	r24, 0x0060
+  8c:	90 91 61 00 	lds	r25, 0x0061
+  90:	8f 3f       	cpi	r24, 0xFF	; 255
+  92:	91 05       	cpc	r25, r1
+  94:	2c f4       	brge	.+10     	; 0xa0 <__stack+0x1>
+  96:	80 91 60 00 	lds	r24, 0x0060
+  9a:	90 91 61 00 	lds	r25, 0x0061
+  9e:	02 c0       	rjmp	.+4      	; 0xa4 <__stack+0x5>
+		else PWM(255);
+  a0:	8f ef       	ldi	r24, 0xFF	; 255
+  a2:	90 e0       	ldi	r25, 0x00	; 0
+  a4:	c6 df       	rcall	.-116    	; 0x32 <PWM>
+
+		watchdog=100;
+  a6:	84 e6       	ldi	r24, 0x64	; 100
+  a8:	90 e0       	ldi	r25, 0x00	; 0
+  aa:	90 93 63 00 	sts	0x0063, r25
+  ae:	80 93 62 00 	sts	0x0062, r24
+
+
+}
+  b2:	ff 91       	pop	r31
+  b4:	ef 91       	pop	r30
+  b6:	bf 91       	pop	r27
+  b8:	af 91       	pop	r26
+  ba:	9f 91       	pop	r25
+  bc:	8f 91       	pop	r24
+  be:	7f 91       	pop	r23
+  c0:	6f 91       	pop	r22
+  c2:	5f 91       	pop	r21
+  c4:	4f 91       	pop	r20
+  c6:	3f 91       	pop	r19
+  c8:	2f 91       	pop	r18
+  ca:	0f 90       	pop	r0
+  cc:	0f be       	out	0x3f, r0	; 63
+  ce:	0f 90       	pop	r0
+  d0:	1f 90       	pop	r1
+  d2:	18 95       	reti
+
+000000d4 <main>:
+ 
+
+
+int main(void)
+{
+DDRB |= (1<< PB4);	// set PB4 as output for LED
+  d4:	bc 9a       	sbi	0x17, 4	; 23
+DDRB |= (1 << PB0); //PB0 is output
+  d6:	b8 9a       	sbi	0x17, 0	; 23
+
+LED_ON;
+  d8:	c4 9a       	sbi	0x18, 4	; 24
+  da:	80 e1       	ldi	r24, 0x10	; 16
+  dc:	97 e2       	ldi	r25, 0x27	; 39
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  de:	20 ef       	ldi	r18, 0xF0	; 240
+  e0:	30 e0       	ldi	r19, 0x00	; 0
+  e2:	f9 01       	movw	r30, r18
+  e4:	31 97       	sbiw	r30, 0x01	; 1
+  e6:	f1 f7       	brne	.-4      	; 0xe4 <main+0x10>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  e8:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  ea:	d9 f7       	brne	.-10     	; 0xe2 <main+0xe>
+  ec:	80 e1       	ldi	r24, 0x10	; 16
+  ee:	97 e2       	ldi	r25, 0x27	; 39
+  f0:	20 ef       	ldi	r18, 0xF0	; 240
+  f2:	30 e0       	ldi	r19, 0x00	; 0
+  f4:	f9 01       	movw	r30, r18
+  f6:	31 97       	sbiw	r30, 0x01	; 1
+  f8:	f1 f7       	brne	.-4      	; 0xf6 <main+0x22>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  fa:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  fc:	d9 f7       	brne	.-10     	; 0xf4 <main+0x20>
+_delay_ms(1000);
+_delay_ms(1000);
+LED_OFF;
+  fe:	c4 98       	cbi	0x18, 4	; 24
+
+
+//Set the PWM timer
+TCCR0A |=((1 << COM0A1  )  | (1 << WGM01) | (1 << WGM00) );
+ 100:	8f b5       	in	r24, 0x2f	; 47
+ 102:	83 68       	ori	r24, 0x83	; 131
+ 104:	8f bd       	out	0x2f, r24	; 47
+TCCR0B |= (1 << CS00);
+ 106:	83 b7       	in	r24, 0x33	; 51
+ 108:	81 60       	ori	r24, 0x01	; 1
+ 10a:	83 bf       	out	0x33, r24	; 51
+//int servo = 0;
+char setpwm =0;
+
+
+//enable INT0 ext interrupt
+MCUCR = (1<< ISC01 )| (1<< ISC00 );
+ 10c:	83 e0       	ldi	r24, 0x03	; 3
+ 10e:	85 bf       	out	0x35, r24	; 53
+GIMSK = (1<< INT0 );
+ 110:	80 e4       	ldi	r24, 0x40	; 64
+ 112:	8b bf       	out	0x3b, r24	; 59
+PCMSK = (1<< PCINT1);
+ 114:	82 e0       	ldi	r24, 0x02	; 2
+ 116:	85 bb       	out	0x15, r24	; 21
+
+
+sei();
+ 118:	78 94       	sei
+OCR0A= 0;	//PWM default value
+ 11a:	16 be       	out	0x36, r1	; 54
+ 11c:	40 e6       	ldi	r20, 0x60	; 96
+ 11e:	59 e0       	ldi	r21, 0x09	; 9
+
+
+
+while(1){
+	_delay_ms(1);
+	if(watchdog>0)watchdog--;
+ 120:	20 ef       	ldi	r18, 0xF0	; 240
+ 122:	30 e0       	ldi	r19, 0x00	; 0
+ 124:	ca 01       	movw	r24, r20
+ 126:	01 97       	sbiw	r24, 0x01	; 1
+ 128:	f1 f7       	brne	.-4      	; 0x126 <main+0x52>
+ 12a:	80 91 62 00 	lds	r24, 0x0062
+ 12e:	90 91 63 00 	lds	r25, 0x0063
+ 132:	18 16       	cp	r1, r24
+ 134:	19 06       	cpc	r1, r25
+ 136:	4c f4       	brge	.+18     	; 0x14a <main+0x76>
+ 138:	80 91 62 00 	lds	r24, 0x0062
+ 13c:	90 91 63 00 	lds	r25, 0x0063
+ 140:	01 97       	sbiw	r24, 0x01	; 1
+ 142:	90 93 63 00 	sts	0x0063, r25
+ 146:	80 93 62 00 	sts	0x0062, r24
+
+	if(watchdog==0){
+ 14a:	80 91 62 00 	lds	r24, 0x0062
+ 14e:	90 91 63 00 	lds	r25, 0x0063
+ 152:	89 2b       	or	r24, r25
+ 154:	51 f4       	brne	.+20     	; 0x16a <main+0x96>
+		LED_ON;
+ 156:	c4 9a       	sbi	0x18, 4	; 24
+		OCR0A= 0;
+ 158:	16 be       	out	0x36, r1	; 54
+ 15a:	88 ee       	ldi	r24, 0xE8	; 232
+ 15c:	93 e0       	ldi	r25, 0x03	; 3
+ 15e:	f9 01       	movw	r30, r18
+ 160:	31 97       	sbiw	r30, 0x01	; 1
+ 162:	f1 f7       	brne	.-4      	; 0x160 <main+0x8c>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 164:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 166:	d9 f7       	brne	.-10     	; 0x15e <main+0x8a>
+ 168:	dd cf       	rjmp	.-70     	; 0x124 <main+0x50>
+		_delay_ms(100);
+		}
+
+	else LED_OFF;;
+ 16a:	c4 98       	cbi	0x18, 4	; 24
+ 16c:	db cf       	rjmp	.-74     	; 0x124 <main+0x50>
+
+0000016e <_exit>:
+ 16e:	f8 94       	cli
+
+00000170 <__stop_program>:
+ 170:	ff cf       	rjmp	.-2      	; 0x170 <__stop_program>

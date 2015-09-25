@@ -1,0 +1,397 @@
+
+RGB.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001ec  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000012  00800060  00800060  00000260  2**0
+                  ALLOC
+  2 .debug_aranges 00000020  00000000  00000000  00000260  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 0000002e  00000000  00000000  00000280  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000000c6  00000000  00000000  000002ae  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000093  00000000  00000000  00000374  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000271  00000000  00000000  00000407  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000030  00000000  00000000  00000678  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000075  00000000  00000000  000006a8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ec ee       	ldi	r30, 0xEC	; 236
+  68:	f1 e0       	ldi	r31, 0x01	; 1
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
+
+0000006c <.do_copy_data_loop>:
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+
+00000070 <.do_copy_data_start>:
+  70:	a0 36       	cpi	r26, 0x60	; 96
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <.do_copy_data_loop>
+
+00000076 <__do_clear_bss>:
+  76:	10 e0       	ldi	r17, 0x00	; 0
+  78:	a0 e6       	ldi	r26, 0x60	; 96
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a2 37       	cpi	r26, 0x72	; 114
+  82:	b1 07       	cpc	r27, r17
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 db 00 	call	0x1b6	; 0x1b6 <main>
+  8a:	0c 94 f4 00 	jmp	0x1e8	; 0x1e8 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <PWM>:
+
+#define on PORTA=255
+#define off PORTA=0
+
+
+void PWM(void){
+  92:	bf 92       	push	r11
+  94:	cf 92       	push	r12
+  96:	df 92       	push	r13
+  98:	ef 92       	push	r14
+  9a:	ff 92       	push	r15
+  9c:	0f 93       	push	r16
+  9e:	1f 93       	push	r17
+	char i=0;
+	for(i=0;i<255;i++){
+		
+		if(vector[0] > i) PORTA |=(1<<0);
+  a0:	b0 90 60 00 	lds	r11, 0x0060
+		else PORTA &=~(1<<0);
+
+		if(vector[1] > i) PORTA |=(1<<1);
+  a4:	c0 90 61 00 	lds	r12, 0x0061
+		else PORTA &=~(1<<1);
+
+		if(vector[2] > i) PORTA |=(1<<2);
+  a8:	d0 90 62 00 	lds	r13, 0x0062
+		else PORTA &=~(1<<2);
+
+		if(vector[3] > i) PORTA |=(1<<3);
+  ac:	e0 90 63 00 	lds	r14, 0x0063
+		else PORTA &=~(1<<3);
+
+		if(vector[4] > i) PORTA |=(1<<4);
+  b0:	f0 90 64 00 	lds	r15, 0x0064
+		else PORTA &=~(1<<4);
+
+		if(vector[5] > i) PORTA |=(1<<5);
+  b4:	00 91 65 00 	lds	r16, 0x0065
+		else PORTA &=~(1<<5);
+
+		if(vector[6] > i) PORTA |=(1<<6);
+  b8:	10 91 66 00 	lds	r17, 0x0066
+		else PORTA &=~(1<<6);
+
+		if(vector[7] > i) PORTA |=(1<<7);
+  bc:	b0 91 67 00 	lds	r27, 0x0067
+		else PORTA &=~(1<<7);
+
+		if(vector[8] > i) PORTA |=(1<<0);
+  c0:	a0 91 68 00 	lds	r26, 0x0068
+		else PORTA &=~(1<<0);
+
+		if(vector[9] > i) PORTA |=(1<<0);
+  c4:	f0 91 69 00 	lds	r31, 0x0069
+		else PORTA &=~(1<<0);
+
+		if(vector[10] > i) PORTA |=(1<<0);
+  c8:	e0 91 6a 00 	lds	r30, 0x006A
+		else PORTA &=~(1<<0);
+
+		if(vector[11] > i) PORTA |=(1<<0);
+  cc:	70 91 6b 00 	lds	r23, 0x006B
+		else PORTA &=~(1<<0);
+
+		if(vector[12] > i) PORTA |=(1<<0);
+  d0:	60 91 6c 00 	lds	r22, 0x006C
+		else PORTA &=~(1<<0);
+
+		if(vector[13] > i) PORTA |=(1<<0);
+  d4:	50 91 6d 00 	lds	r21, 0x006D
+		else PORTA &=~(1<<0);
+
+		if(vector[14] > i) PORTA |=(1<<0);
+  d8:	40 91 6e 00 	lds	r20, 0x006E
+		else PORTA &=~(1<<0);
+
+		if(vector[15] > i) PORTA |=(1<<0);
+  dc:	30 91 6f 00 	lds	r19, 0x006F
+		else PORTA &=~(1<<0);
+
+		if(vector[16] > i) PORTA |=(1<<0);
+  e0:	20 91 70 00 	lds	r18, 0x0070
+		else PORTA &=~(1<<0);
+
+		if(vector[17] > i) PORTA |=(1<<0);
+  e4:	90 91 71 00 	lds	r25, 0x0071
+  e8:	80 e0       	ldi	r24, 0x00	; 0
+
+void PWM(void){
+	char i=0;
+	for(i=0;i<255;i++){
+		
+		if(vector[0] > i) PORTA |=(1<<0);
+  ea:	8b 15       	cp	r24, r11
+  ec:	10 f4       	brcc	.+4      	; 0xf2 <PWM+0x60>
+  ee:	d8 9a       	sbi	0x1b, 0	; 27
+  f0:	01 c0       	rjmp	.+2      	; 0xf4 <PWM+0x62>
+		else PORTA &=~(1<<0);
+  f2:	d8 98       	cbi	0x1b, 0	; 27
+
+		if(vector[1] > i) PORTA |=(1<<1);
+  f4:	8c 15       	cp	r24, r12
+  f6:	10 f4       	brcc	.+4      	; 0xfc <PWM+0x6a>
+  f8:	d9 9a       	sbi	0x1b, 1	; 27
+  fa:	01 c0       	rjmp	.+2      	; 0xfe <PWM+0x6c>
+		else PORTA &=~(1<<1);
+  fc:	d9 98       	cbi	0x1b, 1	; 27
+
+		if(vector[2] > i) PORTA |=(1<<2);
+  fe:	8d 15       	cp	r24, r13
+ 100:	10 f4       	brcc	.+4      	; 0x106 <PWM+0x74>
+ 102:	da 9a       	sbi	0x1b, 2	; 27
+ 104:	01 c0       	rjmp	.+2      	; 0x108 <PWM+0x76>
+		else PORTA &=~(1<<2);
+ 106:	da 98       	cbi	0x1b, 2	; 27
+
+		if(vector[3] > i) PORTA |=(1<<3);
+ 108:	8e 15       	cp	r24, r14
+ 10a:	10 f4       	brcc	.+4      	; 0x110 <PWM+0x7e>
+ 10c:	db 9a       	sbi	0x1b, 3	; 27
+ 10e:	01 c0       	rjmp	.+2      	; 0x112 <PWM+0x80>
+		else PORTA &=~(1<<3);
+ 110:	db 98       	cbi	0x1b, 3	; 27
+
+		if(vector[4] > i) PORTA |=(1<<4);
+ 112:	8f 15       	cp	r24, r15
+ 114:	10 f4       	brcc	.+4      	; 0x11a <PWM+0x88>
+ 116:	dc 9a       	sbi	0x1b, 4	; 27
+ 118:	01 c0       	rjmp	.+2      	; 0x11c <PWM+0x8a>
+		else PORTA &=~(1<<4);
+ 11a:	dc 98       	cbi	0x1b, 4	; 27
+
+		if(vector[5] > i) PORTA |=(1<<5);
+ 11c:	80 17       	cp	r24, r16
+ 11e:	10 f4       	brcc	.+4      	; 0x124 <PWM+0x92>
+ 120:	dd 9a       	sbi	0x1b, 5	; 27
+ 122:	01 c0       	rjmp	.+2      	; 0x126 <PWM+0x94>
+		else PORTA &=~(1<<5);
+ 124:	dd 98       	cbi	0x1b, 5	; 27
+
+		if(vector[6] > i) PORTA |=(1<<6);
+ 126:	81 17       	cp	r24, r17
+ 128:	10 f4       	brcc	.+4      	; 0x12e <PWM+0x9c>
+ 12a:	de 9a       	sbi	0x1b, 6	; 27
+ 12c:	01 c0       	rjmp	.+2      	; 0x130 <PWM+0x9e>
+		else PORTA &=~(1<<6);
+ 12e:	de 98       	cbi	0x1b, 6	; 27
+
+		if(vector[7] > i) PORTA |=(1<<7);
+ 130:	8b 17       	cp	r24, r27
+ 132:	10 f4       	brcc	.+4      	; 0x138 <PWM+0xa6>
+ 134:	df 9a       	sbi	0x1b, 7	; 27
+ 136:	01 c0       	rjmp	.+2      	; 0x13a <PWM+0xa8>
+		else PORTA &=~(1<<7);
+ 138:	df 98       	cbi	0x1b, 7	; 27
+
+		if(vector[8] > i) PORTA |=(1<<0);
+ 13a:	8a 17       	cp	r24, r26
+ 13c:	10 f4       	brcc	.+4      	; 0x142 <PWM+0xb0>
+ 13e:	d8 9a       	sbi	0x1b, 0	; 27
+ 140:	01 c0       	rjmp	.+2      	; 0x144 <PWM+0xb2>
+		else PORTA &=~(1<<0);
+ 142:	d8 98       	cbi	0x1b, 0	; 27
+
+		if(vector[9] > i) PORTA |=(1<<0);
+ 144:	8f 17       	cp	r24, r31
+ 146:	10 f4       	brcc	.+4      	; 0x14c <PWM+0xba>
+ 148:	d8 9a       	sbi	0x1b, 0	; 27
+ 14a:	01 c0       	rjmp	.+2      	; 0x14e <PWM+0xbc>
+		else PORTA &=~(1<<0);
+ 14c:	d8 98       	cbi	0x1b, 0	; 27
+
+		if(vector[10] > i) PORTA |=(1<<0);
+ 14e:	8e 17       	cp	r24, r30
+ 150:	10 f4       	brcc	.+4      	; 0x156 <PWM+0xc4>
+ 152:	d8 9a       	sbi	0x1b, 0	; 27
+ 154:	01 c0       	rjmp	.+2      	; 0x158 <PWM+0xc6>
+		else PORTA &=~(1<<0);
+ 156:	d8 98       	cbi	0x1b, 0	; 27
+
+		if(vector[11] > i) PORTA |=(1<<0);
+ 158:	87 17       	cp	r24, r23
+ 15a:	10 f4       	brcc	.+4      	; 0x160 <PWM+0xce>
+ 15c:	d8 9a       	sbi	0x1b, 0	; 27
+ 15e:	01 c0       	rjmp	.+2      	; 0x162 <PWM+0xd0>
+		else PORTA &=~(1<<0);
+ 160:	d8 98       	cbi	0x1b, 0	; 27
+
+		if(vector[12] > i) PORTA |=(1<<0);
+ 162:	86 17       	cp	r24, r22
+ 164:	10 f4       	brcc	.+4      	; 0x16a <PWM+0xd8>
+ 166:	d8 9a       	sbi	0x1b, 0	; 27
+ 168:	01 c0       	rjmp	.+2      	; 0x16c <PWM+0xda>
+		else PORTA &=~(1<<0);
+ 16a:	d8 98       	cbi	0x1b, 0	; 27
+
+		if(vector[13] > i) PORTA |=(1<<0);
+ 16c:	85 17       	cp	r24, r21
+ 16e:	10 f4       	brcc	.+4      	; 0x174 <PWM+0xe2>
+ 170:	d8 9a       	sbi	0x1b, 0	; 27
+ 172:	01 c0       	rjmp	.+2      	; 0x176 <PWM+0xe4>
+		else PORTA &=~(1<<0);
+ 174:	d8 98       	cbi	0x1b, 0	; 27
+
+		if(vector[14] > i) PORTA |=(1<<0);
+ 176:	84 17       	cp	r24, r20
+ 178:	10 f4       	brcc	.+4      	; 0x17e <PWM+0xec>
+ 17a:	d8 9a       	sbi	0x1b, 0	; 27
+ 17c:	01 c0       	rjmp	.+2      	; 0x180 <PWM+0xee>
+		else PORTA &=~(1<<0);
+ 17e:	d8 98       	cbi	0x1b, 0	; 27
+
+		if(vector[15] > i) PORTA |=(1<<0);
+ 180:	83 17       	cp	r24, r19
+ 182:	10 f4       	brcc	.+4      	; 0x188 <PWM+0xf6>
+ 184:	d8 9a       	sbi	0x1b, 0	; 27
+ 186:	01 c0       	rjmp	.+2      	; 0x18a <PWM+0xf8>
+		else PORTA &=~(1<<0);
+ 188:	d8 98       	cbi	0x1b, 0	; 27
+
+		if(vector[16] > i) PORTA |=(1<<0);
+ 18a:	82 17       	cp	r24, r18
+ 18c:	10 f4       	brcc	.+4      	; 0x192 <PWM+0x100>
+ 18e:	d8 9a       	sbi	0x1b, 0	; 27
+ 190:	01 c0       	rjmp	.+2      	; 0x194 <PWM+0x102>
+		else PORTA &=~(1<<0);
+ 192:	d8 98       	cbi	0x1b, 0	; 27
+
+		if(vector[17] > i) PORTA |=(1<<0);
+ 194:	89 17       	cp	r24, r25
+ 196:	10 f4       	brcc	.+4      	; 0x19c <PWM+0x10a>
+ 198:	d8 9a       	sbi	0x1b, 0	; 27
+ 19a:	01 c0       	rjmp	.+2      	; 0x19e <PWM+0x10c>
+		else PORTA &=~(1<<0);
+ 19c:	d8 98       	cbi	0x1b, 0	; 27
+#define off PORTA=0
+
+
+void PWM(void){
+	char i=0;
+	for(i=0;i<255;i++){
+ 19e:	8f 5f       	subi	r24, 0xFF	; 255
+ 1a0:	8f 3f       	cpi	r24, 0xFF	; 255
+ 1a2:	09 f0       	breq	.+2      	; 0x1a6 <PWM+0x114>
+ 1a4:	a2 cf       	rjmp	.-188    	; 0xea <PWM+0x58>
+
+
+
+		}
+
+}
+ 1a6:	1f 91       	pop	r17
+ 1a8:	0f 91       	pop	r16
+ 1aa:	ff 90       	pop	r15
+ 1ac:	ef 90       	pop	r14
+ 1ae:	df 90       	pop	r13
+ 1b0:	cf 90       	pop	r12
+ 1b2:	bf 90       	pop	r11
+ 1b4:	08 95       	ret
+
+000001b6 <main>:
+
+
+
+int main(void){
+
+	DDRA=255;
+ 1b6:	9f ef       	ldi	r25, 0xFF	; 255
+ 1b8:	9a bb       	out	0x1a, r25	; 26
+
+//	PORTA=255;
+
+vector[0]=254  ;
+ 1ba:	8e ef       	ldi	r24, 0xFE	; 254
+ 1bc:	80 93 60 00 	sts	0x0060, r24
+vector[1]= 0 ;
+ 1c0:	10 92 61 00 	sts	0x0061, r1
+vector[2]= 250 ;
+ 1c4:	2a ef       	ldi	r18, 0xFA	; 250
+ 1c6:	20 93 62 00 	sts	0x0062, r18
+vector[3]=  255;
+ 1ca:	90 93 63 00 	sts	0x0063, r25
+vector[4]=  54;
+ 1ce:	86 e3       	ldi	r24, 0x36	; 54
+ 1d0:	80 93 64 00 	sts	0x0064, r24
+vector[5]=  255;
+ 1d4:	90 93 65 00 	sts	0x0065, r25
+vector[6]=  45;
+ 1d8:	8d e2       	ldi	r24, 0x2D	; 45
+ 1da:	80 93 66 00 	sts	0x0066, r24
+vector[7]=  250;
+ 1de:	20 93 67 00 	sts	0x0067, r18
+
+while(1){
+	PWM();
+ 1e2:	0e 94 49 00 	call	0x92	; 0x92 <PWM>
+ 1e6:	fd cf       	rjmp	.-6      	; 0x1e2 <main+0x2c>
+
+000001e8 <_exit>:
+ 1e8:	f8 94       	cli
+
+000001ea <__stop_program>:
+ 1ea:	ff cf       	rjmp	.-2      	; 0x1ea <__stop_program>

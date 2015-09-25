@@ -1,0 +1,209 @@
+
+atmega8_32khz.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000d0  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          00000002  00800060  00800060  00000144  2**0
+                  ALLOC
+  2 .debug_aranges 00000020  00000000  00000000  00000144  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 0000005f  00000000  00000000  00000164  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   0000010e  00000000  00000000  000001c3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000099  00000000  00000000  000002d1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   0000012f  00000000  00000000  0000036a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000050  00000000  00000000  0000049c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000000a5  00000000  00000000  000004ec  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	21 c0       	rjmp	.+66     	; 0x46 <__bad_interrupt>
+   4:	20 c0       	rjmp	.+64     	; 0x46 <__bad_interrupt>
+   6:	1f c0       	rjmp	.+62     	; 0x46 <__bad_interrupt>
+   8:	2a c0       	rjmp	.+84     	; 0x5e <__vector_4>
+   a:	1d c0       	rjmp	.+58     	; 0x46 <__bad_interrupt>
+   c:	1c c0       	rjmp	.+56     	; 0x46 <__bad_interrupt>
+   e:	1b c0       	rjmp	.+54     	; 0x46 <__bad_interrupt>
+  10:	1a c0       	rjmp	.+52     	; 0x46 <__bad_interrupt>
+  12:	19 c0       	rjmp	.+50     	; 0x46 <__bad_interrupt>
+  14:	18 c0       	rjmp	.+48     	; 0x46 <__bad_interrupt>
+  16:	17 c0       	rjmp	.+46     	; 0x46 <__bad_interrupt>
+  18:	16 c0       	rjmp	.+44     	; 0x46 <__bad_interrupt>
+  1a:	15 c0       	rjmp	.+42     	; 0x46 <__bad_interrupt>
+  1c:	14 c0       	rjmp	.+40     	; 0x46 <__bad_interrupt>
+  1e:	13 c0       	rjmp	.+38     	; 0x46 <__bad_interrupt>
+  20:	12 c0       	rjmp	.+36     	; 0x46 <__bad_interrupt>
+  22:	11 c0       	rjmp	.+34     	; 0x46 <__bad_interrupt>
+  24:	10 c0       	rjmp	.+32     	; 0x46 <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_clear_bss>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	01 c0       	rjmp	.+2      	; 0x3c <.do_clear_bss_start>
+
+0000003a <.do_clear_bss_loop>:
+  3a:	1d 92       	st	X+, r1
+
+0000003c <.do_clear_bss_start>:
+  3c:	a2 36       	cpi	r26, 0x62	; 98
+  3e:	b1 07       	cpc	r27, r17
+  40:	e1 f7       	brne	.-8      	; 0x3a <.do_clear_bss_loop>
+  42:	39 d0       	rcall	.+114    	; 0xb6 <main>
+  44:	43 c0       	rjmp	.+134    	; 0xcc <_exit>
+
+00000046 <__bad_interrupt>:
+  46:	dc cf       	rjmp	.-72     	; 0x0 <__vectors>
+
+00000048 <initTimr2>:
+#define OUT_2_PIN				4
+#define OUT_2_delay_sec 		1
+
+
+void initTimr2(){
+	ASSR =0x08; // ASSR enables clocking From 32kCrystal
+  48:	88 e0       	ldi	r24, 0x08	; 8
+  4a:	82 bd       	out	0x22, r24	; 34
+
+	TCNT2 =0x00; //zero the timer register
+  4c:	14 bc       	out	0x24, r1	; 36
+
+	TCCR2 = (1<<CS22 ) | (0<<CS21) | (1<<CS20 ); //1028 prescaler
+  4e:	85 e0       	ldi	r24, 0x05	; 5
+  50:	85 bd       	out	0x25, r24	; 37
+
+	TIMSK = 1<<TOIE2; //timer overflow interrupt enable
+  52:	80 e4       	ldi	r24, 0x40	; 64
+  54:	89 bf       	out	0x39, r24	; 57
+}
+  56:	08 95       	ret
+
+00000058 <portinit>:
+
+
+/********************************/
+void portinit(){
+	OUT_1_DIR |=(1<<OUT_1_PIN);
+  58:	a0 9a       	sbi	0x14, 0	; 20
+	OUT_2_DIR |=(1<<OUT_2_PIN);
+  5a:	8c 9a       	sbi	0x11, 4	; 17
+}
+  5c:	08 95       	ret
+
+0000005e <__vector_4>:
+
+
+//**********************
+ISR (TIMER2_OVF_vect ){
+  5e:	1f 92       	push	r1
+  60:	0f 92       	push	r0
+  62:	0f b6       	in	r0, 0x3f	; 63
+  64:	0f 92       	push	r0
+  66:	11 24       	eor	r1, r1
+  68:	8f 93       	push	r24
+  6a:	9f 93       	push	r25
+	counter1++;
+  6c:	80 91 60 00 	lds	r24, 0x0060
+  70:	8f 5f       	subi	r24, 0xFF	; 255
+  72:	80 93 60 00 	sts	0x0060, r24
+	counter2++;
+  76:	80 91 61 00 	lds	r24, 0x0061
+  7a:	8f 5f       	subi	r24, 0xFF	; 255
+  7c:	80 93 61 00 	sts	0x0061, r24
+
+	if (counter1 == OUT_1_delay_sec){
+  80:	80 91 60 00 	lds	r24, 0x0060
+  84:	8c 33       	cpi	r24, 0x3C	; 60
+  86:	31 f4       	brne	.+12     	; 0x94 <__vector_4+0x36>
+		OUT_1_PORT^=(1<<OUT_1_PIN);
+  88:	85 b3       	in	r24, 0x15	; 21
+  8a:	91 e0       	ldi	r25, 0x01	; 1
+  8c:	89 27       	eor	r24, r25
+  8e:	85 bb       	out	0x15, r24	; 21
+		//_delay_ms(100);
+		counter1 =0;
+  90:	10 92 60 00 	sts	0x0060, r1
+	}
+
+	if (counter2 == OUT_2_delay_sec){
+  94:	80 91 61 00 	lds	r24, 0x0061
+  98:	81 30       	cpi	r24, 0x01	; 1
+  9a:	31 f4       	brne	.+12     	; 0xa8 <__vector_4+0x4a>
+		OUT_2_PORT^=(1<<OUT_2_PIN);
+  9c:	82 b3       	in	r24, 0x12	; 18
+  9e:	90 e1       	ldi	r25, 0x10	; 16
+  a0:	89 27       	eor	r24, r25
+  a2:	82 bb       	out	0x12, r24	; 18
+		//_delay_ms(100);
+		counter2 =0;
+  a4:	10 92 61 00 	sts	0x0061, r1
+	}
+}
+  a8:	9f 91       	pop	r25
+  aa:	8f 91       	pop	r24
+  ac:	0f 90       	pop	r0
+  ae:	0f be       	out	0x3f, r0	; 63
+  b0:	0f 90       	pop	r0
+  b2:	1f 90       	pop	r1
+  b4:	18 95       	reti
+
+000000b6 <main>:
+}
+
+
+/********************************/
+void portinit(){
+	OUT_1_DIR |=(1<<OUT_1_PIN);
+  b6:	a0 9a       	sbi	0x14, 0	; 20
+	OUT_2_DIR |=(1<<OUT_2_PIN);
+  b8:	8c 9a       	sbi	0x11, 4	; 17
+#define OUT_2_PIN				4
+#define OUT_2_delay_sec 		1
+
+
+void initTimr2(){
+	ASSR =0x08; // ASSR enables clocking From 32kCrystal
+  ba:	88 e0       	ldi	r24, 0x08	; 8
+  bc:	82 bd       	out	0x22, r24	; 34
+
+	TCNT2 =0x00; //zero the timer register
+  be:	14 bc       	out	0x24, r1	; 36
+
+	TCCR2 = (1<<CS22 ) | (0<<CS21) | (1<<CS20 ); //1028 prescaler
+  c0:	85 e0       	ldi	r24, 0x05	; 5
+  c2:	85 bd       	out	0x25, r24	; 37
+
+	TIMSK = 1<<TOIE2; //timer overflow interrupt enable
+  c4:	80 e4       	ldi	r24, 0x40	; 64
+  c6:	89 bf       	out	0x39, r24	; 57
+int main(){
+ portinit();
+ //DDRB=0b00000010; // The DDRXn bit must be ‘1’
+ //PORTB=0b00000010;
+ initTimr2();
+ sei();
+  c8:	78 94       	sei
+  ca:	ff cf       	rjmp	.-2      	; 0xca <main+0x14>
+
+000000cc <_exit>:
+  cc:	f8 94       	cli
+
+000000ce <__stop_program>:
+  ce:	ff cf       	rjmp	.-2      	; 0xce <__stop_program>

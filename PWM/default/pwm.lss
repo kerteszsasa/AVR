@@ -1,0 +1,502 @@
+
+pwm.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001f0  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000000c  00800060  000001f0  00000264  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .debug_aranges 00000040  00000000  00000000  00000270  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 000000cd  00000000  00000000  000002b0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   0000035d  00000000  00000000  0000037d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 00000271  00000000  00000000  000006da  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   00000346  00000000  00000000  0000094b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  000000d0  00000000  00000000  00000c94  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    00000134  00000000  00000000  00000d64  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    000000ce  00000000  00000000  00000e98  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_ranges 00000060  00000000  00000000  00000f66  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	24 c0       	rjmp	.+72     	; 0x4c <__bad_interrupt>
+   4:	23 c0       	rjmp	.+70     	; 0x4c <__bad_interrupt>
+   6:	22 c0       	rjmp	.+68     	; 0x4c <__bad_interrupt>
+   8:	21 c0       	rjmp	.+66     	; 0x4c <__bad_interrupt>
+   a:	20 c0       	rjmp	.+64     	; 0x4c <__bad_interrupt>
+   c:	1f c0       	rjmp	.+62     	; 0x4c <__bad_interrupt>
+   e:	1e c0       	rjmp	.+60     	; 0x4c <__bad_interrupt>
+  10:	1d c0       	rjmp	.+58     	; 0x4c <__bad_interrupt>
+  12:	1c c0       	rjmp	.+56     	; 0x4c <__bad_interrupt>
+  14:	1b c0       	rjmp	.+54     	; 0x4c <__bad_interrupt>
+  16:	1a c0       	rjmp	.+52     	; 0x4c <__bad_interrupt>
+  18:	19 c0       	rjmp	.+50     	; 0x4c <__bad_interrupt>
+  1a:	18 c0       	rjmp	.+48     	; 0x4c <__bad_interrupt>
+  1c:	17 c0       	rjmp	.+46     	; 0x4c <__bad_interrupt>
+  1e:	16 c0       	rjmp	.+44     	; 0x4c <__bad_interrupt>
+  20:	15 c0       	rjmp	.+42     	; 0x4c <__bad_interrupt>
+  22:	14 c0       	rjmp	.+40     	; 0x4c <__bad_interrupt>
+  24:	13 c0       	rjmp	.+38     	; 0x4c <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_copy_data>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	e0 ef       	ldi	r30, 0xF0	; 240
+  3a:	f1 e0       	ldi	r31, 0x01	; 1
+  3c:	02 c0       	rjmp	.+4      	; 0x42 <.do_copy_data_start>
+
+0000003e <.do_copy_data_loop>:
+  3e:	05 90       	lpm	r0, Z+
+  40:	0d 92       	st	X+, r0
+
+00000042 <.do_copy_data_start>:
+  42:	ac 36       	cpi	r26, 0x6C	; 108
+  44:	b1 07       	cpc	r27, r17
+  46:	d9 f7       	brne	.-10     	; 0x3e <.do_copy_data_loop>
+  48:	31 d0       	rcall	.+98     	; 0xac <main>
+  4a:	d0 c0       	rjmp	.+416    	; 0x1ec <_exit>
+
+0000004c <__bad_interrupt>:
+  4c:	d9 cf       	rjmp	.-78     	; 0x0 <__vectors>
+
+0000004e <Konfig8bitADC>:
+
+
+void Konfig8bitADC()        // ADC konfiguralas (beallitas)
+{
+//    ADMUX = 0b01100000;    // Vcc mint referencia, balra rendezett ADC eredmeny
+           ADMUX |= (1<<REFS0)|(1<<ADLAR);    // Vcc mint referencia, balra rendezett ADC eredmeny
+  4e:	87 b1       	in	r24, 0x07	; 7
+  50:	80 66       	ori	r24, 0x60	; 96
+  52:	87 b9       	out	0x07, r24	; 7
+//    ADCSRA = 0b10000011;    // ADC engedelyezese, ADC eloosztas = 8 (125 KHz)
+           ADCSRA = (1<<ADEN) | (1<<ADPS1) | (1<<ADPS0);    // ADC engedelyezese, ADC eloosztas = 8 (125 KHz)
+  54:	83 e8       	ldi	r24, 0x83	; 131
+  56:	86 b9       	out	0x06, r24	; 6
+}
+  58:	08 95       	ret
+
+0000005a <Konfig10bitADC>:
+ 
+
+void Konfig10bitADC()        // ADC konfiguralas (beallitas)
+{
+           ADMUX |= (1<<REFS0);    // Vcc mint referencia
+  5a:	3e 9a       	sbi	0x07, 6	; 7
+           ADCSRA = (1<<ADEN) | (1<<ADPS1) | (1<<ADPS0);    // ADC engedelyezese, ADC eloosztas = 8 (125 KHz)
+  5c:	83 e8       	ldi	r24, 0x83	; 131
+  5e:	86 b9       	out	0x06, r24	; 6
+}
+  60:	08 95       	ret
+
+00000062 <Beolvas8bitADC>:
+
+unsigned char Beolvas8bitADC(unsigned char csatorna)
+{
+           ADMUX = (ADMUX & 0b11110000) | csatorna;
+  62:	97 b1       	in	r25, 0x07	; 7
+  64:	90 7f       	andi	r25, 0xF0	; 240
+  66:	98 2b       	or	r25, r24
+  68:	97 b9       	out	0x07, r25	; 7
+           ADCSRA |= (1<<ADSC);    // ADC konverzio elinditasa
+  6a:	36 9a       	sbi	0x06, 6	; 6
+           while (ADCSRA & (1<<ADSC));        // varas az atalakitasra
+  6c:	36 99       	sbic	0x06, 6	; 6
+  6e:	fe cf       	rjmp	.-4      	; 0x6c <Beolvas8bitADC+0xa>
+           ADCSRA |= (1<<ADSC);          // konverzió elindítás
+  70:	36 9a       	sbi	0x06, 6	; 6
+           while (ADCSRA & (1<<ADSC));        // varas az atalakitasra
+  72:	36 99       	sbic	0x06, 6	; 6
+  74:	fe cf       	rjmp	.-4      	; 0x72 <Beolvas8bitADC+0x10>
+           return (ADCH);        // ADC ertek visszaadasa (csak a felso 8 bit (ADCH), az also 2 zajos bit elhagyasa)
+  76:	85 b1       	in	r24, 0x05	; 5
+}
+  78:	08 95       	ret
+
+0000007a <Beolvas10bitADC>:
+
+unsigned int Beolvas10bitADC(unsigned char csatorna)
+{
+           ADMUX = (ADMUX & 0b11110000) | csatorna;
+  7a:	97 b1       	in	r25, 0x07	; 7
+  7c:	90 7f       	andi	r25, 0xF0	; 240
+  7e:	98 2b       	or	r25, r24
+  80:	97 b9       	out	0x07, r25	; 7
+           ADCSRA |= (1<<ADSC);        // elso ADC konverzio elinditasa
+  82:	36 9a       	sbi	0x06, 6	; 6
+           while (ADCSRA & (1<<ADSC));    // varas az atalakitasra
+  84:	36 99       	sbic	0x06, 6	; 6
+  86:	fe cf       	rjmp	.-4      	; 0x84 <Beolvas10bitADC+0xa>
+           ADCSRA |= (1<<ADSC);         // masodik ADC konverzió elindítás
+  88:	36 9a       	sbi	0x06, 6	; 6
+           while (ADCSRA & (1<<ADSC));    // varas az atalakitasra
+  8a:	36 99       	sbic	0x06, 6	; 6
+  8c:	fe cf       	rjmp	.-4      	; 0x8a <Beolvas10bitADC+0x10>
+           return (ADCL | (ADCH<<8));    // ADC ertek kiolvasasa
+  8e:	24 b1       	in	r18, 0x04	; 4
+  90:	45 b1       	in	r20, 0x05	; 5
+  92:	94 2f       	mov	r25, r20
+  94:	80 e0       	ldi	r24, 0x00	; 0
+  96:	30 e0       	ldi	r19, 0x00	; 0
+  98:	28 2b       	or	r18, r24
+  9a:	39 2b       	or	r19, r25
+}
+  9c:	c9 01       	movw	r24, r18
+  9e:	08 95       	ret
+
+000000a0 <led>:
+
+
+ 
+void led(char c)
+{
+if(c) PORTD|=(1<<4);
+  a0:	88 23       	and	r24, r24
+  a2:	11 f0       	breq	.+4      	; 0xa8 <led+0x8>
+  a4:	94 9a       	sbi	0x12, 4	; 18
+  a6:	08 95       	ret
+else PORTD&=~(1<<4);
+  a8:	94 98       	cbi	0x12, 4	; 18
+  aa:	08 95       	ret
+
+000000ac <main>:
+
+
+
+
+void main()
+{
+  ac:	cf 93       	push	r28
+  ae:	df 93       	push	r29
+DDRD=(1<<4);
+  b0:	80 e1       	ldi	r24, 0x10	; 16
+  b2:	81 bb       	out	0x11, r24	; 17
+DDRB=(1<<3);
+  b4:	88 e0       	ldi	r24, 0x08	; 8
+  b6:	87 bb       	out	0x17, r24	; 23
+}
+ 
+
+void Konfig10bitADC()        // ADC konfiguralas (beallitas)
+{
+           ADMUX |= (1<<REFS0);    // Vcc mint referencia
+  b8:	3e 9a       	sbi	0x07, 6	; 7
+           ADCSRA = (1<<ADEN) | (1<<ADPS1) | (1<<ADPS0);    // ADC engedelyezese, ADC eloosztas = 8 (125 KHz)
+  ba:	83 e8       	ldi	r24, 0x83	; 131
+  bc:	86 b9       	out	0x06, r24	; 6
+DDRD=(1<<4);
+DDRB=(1<<3);
+
+//Konfig8bitADC(); 
+ Konfig10bitADC();
+ USART_Init( MYUBRR);
+  be:	83 e3       	ldi	r24, 0x33	; 51
+  c0:	90 e0       	ldi	r25, 0x00	; 0
+  c2:	18 d0       	rcall	.+48     	; 0xf4 <USART_Init>
+
+ putstring("HELLO");
+  c4:	80 e6       	ldi	r24, 0x60	; 96
+  c6:	90 e0       	ldi	r25, 0x00	; 0
+  c8:	24 d0       	rcall	.+72     	; 0x112 <putstring>
+		_delay_ms(500);
+		led(0);
+		_delay_ms(500);
+	}
+
+TCCR2=0b01101001;
+  ca:	89 e6       	ldi	r24, 0x69	; 105
+  cc:	85 bd       	out	0x25, r24	; 37
+OCR2=254;
+  ce:	8e ef       	ldi	r24, 0xFE	; 254
+  d0:	83 bd       	out	0x23, r24	; 35
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  d2:	c9 e1       	ldi	r28, 0x19	; 25
+  d4:	d0 e0       	ldi	r29, 0x00	; 0
+
+
+ 
+void led(char c)
+{
+if(c) PORTD|=(1<<4);
+  d6:	94 9a       	sbi	0x12, 4	; 18
+{
+
+led(1);
+
+
+ putnum( Beolvas10bitADC(5) ); putstring("     ");
+  d8:	85 e0       	ldi	r24, 0x05	; 5
+  da:	cf df       	rcall	.-98     	; 0x7a <Beolvas10bitADC>
+  dc:	24 d0       	rcall	.+72     	; 0x126 <putnum>
+  de:	86 e6       	ldi	r24, 0x66	; 102
+  e0:	90 e0       	ldi	r25, 0x00	; 0
+  e2:	17 d0       	rcall	.+46     	; 0x112 <putstring>
+  e4:	88 e8       	ldi	r24, 0x88	; 136
+  e6:	93 e1       	ldi	r25, 0x13	; 19
+  e8:	fe 01       	movw	r30, r28
+  ea:	31 97       	sbiw	r30, 0x01	; 1
+  ec:	f1 f7       	brne	.-4      	; 0xea <main+0x3e>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  ee:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  f0:	d9 f7       	brne	.-10     	; 0xe8 <main+0x3c>
+  f2:	f1 cf       	rjmp	.-30     	; 0xd6 <main+0x2a>
+
+000000f4 <USART_Init>:
+
+//*******uart_init******************************************************
+void USART_Init( unsigned int ubrr)
+{
+	/* Set baud rate */
+	UBRRH = (unsigned char)(ubrr>>8);
+  f4:	90 bd       	out	0x20, r25	; 32
+	UBRRL = (unsigned char)ubrr;
+  f6:	89 b9       	out	0x09, r24	; 9
+	/* Enable receiver and transmitter */
+	UCSRB = (1<<RXEN)|(1<<TXEN)| (1 << RXCIE) ;
+  f8:	88 e9       	ldi	r24, 0x98	; 152
+  fa:	8a b9       	out	0x0a, r24	; 10
+	/* Set frame format: 8data, 2stop bit */
+	UCSRC = (1<<URSEL)|(3<<UCSZ0);
+  fc:	86 e8       	ldi	r24, 0x86	; 134
+  fe:	80 bd       	out	0x20, r24	; 32
+}
+ 100:	08 95       	ret
+
+00000102 <USART_Transmit>:
+
+//********uart_transmit************************
+void USART_Transmit( unsigned char data )
+{
+	/* Wait for empty transmit buffer */
+	while ( !( UCSRA & (1<<UDRE)) );
+ 102:	5d 9b       	sbis	0x0b, 5	; 11
+ 104:	fe cf       	rjmp	.-4      	; 0x102 <USART_Transmit>
+	/* Put data into buffer, sends the data */
+	UDR = data;
+ 106:	8c b9       	out	0x0c, r24	; 12
+}
+ 108:	08 95       	ret
+
+0000010a <UART_Receive>:
+
+//**********uart_receive**********************************************
+char UART_Receive() // Ez a fuggveny a beerkezo adatokat kiolvassa az UDR regiszter bejovo pufferebol
+{
+  while(!(UCSRA & (1<<RXC)))  // Varakozas amig nincs uj bejovo adat
+ 10a:	5f 9b       	sbis	0x0b, 7	; 11
+ 10c:	fe cf       	rjmp	.-4      	; 0x10a <UART_Receive>
+  {
+     //  Varakozas
+  }
+  //Most mar van beerkezett adat, amit kiolvasunk a pufferbol
+  return UDR;
+ 10e:	8c b1       	in	r24, 0x0c	; 12
+}
+ 110:	08 95       	ret
+
+00000112 <putstring>:
+
+
+
+//***********uart_string************************** putstring("hello");
+void putstring(const char *ptr)
+{
+ 112:	fc 01       	movw	r30, r24
+ 114:	04 c0       	rjmp	.+8      	; 0x11e <putstring+0xc>
+
+//********uart_transmit************************
+void USART_Transmit( unsigned char data )
+{
+	/* Wait for empty transmit buffer */
+	while ( !( UCSRA & (1<<UDRE)) );
+ 116:	5d 9b       	sbis	0x0b, 5	; 11
+ 118:	fe cf       	rjmp	.-4      	; 0x116 <putstring+0x4>
+//***********uart_string************************** putstring("hello");
+void putstring(const char *ptr)
+{
+	  while(*ptr)
+	  {
+	   USART_Transmit( *(ptr++));  
+ 11a:	31 96       	adiw	r30, 0x01	; 1
+void USART_Transmit( unsigned char data )
+{
+	/* Wait for empty transmit buffer */
+	while ( !( UCSRA & (1<<UDRE)) );
+	/* Put data into buffer, sends the data */
+	UDR = data;
+ 11c:	8c b9       	out	0x0c, r24	; 12
+
+
+//***********uart_string************************** putstring("hello");
+void putstring(const char *ptr)
+{
+	  while(*ptr)
+ 11e:	80 81       	ld	r24, Z
+ 120:	88 23       	and	r24, r24
+ 122:	c9 f7       	brne	.-14     	; 0x116 <putstring+0x4>
+	  {
+	   USART_Transmit( *(ptr++));  
+	  }
+}
+ 124:	08 95       	ret
+
+00000126 <putnum>:
+
+//***********uart_num****************** putnum(1023)
+void putnum(unsigned int i)
+{
+ 126:	0f 93       	push	r16
+ 128:	1f 93       	push	r17
+ 12a:	df 93       	push	r29
+ 12c:	cf 93       	push	r28
+ 12e:	cd b7       	in	r28, 0x3d	; 61
+ 130:	de b7       	in	r29, 0x3e	; 62
+ 132:	27 97       	sbiw	r28, 0x07	; 7
+ 134:	0f b6       	in	r0, 0x3f	; 63
+ 136:	f8 94       	cli
+ 138:	de bf       	out	0x3e, r29	; 62
+ 13a:	0f be       	out	0x3f, r0	; 63
+ 13c:	cd bf       	out	0x3d, r28	; 61
+	unsigned char c[7]; 
+	itoa(i, c, 10); 
+ 13e:	8e 01       	movw	r16, r28
+ 140:	0f 5f       	subi	r16, 0xFF	; 255
+ 142:	1f 4f       	sbci	r17, 0xFF	; 255
+ 144:	b8 01       	movw	r22, r16
+ 146:	4a e0       	ldi	r20, 0x0A	; 10
+ 148:	50 e0       	ldi	r21, 0x00	; 0
+ 14a:	0d d0       	rcall	.+26     	; 0x166 <itoa>
+	putstring(c);
+ 14c:	c8 01       	movw	r24, r16
+ 14e:	e1 df       	rcall	.-62     	; 0x112 <putstring>
+}
+ 150:	27 96       	adiw	r28, 0x07	; 7
+ 152:	0f b6       	in	r0, 0x3f	; 63
+ 154:	f8 94       	cli
+ 156:	de bf       	out	0x3e, r29	; 62
+ 158:	0f be       	out	0x3f, r0	; 63
+ 15a:	cd bf       	out	0x3d, r28	; 61
+ 15c:	cf 91       	pop	r28
+ 15e:	df 91       	pop	r29
+ 160:	1f 91       	pop	r17
+ 162:	0f 91       	pop	r16
+ 164:	08 95       	ret
+
+00000166 <itoa>:
+ 166:	fb 01       	movw	r30, r22
+ 168:	9f 01       	movw	r18, r30
+ 16a:	e8 94       	clt
+ 16c:	42 30       	cpi	r20, 0x02	; 2
+ 16e:	bc f0       	brlt	.+46     	; 0x19e <itoa+0x38>
+ 170:	45 32       	cpi	r20, 0x25	; 37
+ 172:	ac f4       	brge	.+42     	; 0x19e <itoa+0x38>
+ 174:	4a 30       	cpi	r20, 0x0A	; 10
+ 176:	29 f4       	brne	.+10     	; 0x182 <itoa+0x1c>
+ 178:	97 fb       	bst	r25, 7
+ 17a:	1e f4       	brtc	.+6      	; 0x182 <itoa+0x1c>
+ 17c:	90 95       	com	r25
+ 17e:	81 95       	neg	r24
+ 180:	9f 4f       	sbci	r25, 0xFF	; 255
+ 182:	64 2f       	mov	r22, r20
+ 184:	77 27       	eor	r23, r23
+ 186:	1e d0       	rcall	.+60     	; 0x1c4 <__udivmodhi4>
+ 188:	80 5d       	subi	r24, 0xD0	; 208
+ 18a:	8a 33       	cpi	r24, 0x3A	; 58
+ 18c:	0c f0       	brlt	.+2      	; 0x190 <itoa+0x2a>
+ 18e:	89 5d       	subi	r24, 0xD9	; 217
+ 190:	81 93       	st	Z+, r24
+ 192:	cb 01       	movw	r24, r22
+ 194:	00 97       	sbiw	r24, 0x00	; 0
+ 196:	a9 f7       	brne	.-22     	; 0x182 <itoa+0x1c>
+ 198:	16 f4       	brtc	.+4      	; 0x19e <itoa+0x38>
+ 19a:	5d e2       	ldi	r21, 0x2D	; 45
+ 19c:	51 93       	st	Z+, r21
+ 19e:	10 82       	st	Z, r1
+ 1a0:	c9 01       	movw	r24, r18
+ 1a2:	00 c0       	rjmp	.+0      	; 0x1a4 <strrev>
+
+000001a4 <strrev>:
+ 1a4:	dc 01       	movw	r26, r24
+ 1a6:	fc 01       	movw	r30, r24
+ 1a8:	67 2f       	mov	r22, r23
+ 1aa:	71 91       	ld	r23, Z+
+ 1ac:	77 23       	and	r23, r23
+ 1ae:	e1 f7       	brne	.-8      	; 0x1a8 <strrev+0x4>
+ 1b0:	32 97       	sbiw	r30, 0x02	; 2
+ 1b2:	04 c0       	rjmp	.+8      	; 0x1bc <strrev+0x18>
+ 1b4:	7c 91       	ld	r23, X
+ 1b6:	6d 93       	st	X+, r22
+ 1b8:	70 83       	st	Z, r23
+ 1ba:	62 91       	ld	r22, -Z
+ 1bc:	ae 17       	cp	r26, r30
+ 1be:	bf 07       	cpc	r27, r31
+ 1c0:	c8 f3       	brcs	.-14     	; 0x1b4 <strrev+0x10>
+ 1c2:	08 95       	ret
+
+000001c4 <__udivmodhi4>:
+ 1c4:	aa 1b       	sub	r26, r26
+ 1c6:	bb 1b       	sub	r27, r27
+ 1c8:	51 e1       	ldi	r21, 0x11	; 17
+ 1ca:	07 c0       	rjmp	.+14     	; 0x1da <__udivmodhi4_ep>
+
+000001cc <__udivmodhi4_loop>:
+ 1cc:	aa 1f       	adc	r26, r26
+ 1ce:	bb 1f       	adc	r27, r27
+ 1d0:	a6 17       	cp	r26, r22
+ 1d2:	b7 07       	cpc	r27, r23
+ 1d4:	10 f0       	brcs	.+4      	; 0x1da <__udivmodhi4_ep>
+ 1d6:	a6 1b       	sub	r26, r22
+ 1d8:	b7 0b       	sbc	r27, r23
+
+000001da <__udivmodhi4_ep>:
+ 1da:	88 1f       	adc	r24, r24
+ 1dc:	99 1f       	adc	r25, r25
+ 1de:	5a 95       	dec	r21
+ 1e0:	a9 f7       	brne	.-22     	; 0x1cc <__udivmodhi4_loop>
+ 1e2:	80 95       	com	r24
+ 1e4:	90 95       	com	r25
+ 1e6:	bc 01       	movw	r22, r24
+ 1e8:	cd 01       	movw	r24, r26
+ 1ea:	08 95       	ret
+
+000001ec <_exit>:
+ 1ec:	f8 94       	cli
+
+000001ee <__stop_program>:
+ 1ee:	ff cf       	rjmp	.-2      	; 0x1ee <__stop_program>

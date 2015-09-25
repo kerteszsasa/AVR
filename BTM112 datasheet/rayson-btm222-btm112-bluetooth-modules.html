@@ -1,0 +1,1700 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html dir="ltr" xmlns="http://www.w3.org/1999/xhtml" xmlns:b="http://www.google.com/2005/gml/b" xmlns:data="http://www.google.com/2005/gml/data" xmlns:expr="http://www.google.com/2005/gml/expr"><head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<script async="" src="rayson-btm222-btm112-bluetooth-modules_elemei/cbgapi.loaded_1"></script><script async="" src="rayson-btm222-btm112-bluetooth-modules_elemei/cbgapi.loaded_0"></script><script type="text/javascript">(function() { var a=window,b="jstiming",d="tick";var e=function(c){this.t={};this.tick=function(c,p,h){h=void 0!=h?h:(new Date).getTime();this.t[c]=[h,p]};this[d]("start",null,c)},f=new e;a.jstiming={Timer:e,load:f};if(a.performance&&a.performance.timing){var g=a.performance.timing,j=a[b].load,k=g.navigationStart,l=g.responseStart;0<k&&l>=k&&(j[d]("_wtsrt",void 0,k),j[d]("wtsrt_","_wtsrt",l),j[d]("tbsd_","wtsrt_"))}
+try{var m=null;a.chrome&&a.chrome.csi&&(m=Math.floor(a.chrome.csi().pageT),j&&0<k&&(j[d]("_tbnd",void 0,a.chrome.csi().startE),j[d]("tbnd_","_tbnd",k)));null==m&&a.gtbExternal&&(m=a.gtbExternal.pageT());null==m&&a.external&&(m=a.external.pageT,j&&0<k&&(j[d]("_tbnd",void 0,a.external.startE),j[d]("tbnd_","_tbnd",k)));m&&(a[b].pt=m)}catch(n){};a.tickAboveFold=function(c){var i=0;if(c.offsetParent){do i+=c.offsetTop;while(c=c.offsetParent)}c=i;750>=c&&a[b].load[d]("aft")};var q=!1;function r(){q||(q=!0,a[b].load[d]("firstScrollTime"))}a.addEventListener?a.addEventListener("scroll",r,!1):a.attachEvent("onscroll",r);
+ })();</script>
+<meta content="true" name="MSSmartTagsPreventParsing">
+<meta content="blogger" name="generator">
+<link href="http://elektorembedded.blogspot.hu/favicon.ico" rel="icon" type="image/x-icon">
+<link href="http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html" rel="canonical">
+<link rel="alternate" type="application/atom+xml" title="ElektorEmbedded - Atom" href="http://elektorembedded.blogspot.com/feeds/posts/default">
+<link rel="alternate" type="application/rss+xml" title="ElektorEmbedded - RSS" href="http://elektorembedded.blogspot.com/feeds/posts/default?alt=rss">
+<link rel="service.post" type="application/atom+xml" title="ElektorEmbedded - Atom" href="http://www.blogger.com/feeds/4556553159275601541/posts/default">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.blogger.com/rsd.g?blogID=4556553159275601541">
+<link rel="alternate" type="application/atom+xml" title="ElektorEmbedded - Atom" href="http://elektorembedded.blogspot.com/feeds/1335298280872799719/comments/default">
+<link rel="image_src" href="http://1.bp.blogspot.com/_bDJ_hte7vS8/THT12PWe8fI/AAAAAAAAADI/Sfvut9bOmU8/s72-c/sceptre-btm222-btm112.jpg">
+<!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+<title>ElektorEmbedded: Rayson BTM222 &amp; BTM112 Bluetooth modules</title>
+<link type="text/css" rel="stylesheet" href="rayson-btm222-btm112-bluetooth-modules_elemei/1937454905-widget_css_bundle.css">
+<link type="text/css" rel="stylesheet" href="rayson-btm222-btm112-bluetooth-modules_elemei/authorization.css">
+<style id="page-skin-1" type="text/css"><!--
+/*
+-----------------------------------------------
+Blogger Template Style
+Name:     Elektor
+Designer: unleaded & Douglas Bowman
+URL:      www.unleaded.nl
+Date:     21 Oct 2009
+----------------------------------------------- */
+/* Variable definitions
+====================
+<Variable name="mainBgColor" description="Main Background Color"
+type="color" default="#fff">
+<Variable name="mainTextColor" description="Text Color" type="color"
+default="#333">
+<Variable name="postTitleColor" description="Post Title Color" type="color"
+default="#333">
+<Variable name="dateHeaderColor" description="Date Header Color"
+type="color" default="#357">
+<Variable name="borderColor" description="Post Border Color" type="color"
+default="#205085">
+<Variable name="mainLinkColor" description="Link Color" type="color"
+default="#cc071e">
+<Variable name="mainVisitedLinkColor" description="Visited Link Color"
+type="color" default="#cc071e">
+<Variable name="titleBgColor" description="Page Header Background Color"
+type="color" default="#fff">
+<Variable name="titleTextColor" description="Blog Title Color"
+type="color" default="#fff">
+<Variable name="topSidebarHeaderColor"
+description="Top Sidebar Title Color"
+type="color" default="#234">
+<Variable name="topSidebarBgColor"
+description="Top Sidebar Background Color"
+type="color" default="#bbc4d5">
+<Variable name="topSidebarTextColor" description="Top Sidebar Text Color"
+type="color" default="#345">
+<Variable name="topSidebarLinkColor" description="Top Sidebar Link Color"
+type="color" default="#258">
+<Variable name="topSidebarVisitedLinkColor"
+description="Top Sidebar Visited Link Color"
+type="color" default="#258">
+<Variable name="bodyFont" description="Text Font" type="font"
+default="normal normal 100% 'Trebuchet MS',Verdana,Arial,Sans-serif">
+<Variable name="pageTitleFont" description="Blog Title Font" type="font"
+default="normal bold 200% 'Trebuchet MS',Verdana,Arial,Sans-serif">
+<Variable name="descriptionFont" description="Blog Description Font" type="font"
+default="normal normal 100% 'Trebuchet MS',Verdana,Arial,Sans-serif">
+<Variable name="headerFont" description="Sidebar Title Font" type="font"
+default="normal bold 100% 'Trebuchet MS',Verdana,Arial,Sans-serif">
+<Variable name="postTitleFont" description="Post Title Font" type="font"
+default="normal bold 135% 'Trebuchet MS',Verdana,Arial,Sans-serif">
+<Variable name="startSide" description="Start side in blog language"
+type="automatic" default="left">
+<Variable name="endSide" description="End side in blog language"
+type="automatic" default="right">
+*/
+body {
+background:#fff;
+margin:0;
+text-align:center;
+line-height: 1.5em;
+font:x-small Trebuchet MS, Verdana, Arial, Sans-serif;
+color:#333333;
+font-size/* */:/**/small;
+font-size: /**/small;
+}
+/* Page Structure
+----------------------------------------------- */
+/* The images which help create rounded corners depend on the
+following widths and measurements. If you want to change
+these measurements, the images will also need to change.
+*/
+#outer-wrapper {
+width:740px;
+margin:0 auto;
+text-align:left;
+font: normal normal 100% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+#main-wrap1 {
+width:485px;
+float:left;
+background:#ffffff url("http://www.elektor.org/blogs/pix/corners_main_bot.gif") no-repeat left bottom;
+margin:15px 0 0;
+padding:0 0 10px;
+color:#333333;
+font-size:97%;
+line-height:1.5em;
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;     /* fix for long non-text content breaking IE sidebar float */
+}
+#main-wrap2 {
+float:left;
+width:100%;
+background:url("http://www.elektor.org/blogs/pix/corners_main_top.gif") no-repeat left top;
+padding:10px 0 0;
+}
+#main {
+background:url("http://www.blogblog.com/rounders/rails_main.gif") repeat-y left;
+padding:0;
+width:485px;
+}
+#sidebar-wrap {
+width:240px;
+float:right;
+margin:15px 0 0;
+font-size:97%;
+line-height:1.5em;
+word-wrap: break-word; /* fix for long text breaking sidebar float in IE */
+overflow: hidden;     /* fix for long non-text content breaking IE sidebar float */
+}
+.main .widget {
+margin-top: 4px;
+width: 468px;
+padding: 0 13px;
+}
+.main .Blog {
+margin: 0;
+padding: 0;
+width: 484px;
+}
+/* Links
+----------------------------------------------- */
+a:link {
+color: #cc071e;
+}
+a:visited {
+color: #cc071e;
+}
+a:hover {
+color: #cc071e;
+}
+a img {
+border-width:0;
+}
+/* Blog Header
+----------------------------------------------- */
+#header-wrapper {
+background:#ffffff url("http://www.elektor.org/blogs/pix/blog_header2.gif") no-repeat left top;
+height: 96px;
+margin-top:22px;
+margin-right:0;
+margin-bottom:0;
+margin-left:0;
+padding-top:8px;
+padding-right:0;
+padding-bottom:0;
+padding-left:0;
+color:#ffffff;
+}
+#header {
+padding:0 15px 8px;
+}
+#header h1 {
+margin:0;
+padding:10px 30px 5px;
+line-height:1.2em;
+font: normal bold 200% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+#header a,
+#header a:visited {
+text-decoration:none;
+color: #ffffff;
+}
+#header .description {
+margin:0;
+padding:5px 30px 10px;
+line-height:1.5em;
+font: normal normal 100% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+/* Posts
+----------------------------------------------- */
+h2.date-header {
+margin-top:0;
+margin-right:28px;
+margin-bottom:0;
+margin-left:43px;
+font-size:85%;
+line-height:2em;
+text-transform:uppercase;
+letter-spacing:.2em;
+color:#335577;
+}
+.post {
+margin:.3em 0 25px;
+padding:0 13px;
+border:1px dotted #205085;
+border-width:1px 0;
+}
+.post h3 {
+margin:0;
+line-height:1.5em;
+background:url("http://www.elektor.org/blogs/pix/icon_arrow.gif") no-repeat 10px .5em;
+display:block;
+border:1px dotted #205085;
+border-width:0 1px 1px;
+padding-top:2px;
+padding-right:14px;
+padding-bottom:2px;
+padding-left:29px;
+color: #333333;
+font: normal bold 135% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+.post h3 a, .post h3 a:visited {
+text-decoration:none;
+color: #333333;
+}
+a.title-link:hover {
+background-color: #205085;
+color: #333333;
+}
+.post-body {
+border:1px dotted #205085;
+border-width:0 1px 1px;
+border-bottom-color:#ffffff;
+padding-top:10px;
+padding-right:14px;
+padding-bottom:1px;
+padding-left:29px;
+}
+html>body .post-body {
+border-bottom-width:0;
+}
+.post-body {
+margin:0 0 .75em;
+}
+.post-body blockquote {
+line-height:1.3em;
+}
+.post-footer {
+background: #dde1ea;
+margin:0;
+padding-top:2px;
+padding-right:14px;
+padding-bottom:2px;
+padding-left:29px;
+border:1px dotted #205085;
+border-width:1px;
+font-size:100%;
+line-height:1.5em;
+color: #666;
+}
+/*
+The first line of the post footer might only have floated text, so we need to give it a height.
+The height comes from the post-footer line-height
+*/
+.post-footer-line-1 {
+min-height:1.5em;
+_height:1.5em;
+}
+.post-footer p {
+margin: 0;
+}
+html>body .post-footer {
+border-bottom-color:transparent;
+}
+.uncustomized-post-template .post-footer {
+text-align: right;
+}
+.uncustomized-post-template .post-author,
+.uncustomized-post-template .post-timestamp {
+display: block;
+float: left;
+text-align:left;
+margin-right: 4px;
+}
+.post-footer a {
+color: #258;
+}
+.post-footer a:hover {
+color: #666;
+}
+a.comment-link {
+/* IE5.0/Win doesn't apply padding to inline elements,
+so we hide these two declarations from it */
+background/* */:/**/url("http://www.blogblog.com/rounders/icon_comment_left.gif") no-repeat left 45%;
+padding-left:14px;
+}
+html>body a.comment-link {
+/* Respecified, for IE5/Mac's benefit */
+background:url("http://www.blogblog.com/rounders/icon_comment_left.gif") no-repeat left 45%;
+padding-left:14px;
+}
+.post img {
+margin-top:0;
+margin-right:0;
+margin-bottom:5px;
+margin-left:0;
+padding:4px;
+border:1px solid #205085;
+}
+blockquote {
+margin:.75em 0;
+border:1px dotted #205085;
+border-width:1px 0;
+padding:5px 15px;
+color: #335577;
+}
+.post blockquote p {
+margin:.5em 0;
+}
+#blog-pager-newer-link {
+float: left;
+margin-left: 13px;
+}
+#blog-pager-older-link {
+float: right;
+margin-right: 13px;
+}
+#blog-pager {
+text-align: center;
+}
+.feed-links {
+clear: both;
+line-height: 2.5em;
+margin-left: 13px;
+}
+/* Comments
+----------------------------------------------- */
+#comments {
+margin:-25px 13px 0;
+border:1px dotted #205085;
+border-width:0 1px 1px;
+padding-top:20px;
+padding-right:0;
+padding-bottom:15px;
+padding-left:0;
+}
+#comments h4 {
+margin:0 0 10px;
+padding-top:0;
+padding-right:14px;
+padding-bottom:2px;
+padding-left:29px;
+border-bottom:1px dotted #205085;
+font-size:120%;
+line-height:1.4em;
+color:#333333;
+}
+#comments-block {
+margin-top:0;
+margin-right:15px;
+margin-bottom:0;
+margin-left:9px;
+}
+.comment-author {
+background:url("http://www.blogblog.com/rounders/icon_comment_left.gif") no-repeat 2px .3em;
+margin:.5em 0;
+padding-top:0;
+padding-right:0;
+padding-bottom:0;
+padding-left:20px;
+font-weight:bold;
+}
+.comment-body {
+margin:0 0 1.25em;
+padding-top:0;
+padding-right:0;
+padding-bottom:0;
+padding-left:20px;
+}
+.comment-body p {
+margin:0 0 .5em;
+}
+.comment-footer {
+margin:0 0 .5em;
+padding-top:0;
+padding-right:0;
+padding-bottom:.75em;
+padding-left:20px;
+}
+.comment-footer a:link {
+color: #333;
+}
+.deleted-comment {
+font-style:italic;
+color:gray;
+}
+.comment-form {
+padding-left:20px;
+padding-right:5px;
+}
+#comments .comment-form h4 {
+padding-left:0px;
+}
+/* Profile
+----------------------------------------------- */
+.profile-img {
+float: left;
+margin-top: 5px;
+margin-right: 5px;
+margin-bottom: 5px;
+margin-left: 0;
+border: 4px solid #334455;
+}
+.profile-datablock {
+margin-top:0;
+margin-right:15px;
+margin-bottom:.5em;
+margin-left:0;
+padding-top:8px;
+}
+.profile-link {
+background:url("http://www.blogblog.com/rounders/icon_profile_left.gif") no-repeat left .1em;
+padding-left:15px;
+font-weight:bold;
+}
+.profile-textblock {
+clear: both;
+margin: 0;
+}
+.sidebar .clear, .main .widget .clear {
+clear: both;
+}
+#sidebartop-wrap {
+background:#bbc4d5 url("http://www.elektor.org/blogs/pix/corners_prof_bot.gif") no-repeat left bottom;
+margin:0px 0px 15px;
+padding:0px 0px 10px;
+color:#334455;
+}
+#sidebartop-wrap2 {
+background:#bbc4d5 url("http://www.elektor.org/blogs/pix/corners_prof_top.gif") no-repeat left top;
+padding: 10px 0 0;
+margin:0;
+border-width:0;
+}
+#sidebartop h2 {
+line-height:1.5em;
+color:#223344;
+border-bottom: 1px dotted #223344;
+margin-bottom: 0.5em;
+font: normal bold 100% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+#sidebartop a {
+color: #225588;
+}
+#sidebartop a:hover {
+color: #225588;
+}
+#sidebartop a:visited {
+color: #225588;
+}
+/* Sidebar Boxes
+----------------------------------------------- */
+.sidebar .widget {
+margin:.5em 13px 1.25em;
+padding:0 0px;
+}
+.widget-content {
+margin-top: 0.5em;
+}
+#sidebarbottom-wrap1 {
+background:#bbc4d5 url("http://www.elektor.org/blogs/pix/corners_side_top.gif") no-repeat left top;
+margin:0 0 15px;
+padding:10px 0 0;
+color: #333333;
+}
+#sidebarbottom-wrap2 {
+background:#bbc4d5 url("http://www.elektor.org/blogs/pix/corners_side_bot.gif") no-repeat left bottom;
+padding:0 0 8px;
+}
+.sidebar h2 {
+margin:0;
+padding:0 0 .2em;
+line-height:1.5em;
+font:normal bold 100% 'Trebuchet MS',Verdana,Arial,Sans-serif;
+}
+.sidebar ul {
+list-style:none;
+margin:0 0 1.25em;
+padding:0;
+}
+.sidebar ul li {
+background:url("http://www.elektor.org/blogs/pix/icon_arrow_sm.gif") no-repeat 2px .25em;
+margin:0;
+padding-top:0;
+padding-right:0;
+padding-bottom:3px;
+padding-left:16px;
+margin-bottom:3px;
+border-bottom:1px dotted #205085;
+line-height:1.4em;
+}
+.sidebar p {
+margin:0 0 .6em;
+}
+#sidebar h2 {
+color: #333333;
+border-bottom: 1px dotted #333333;
+}
+/* Footer
+----------------------------------------------- */
+#footer-wrap1 {
+clear:both;
+margin:0 0 10px;
+padding:15px 0 0;
+}
+#footer-wrap2 {
+background:#bbc4d5 url("http://www.elektor.org/blogs/pix/corners_cap_top.gif") no-repeat left top;
+color:#ffffff;
+}
+#footer {
+background:#bbc4d5 url("http://www.elektor.org/blogs/pix/corners_cap_bot.gif") no-repeat left bottom;
+padding:8px 15px;
+}
+#footer hr {display:none;}
+#footer p {margin:0;}
+#footer a {color:#ffffff;}
+#footer .widget-content {
+margin:0;
+}
+/** Page structure tweaks for layout editor wireframe */
+body#layout #main-wrap1,
+body#layout #sidebar-wrap,
+body#layout #header-wrapper {
+margin-top: 0;
+}
+body#layout #header, body#layout #header-wrapper,
+body#layout #outer-wrapper {
+margin-left:0,
+margin-right: 0;
+padding: 0;
+}
+body#layout #outer-wrapper {
+width: 730px;
+}
+body#layout #footer-wrap1 {
+padding-top: 0;
+}
+
+--></style>
+<script type="text/javascript">var a=navigator,b="userAgent",c="indexOf",f="&m=1",g="(^|&)m=",h="?",i="?m=1";function j(){var d=window.location.href,e=d.split(h);switch(e.length){case 1:return d+i;case 2:return 0<=e[1].search(g)?null:d+f;default:return null}}if(-1!=a[b][c]("Mobile")&&-1!=a[b][c]("WebKit")&&-1==a[b][c]("iPad")||-1!=a[b][c]("Opera Mini")||-1!=a[b][c]("IEMobile")){var k=j();k&&window.location.replace(k)};
+</script><script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('headEnd');
+</script><script src="rayson-btm222-btm112-bluetooth-modules_elemei/google_top_exp.js" type="text/javascript"></script><style>.gc-bubbleDefault{background-color:transparent !important;text-align:left;padding:0 !important;margin:0 !important;border:0 !important;table-layout:auto !important}.gc-reset{background-color:transparent !important;border:0 !important;padding:0 !important;margin:0 !important;text-align:left}.pls-bubbleTop{border-bottom:1px solid #ccc !important}.pls-topTail,.pls-vertShimLeft,.pls-contentLeft{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/border_3.gif) !important}.pls-topTail{background-repeat:repeat-x !important;background-position:bottom !important}.pls-vertShim{background-color:#fff !important;text-align:right}.pls-vertShimLeft{background-repeat:repeat-y !important;background-position:right !important;height:4px}.pls-vertShimRight{height:4px}.pls-confirm-container .pls-vertShim{background-color:#fff3c2 !important}.pls-contentWrap{background-color:#fff !important;position:relative !important;vertical-align:top}.pls-contentLeft{background-repeat:repeat-y;background-position:right;vertical-align:top}.pls-dropRight{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropR_3.png) !important;background-repeat:repeat-y !important;vertical-align:top}.pls-vert,.pls-tailleft,.pls-dropTR .pls-dropBR,.pls-dropBL,.pls-vert img{vertical-align:top}.pls-dropBottom{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleDropB_3.png) !important;background-repeat:repeat-x !important;width:100%;vertical-align:top}.pls-topLeft{background:inherit !important;text-align:right;vertical-align:bottom}.pls-topRight{background:inherit !important;text-align:left;vertical-align:bottom}.pls-bottomLeft{background:inherit !important;text-align:right}.pls-bottomRight{background:inherit !important;text-align:left;vertical-align:top}.pls-tailtop,.pls-tailright,.pls-tailbottom,.pls-tailleft{display:none;position:relative}.pls-tailbottom,.pls-tailtop,.pls-tailright,.pls-tailleft,.pls-dropTR,.pls-dropBR,.pls-dropBL{background-image:url(//ssl.gstatic.com/s2/oz/images/stars/po/bubblev1/bubbleSprite_3.png) !important;background-repeat:no-repeat}.pls-tailbottom{background-position:-23px 0}.pls-confirm-container .pls-tailbottom{background-position:-23px -10px}.pls-tailtop{background-position:-19px -20px}.pls-tailright{background-position:0 0}.pls-tailleft{background-position:-10px 0}.pls-tailtop{vertical-align:top}.gc-bubbleDefault td{line-height:0;font-size:0}.pls-topLeft img,.pls-topRight img,.pls-tailbottom{vertical-align:bottom}.pls-bottomLeft img,.bubbleDropTR,.pls-dropBottomL img,.pls-dropBottom img,.pls-dropBottomR img,.pls-bottomLeft{vertical-align:top}.pls-dropTR{background-position:0 -22px}.pls-dropBR{background-position:0 -27px}.pls-dropBL{background-position:0 -16px}.pls-spacertop,.pls-spacerright,.pls-spacerbottom,.pls-spacerleft{position:static !important}.pls-spinner{bottom:0;position:absolute;left:0;margin:auto;right:0;top:0}</style></head>
+<body>
+<div class="navbar section" id="navbar"><div class="widget Navbar" id="Navbar1"><script type="text/javascript">
+    function setAttributeOnload(object, attribute, val) {
+      if(window.addEventListener) {
+        window.addEventListener('load',
+          function(){ object[attribute] = val; }, false);
+      } else {
+        window.attachEvent('onload', function(){ object[attribute] = val; });
+      }
+    }
+  </script>
+<div id="navbar-iframe-container"><iframe src="rayson-btm222-btm112-bluetooth-modules_elemei/navbar.htm" name="navbar-iframe" id="navbar-iframe" vspace="0" tabindex="0" style="" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div>
+<script gapi_processed="true" type="text/javascript" src="navbar_data/plusone.js"></script>
+<script type="text/javascript">
+        gapi.load("iframes-styles-bubble", function() {
+          if (window.iframes && iframes.open) {
+            iframes.open(
+                '//www.blogger.com/navbar.g?targetBlogID\0754556553159275601541\46blogName\75ElektorEmbedded\46publishMode\75PUBLISH_MODE_BLOGSPOT\46navbarType\75BLUE\46layoutType\75LAYOUTS\46searchRoot\75http://elektorembedded.blogspot.com/search\46blogLocale\75en\46v\0752\46homepageUrl\75http://elektorembedded.blogspot.com/\46targetPostID\0751335298280872799719\46blogPostOrPageUrl\75http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html\46vt\0753802742385900338724',
+                {
+                  container: "navbar-iframe-container",
+                  id: "navbar-iframe"
+                },
+                {
+                });
+          }
+        });
+      </script><script type="text/javascript">
+(function() {
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.src = '//pagead2.googlesyndication.com/pagead/js/google_top_exp.js';
+var head = document.getElementsByTagName('head')[0];
+if (head) {
+head.appendChild(script);
+}})();
+</script>
+</div></div>
+<div id="outer-wrapper">
+<div id="header-wrapper">
+</div>
+<div id="crosscol-wrapper" style="text-align:center">
+<div class="crosscol section" id="crosscol"></div>
+</div>
+<div id="main-wrap1"><div id="main-wrap2">
+<div class="main section" id="main"><div class="widget Blog" id="Blog1">
+<div class="blog-posts hfeed">
+<!-- google_ad_section_start(name=default) -->
+
+          <div class="date-outer">
+        
+<h2 class="date-header"><span>Wednesday, August 25, 2010</span></h2>
+
+          <div class="date-posts">
+        
+<div class="post-outer">
+<div class="post hentry uncustomized-post-template" itemprop="blogPost" itemscope="itemscope" itemtype="http://schema.org/BlogPosting">
+<meta content="http://1.bp.blogspot.com/_bDJ_hte7vS8/THT12PWe8fI/AAAAAAAAADI/Sfvut9bOmU8/s72-c/sceptre-btm222-btm112.jpg" itemprop="image_url">
+<meta content="4556553159275601541" itemprop="blogId">
+<meta content="1335298280872799719" itemprop="postId">
+<a name="1335298280872799719"></a>
+<h3 class="post-title entry-title" itemprop="name">
+Rayson BTM222 &amp; BTM112 Bluetooth modules
+</h3>
+<div class="post-header">
+<div class="post-header-line-1"></div>
+</div>
+<div class="post-body entry-content" id="post-body-1335298280872799719" itemprop="description articleBody">
+The Sceptre has a Bluetooth module; in fact it was designed for using a 
+BTM222 or BTM112 Bluetooth module from Rayson. These modules are cheap 
+and easy to find on the internet. They do have one problem though and 
+that is the lack of documentation. The official datasheet only shows one
+ table with AT commands and that’s it. When I did my initial experiments
+ with the modules, I managed to get them going, but I was never quite 
+satisfied with how they were working. A few days ago I decided to give 
+them another go and improve my driver. I spent quite some time googling 
+and I did find some new information. The official documentation is still
+ limited to the single table, but now I know that it is incomplete too!<br><br>The
+ BTM222 &amp; BTM112 are part of a large family of modules that are all 
+very similar. Differences are mainly in TX power and integrated antennas
+ or not. It is possible to find some more information by studying the 
+datasheets of the related modules.<br><br>Commands not listed in the BTM112/BTM222 dataheet I know of so far are:<br><br><span style="font-weight:bold;">+++</span> – Switch from data mode to command mode (valid only when connected)<br><span style="font-weight:bold;">AT</span> – Doesn’t do anything but should return “OK”<br><span style="font-weight:bold;">ATC</span>x, x = [0,1,?] – Flow control (RTS/CTS) disable (0) or enable (1, default)<br><span style="font-weight:bold;">ATH</span> – Drop current connection (valid only when connected)<br><span style="font-weight:bold;">ATI</span>x, x = [0,1,2,?] – Information, 0: firmware version, 1: current settings, 2: RSSI (valid only when connected)<br>(Strictly speaking the ATI command was not undocumented completely, but it was partly lost when the PDF was made.)<br><span style="font-weight:bold;">ATL</span>x, x = [#,*,8] – Baud rate, #: 1200, *: 2400, 8: 921.6k (0-7 were already documented)<br><span style="font-weight:bold;">ATO</span> – Switch from command mode to data mode (valid only when connected)<br><span style="font-weight:bold;">ATS</span>x, x = [0,1,?] – RS232 powerdown disable (0) or enable (1, default)<br><span style="font-weight:bold;">ATX</span>x, x = [0,1,?] – Escape sequence disable (0) or enable (1, default)<br><br>Sparkfun
+ sells the BTM182 which is supposed to have the same firmware as the 
+BTM112. The accompanying documents on their web site list most of the 
+above commands.<br> <br>A delay of at least 50 ms is needed after each 
+command before the module will accept a new one. This delay is much 
+longer for the commands that reboot the module; after ATR0 for instance 
+the module needs at least 3.5 seconds to recover. Several other commands
+ cause module reboots too: ATC(0,1), ATH(0,1), ATO(0,1), ATZ0.<br><br>It
+ is possible that the module gets stuck in some undefined state (try 
+ATZ1) or that the serial port parameters are wrong and you do not know 
+them. The only way to get the module out of there is to pull pin PIO4 
+high for at least three seconds.<br>My BTM112 gets stuck in master mode 
+when the connection is broken and it will only respond to the AT 
+command. The only way to get it going again quickly is to restore the 
+connection or to use the PIO4 reset. It seems to become available again 
+after a pretty long wait too. I did not observe this behaviour on the 
+BTM222 even though both modules have the same firmware version 4.22 
+(which doesn't mean that they have the same firmware).<br><br>A typical master mode sequence for a virgin device could look like this (I’ve set de waits a bit long):<br><br><span style="font-weight:bold;">ATN=my device</span> (16 characters max, space is allowed)<br>Wait 100 ms<br><span style="font-weight:bold;">ATP=6587</span> (set a PIN code of 4 to 8 digits)<br>Wait 100 ms<br><span style="font-weight:bold;">ATR0</span> – switch to master mode<br>Wait 3500 ms<br><span style="font-weight:bold;">ATO1</span> – disable autoconnect (only available in master mode)<br>Wait 3500 ms<br><span style="font-weight:bold;">ATF?</span> – scan for remote devices (this only works when autoconnect is off)<br>Wait at least 60 s or until you receive "Inquiry End."<br><span style="font-weight:bold;">ATA1</span> – connect to the first device found<br>Wait until you receive “CONNECT  'xxxx-xx-xxxxxx'”<br><span style="font-style:italic;">Do data transfer</span><br><span style="font-weight:bold;">+++</span> – switch to command mode<br>Wait 100 ms<br><span style="font-weight:bold;">ATI2</span> – get RSSI for remote device<br>Wait 100 ms<br><span style="font-weight:bold;">ATO</span> – switch back to data mode<br>Wait 100 ms<br><span style="font-style:italic;">Do data transfer</span><br><span style="font-weight:bold;">+++</span> – switch to command mode<br><span style="font-weight:bold;">ATH</span> – disconnect <br>Wait until you receive “DISCONNECT  'xxxx-xx-xxxxxx'”<br>Etc.<br><br>Note
+ that when you are in autoconnect mode (ATO0) the module may reconnect 
+to the same remote device almost immediately after disconnecting with 
+ATH.<br><br><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_bDJ_hte7vS8/THT12PWe8fI/AAAAAAAAADI/Sfvut9bOmU8/s1600/sceptre-btm222-btm112.jpg"><img style="cursor:pointer; cursor:hand;width: 320px; height: 308px;" src="rayson-btm222-btm112-bluetooth-modules_elemei/sceptre-btm222-btm112.jpg" alt="" id="BLOGGER_PHOTO_ID_5509298556363534834" border="0"></a><br><span style="font-style:italic;">This
+ photo shows two Sceptre boards, one with a BTM112, the other with a 
+BTM222. They are connected (both PIO7 LEDs are on continuously) and the 
+BTM112 is the master. I connected a push button to PIO4 for reset 
+testing.</span><br><br><br>ATZ0 does not reset all parameters, it resets
+ only C, E, H, O, Q, R &amp; X (I did not check the serial port 
+parameters). RS232 powerdown, remote device addresses, friendly name 
+&amp; PIN code remain unchanged. They also survive power cycles, meaning
+ that if the last used slave device has the same PIN code as the master 
+and autoconnect is on then the master will connect automatically to the 
+last used slave device. No commands to issue at all. This will also work
+ if the modules swapped roles.<br><br>PIO5 pulses high when data is 
+being transmitted, it is fixed high during reception. PIO7 provides 
+status information. An LED may be used to visualize the status, but it 
+may also be useful to connect them to your processor. Issuing an ATZ0 
+will make PIO5 &amp; PIO 7 flash three times, but PIO8 only two before 
+resuming normal operation. PIO8 seems to remain high during normal 
+operation. This is what I observed for PIO7:<br><br>- Master idle (autoconnect on) – toggling at about 0.4 Hz (BTM222) or 0.5 Hz (BTM112)<br>- Master idle (autoconnect off) – fixed low<br>- Slave idle – toggling at 1.7 Hz (BTM222) or 4.6 Hz (BTM112)<br>- Connected – fixed high<br><br>Besides
+ restoring the factory defaults (3 s press) PIO4 can also be used to 
+reset/reboot the module with a short pulse. An even shorter pulse (6 ms)
+ on PIO4 will cause a disconnect.<br><br>If you have any information not listed here, please let me know!
+<div style="clear: both;"></div>
+</div>
+<div class="post-footer">
+<div class="post-footer-line post-footer-line-1">
+<span class="post-author vcard">
+Posted by
+<span class="fn" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+<meta content="http://www.blogger.com/profile/12206591477280744658" itemprop="url">
+<a href="http://www.blogger.com/profile/12206591477280744658" rel="author" title="author profile">
+<span itemprop="name">Elektor Embedded</span>
+</a>
+</span>
+</span>
+<span class="post-timestamp">
+at
+<meta content="http://elektorembedded.blogspot.hu/2010/08/rayson-btm222-btm112-bluetooth-modules.html" itemprop="url">
+<a class="timestamp-link" href="http://elektorembedded.blogspot.hu/2010/08/rayson-btm222-btm112-bluetooth-modules.html" rel="bookmark" title="permanent link"><abbr class="published" itemprop="datePublished" title="2010-08-25T03:33:00-07:00">3:33 AM</abbr></a>
+</span>
+<span class="reaction-buttons">
+</span>
+<span class="star-ratings">
+</span>
+<span class="post-comment-link">
+</span>
+<span class="post-backlinks post-comment-link">
+</span>
+<span class="post-icons">
+<span class="item-action">
+<a href="http://www.blogger.com/email-post.g?blogID=4556553159275601541&amp;postID=1335298280872799719" title="Email Post">
+<img alt="" class="icon-action" src="rayson-btm222-btm112-bluetooth-modules_elemei/icon18_email.gif" height="13" width="18">
+</a>
+</span>
+<span class="item-control blog-admin pid-963779820">
+<a href="http://www.blogger.com/post-edit.g?blogID=4556553159275601541&amp;postID=1335298280872799719&amp;from=pencil" title="Edit Post">
+<img alt="" class="icon-action" src="rayson-btm222-btm112-bluetooth-modules_elemei/icon18_edit_allbkg.gif" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="post-share-buttons goog-inline-block">
+</div>
+</div>
+<div class="post-footer-line post-footer-line-2">
+<span class="post-labels">
+Labels:
+<a href="http://elektorembedded.blogspot.hu/search/label/Bluetooth" rel="tag">Bluetooth</a>,
+<a href="http://elektorembedded.blogspot.hu/search/label/BTM112" rel="tag">BTM112</a>,
+<a href="http://elektorembedded.blogspot.hu/search/label/BTM222" rel="tag">BTM222</a>,
+<a href="http://elektorembedded.blogspot.hu/search/label/Rayson" rel="tag">Rayson</a>,
+<a href="http://elektorembedded.blogspot.hu/search/label/Sceptre" rel="tag">Sceptre</a>
+</span>
+</div>
+<div class="post-footer-line post-footer-line-3">
+<span class="post-location">
+</span>
+</div>
+</div>
+</div>
+<div class="comments" id="comments">
+<a name="comments"></a>
+<h4>9 comments:</h4>
+<div class="comments-content">
+<script async="async" src="rayson-btm222-btm112-bluetooth-modules_elemei/comments.js" type="text/javascript"></script>
+<script type="text/javascript">
+    (function() {
+      var items = [{'id': '5150569870080714226', 'body': 'Amazing work you\46#39;ve done! I\46#39;m currently trying to get my BT-182 going. Thanks for the post :) I\46#39;ll let you know how my project goes.', 'timestamp': '1299667567036', 'permalink': 'http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment\0751299667567036#c5150569870080714226', 'author': {'name': 'Heriberto', 'avatarUrl': 'http://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'http://www.blogger.com/profile/05163534300546545870'}, 'displayTime': 'March 9, 2011 2:46 AM', 'deleteclass': 'item-control blog-admin pid-228633942'}, {'id': '8537682038846282097', 'body': 'Hi,\74br /\76\74br /\76I have a BT-112 rayson module, and it seems to connect just fine with PC, I am also able to send data from PC to the module (which is connected to microcontroller), however I am unable to send anything to the BT-112 from the microcontroller. Well at least send and get some response. I dont see any response from the bt-112 nor are this data trasmitted to the PC. \74br /\76Got any idea? \74br /\76\74br /\76Thanks\74br /\76\74br /\76Roman', 'timestamp': '1307039240972', 'permalink': 'http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment\0751307039240972#c8537682038846282097', 'author': {'name': 'Roman', 'avatarUrl': 'http://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'http://www.blogger.com/profile/10941008393236057092'}, 'displayTime': 'June 2, 2011 11:27 AM', 'deleteclass': 'item-control blog-admin pid-1401719775'}, {'id': '6893220361537859569', 'body': 'The serial port between the microcontroller and the BT-112 module is probably not configured properly.\74br /\76\74br /\76Regards,\74br /\76Clemens', 'timestamp': '1309967327792', 'permalink': 'http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment\0751309967327792#c6893220361537859569', 'author': {'name': 'Elektor Embedded', 'avatarUrl': 'http://4.bp.blogspot.com/_bDJ_hte7vS8/Swp_12HonEI/AAAAAAAAAAk/AaojRrtM850/S45/blog_cpv_001_dmB.jpg', 'profileUrl': 'http://www.blogger.com/profile/12206591477280744658'}, 'displayTime': 'July 6, 2011 8:48 AM', 'deleteclass': 'item-control blog-admin pid-963779820'}, {'id': '7763242472062538471', 'body': 'Hi! \74br /\76\74br /\76I found interesting link between two producers: \74br /\76http://www.element14.com/community/thread/2454\74br /\76\74br /\76It seems LM technologies uses Rayson modules. This could be a real treasure: \74br /\76http://www.lm-technologies.com/download_script.php?d_type\75at\46amp;d_item\75AT%20Command%20Manualv4.22\74br /\76\74br /\76I\46#39;ll check and post results in my blog: \74br /\76e.pavlin.si\74br /\76\74br /\76Regards,\74br /\76Marko', 'timestamp': '1322606055367', 'permalink': 'http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment\0751322606055367#c7763242472062538471', 'author': {'name': 'Mare', 'avatarUrl': 'http://img2.blogblog.com/img/b16-rounded.gif', 'profileUrl': 'http://www.blogger.com/profile/15182724474854476374'}, 'displayTime': 'November 29, 2011 2:34 PM', 'deleteclass': 'item-control blog-admin pid-1503995797'}, {'id': '162946355685371781', 'body': '@Mare, yes, looks a lot like this:\74br /\76http://ie.farnell.com/lm-technologies/lm072/module-bluetooth-class-1-bc04/dp/1675413', 'timestamp': '1322822466471', 'permalink': 'http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment\0751322822466471#c162946355685371781', 'author': {'name': 'ImmerNochARM', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'December 2, 2011 2:41 AM', 'deleteclass': 'item-control blog-admin pid-508096842'}, {'id': '5851184340481486966', 'body': 'Thanks a lot man, I am just playing with a couple of BTM-112\46#39;s and Your post was a big help :) Love the sample configuration, it allowed me to get started.', 'timestamp': '1323882323381', 'permalink': 'http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment\0751323882323381#c5851184340481486966', 'author': {'name': 'Axe', 'avatarUrl': 'http://3.bp.blogspot.com/_pjEWhm1runc/Saodax-zJeI/AAAAAAAAAbA/WHsq9KK5PNo/S45/wloczykij.jpg', 'profileUrl': 'http://www.blogger.com/profile/02363314614116162674'}, 'displayTime': 'December 14, 2011 9:05 AM', 'deleteclass': 'item-control blog-admin pid-1061314969'}, {'id': '3801274880947727779', 'body': 'i\46#39;m also experimenting with the BTM-222 for my bachelor thesis. the module tells you when it goes for a restart. it sends a \46#39;\\0\46#39;. having received a \46#39;\\0\46#39; one must wait about 1 second until the next character can be sent. the module will echo this character back to you about additional 2 seconds.\74br /\76\74br /\76also: the modules ship with different firmware versions. older versions behave strangely sometimes and need more waiting between characters and commands.', 'timestamp': '1329234567811', 'permalink': 'http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment\0751329234567811#c3801274880947727779', 'author': {'name': 'kazu', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'February 14, 2012 7:49 AM', 'deleteclass': 'item-control blog-admin pid-1534876944'}, {'id': '1530710833671618635', 'body': 'Where I can get BTM-222?', 'timestamp': '1331172589422', 'permalink': 'http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment\0751331172589422#c1530710833671618635', 'author': {'name': 'Anonymous', 'avatarUrl': 'http://img1.blogblog.com/img/blank.gif', 'profileUrl': ''}, 'displayTime': 'March 7, 2012 6:09 PM', 'deleteclass': 'item-control blog-admin pid-1824443110'}, {'id': '2983596260194779328', 'parentId': '1530710833671618635', 'body': 'I got some \74a href\75\42http://bluecontroller.com/index.php?option\75com_content\46amp;view\75article\46amp;id\07515:using-btm-222-with-atmega-avr\46amp;catid\0755:bca8-btm\46amp;Itemid\07515\42 rel\75\42nofollow\42\76here\74/a\76.', 'timestamp': '1331201986727', 'permalink': 'http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment\0751331201986727#c2983596260194779328', 'author': {'name': 'Elektor Embedded', 'avatarUrl': 'http://4.bp.blogspot.com/_bDJ_hte7vS8/Swp_12HonEI/AAAAAAAAAAk/AaojRrtM850/S45/blog_cpv_001_dmB.jpg', 'profileUrl': 'http://www.blogger.com/profile/12206591477280744658'}, 'displayTime': 'March 8, 2012 2:19 AM', 'deleteclass': 'item-control blog-admin pid-963779820'}];
+      var msgs = {'loadMore': 'Load more...', 'loading': 'Loading...', 'loaded': 'No more!', 'addComment': 'Add comment', 'reply': 'Reply', 'delete': 'Delete'};
+      var config = {'blogId': '4556553159275601541', 'postId': '1335298280872799719', 'feed': 'http://elektorembedded.blogspot.com/feeds/1335298280872799719/comments/default', 'authorName': 'Elektor Embedded', 'authorUrl': 'http://www.blogger.com/profile/12206591477280744658', 'baseUri': 'http://www.blogger.com', 'maxThreadDepth': 2};
+
+// <![CDATA[
+      var cursor = null;
+      if (items && items.length > 0) {
+        cursor = parseInt(items[items.length - 1].timestamp) + 1;
+      }
+
+      var bodyFromEntry = function(entry) {
+        if (entry.gd$extendedProperty) {
+          for (var k in entry.gd$extendedProperty) {
+            if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+              return '<span class="deleted-comment">' + entry.content.$t + '</span>';
+            }
+          }
+        }
+        return entry.content.$t;
+      }
+
+      var parse = function(data) {
+        cursor = null;
+        var comments = [];
+        if (data && data.feed && data.feed.entry) {
+          for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+            var comment = {};
+            // comment ID, parsed out of the original id format
+            var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+            comment.id = id ? id[2] : null;
+            comment.body = bodyFromEntry(entry);
+            comment.timestamp = Date.parse(entry.published.$t) + '';
+            if (entry.author && entry.author.constructor === Array) {
+              var auth = entry.author[0];
+              if (auth) {
+                comment.author = {
+                  name: (auth.name ? auth.name.$t : undefined),
+                  profileUrl: (auth.uri ? auth.uri.$t : undefined),
+                  avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+                };
+              }
+            }
+            if (entry.link) {
+              if (entry.link[2]) {
+                comment.link = comment.permalink = entry.link[2].href;
+              }
+              if (entry.link[3]) {
+                var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+                if (pid && pid[1]) {
+                  comment.parentId = pid[1];
+                }
+              }
+            }
+            comment.deleteclass = 'item-control blog-admin';
+            if (entry.gd$extendedProperty) {
+              for (var k in entry.gd$extendedProperty) {
+                if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+                  comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+                } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+                  comment.displayTime = entry.gd$extendedProperty[k].value;
+                }
+              }
+            }
+            comments.push(comment);
+          }
+        }
+        return comments;
+      };
+
+      var paginator = function(callback) {
+        if (hasMore()) {
+          var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+          if (cursor) {
+            url += '&published-min=' + new Date(cursor).toISOString();
+          }
+          window.bloggercomments = function(data) {
+            var parsed = parse(data);
+            cursor = parsed.length < 50 ? null
+                : parseInt(parsed[parsed.length - 1].timestamp) + 1
+            callback(parsed);
+            window.bloggercomments = null;
+          }
+          url += '&callback=bloggercomments';
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = url;
+          document.getElementsByTagName('head')[0].appendChild(script);
+        }
+      };
+      var hasMore = function() {
+        return !!cursor;
+      };
+      var getMeta = function(key, comment) {
+        if ('iswriter' == key) {
+          var matches = !!comment.author
+              && comment.author.name == config.authorName
+              && comment.author.profileUrl == config.authorUrl;
+          return matches ? 'true' : '';
+        } else if ('deletelink' == key) {
+          return config.baseUri + '/delete-comment.g?blogID='
+               + config.blogId + '&postID=' + comment.id;
+        } else if ('deleteclass' == key) {
+          return comment.deleteclass;
+        }
+        return '';
+      };
+
+      var replybox = null;
+      var replyUrlParts = null;
+      var replyParent = undefined;
+
+      var onReply = function(commentId, domId) {
+        if (replybox == null) {
+          // lazily cache replybox, and adjust to suit this style:
+          replybox = document.getElementById('comment-editor');
+          if (replybox != null) {
+            replybox.height = '250px';
+            replybox.style.display = 'block';
+            replyUrlParts = replybox.src.split('#');
+          }
+        }
+        if (replybox && (commentId !== replyParent)) {
+          document.getElementById(domId).insertBefore(replybox, null);
+          replybox.src = replyUrlParts[0]
+              + (commentId ? '&parentID=' + commentId : '')
+              + '#' + replyUrlParts[1];
+          replyParent = commentId;
+        }
+      };
+
+      var hash = (window.location.hash || '#').substring(1);
+      var startThread, targetComment;
+      if (/^comment-form_/.test(hash)) {
+        startThread = hash.substring('comment-form_'.length);
+      } else if (/^c[0-9]+$/.test(hash)) {
+        targetComment = hash.substring(1);
+      }
+
+      // Configure commenting API:
+      var configJso = {
+        'maxDepth': config.maxThreadDepth
+      };
+      var provider = {
+        'id': config.postId,
+        'data': items,
+        'loadNext': paginator,
+        'hasMore': hasMore,
+        'getMeta': getMeta,
+        'onReply': onReply,
+        'rendered': true,
+        'initComment': targetComment,
+        'initReplyThread': startThread,
+        'config': configJso,
+        'messages': msgs
+      };
+
+      var render = function() {
+        if (window.goog && window.goog.comments) {
+          var holder = document.getElementById('comment-holder');
+          window.goog.comments.render(holder, provider);
+        }
+      };
+
+      // render now, or queue to render when library loads:
+      if (window.goog && window.goog.comments) {
+        render();
+      } else {
+        window.goog = window.goog || {};
+        window.goog.comments = window.goog.comments || {};
+        window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+        window.goog.comments.loadQueue.push(render);
+      }
+    })();
+// ]]>
+</script>
+<div id="comment-holder">
+
+<div id="bc_0_10C" kind="c"><div id="bc_0_10CT"><div id="bc_0_9T" class="comment-thread" kind="r" t="0" u="0"><ol id="bc_0_9TB"><li id="bc_0_0B" class="comment" kind="b"><div class="avatar-image-container"><img src="rayson-btm222-btm112-bluetooth-modules_elemei/b36-rounded.png"></div><div id="c5150569870080714226" class="comment-block"><div id="bc_0_0M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="http://www.blogger.com/profile/05163534300546545870">Heriberto</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment=1299667567036#c5150569870080714226">March 9, 2011 2:46 AM</a></span></div><p id="bc_0_0MC" class="comment-content">Amazing
+ work you've done! I'm currently trying to get my BT-182 going. Thanks 
+for the post :) I'll let you know how my project goes.</p><span id="bc_0_0MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-228633942"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=4556553159275601541&amp;postID=5150569870080714226">Delete</a></span></span></div><div id="bc_0_0BR" class="comment-replies"></div><div id="bc_0_0B_box" class="comment-replybox-single"></div></li><li id="bc_0_1B" class="comment" kind="b"><div class="avatar-image-container"><img src="rayson-btm222-btm112-bluetooth-modules_elemei/b36-rounded.png"></div><div id="c8537682038846282097" class="comment-block"><div id="bc_0_1M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="http://www.blogger.com/profile/10941008393236057092">Roman</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment=1307039240972#c8537682038846282097">June 2, 2011 11:27 AM</a></span></div><p id="bc_0_1MC" class="comment-content">Hi,<br><br>I
+ have a BT-112 rayson module, and it seems to connect just fine with PC,
+ I am also able to send data from PC to the module (which is connected 
+to microcontroller), however I am unable to send anything to the BT-112 
+from the microcontroller. Well at least send and get some response. I 
+dont see any response from the bt-112 nor are this data trasmitted to 
+the PC. <br>Got any idea? <br><br>Thanks<br><br>Roman</p><span id="bc_0_1MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1401719775"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=4556553159275601541&amp;postID=8537682038846282097">Delete</a></span></span></div><div id="bc_0_1BR" class="comment-replies"></div><div id="bc_0_1B_box" class="comment-replybox-single"></div></li><li id="bc_0_2B" class="comment" kind="b"><div class="avatar-image-container"><img src="rayson-btm222-btm112-bluetooth-modules_elemei/blog_cpv_001_dmB.jpg"></div><div id="c6893220361537859569" class="comment-block"><div id="bc_0_2M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="http://www.blogger.com/profile/12206591477280744658">Elektor Embedded</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment=1309967327792#c6893220361537859569">July 6, 2011 8:48 AM</a></span></div><p id="bc_0_2MC" class="comment-content">The serial port between the microcontroller and the BT-112 module is probably not configured properly.<br><br>Regards,<br>Clemens</p><span id="bc_0_2MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-963779820"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=4556553159275601541&amp;postID=6893220361537859569">Delete</a></span></span></div><div id="bc_0_2BR" class="comment-replies"></div><div id="bc_0_2B_box" class="comment-replybox-single"></div></li><li id="bc_0_3B" class="comment" kind="b"><div class="avatar-image-container"><img src="rayson-btm222-btm112-bluetooth-modules_elemei/b36-rounded.png"></div><div id="c7763242472062538471" class="comment-block"><div id="bc_0_3M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="http://www.blogger.com/profile/15182724474854476374">Mare</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment=1322606055367#c7763242472062538471">November 29, 2011 2:34 PM</a></span></div><p id="bc_0_3MC" class="comment-content">Hi! <br><br>I found interesting link between two producers: <br>http://www.element14.com/community/thread/2454<br><br>It seems LM technologies uses Rayson modules. This could be a real treasure: <br>http://www.lm-technologies.com/download_script.php?d_type=at&amp;d_item=AT%20Command%20Manualv4.22<br><br>I'll check and post results in my blog: <br>e.pavlin.si<br><br>Regards,<br>Marko</p><span id="bc_0_3MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1503995797"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=4556553159275601541&amp;postID=7763242472062538471">Delete</a></span></span></div><div id="bc_0_3BR" class="comment-replies"></div><div id="bc_0_3B_box" class="comment-replybox-single"></div></li><li id="bc_0_4B" class="comment" kind="b"><div class="avatar-image-container"><img src="rayson-btm222-btm112-bluetooth-modules_elemei/anon36.png"></div><div id="c162946355685371781" class="comment-block"><div id="bc_0_4M" class="comment-header" kind="m"><cite class="user">ImmerNochARM</cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment=1322822466471#c162946355685371781">December 2, 2011 2:41 AM</a></span></div><p id="bc_0_4MC" class="comment-content">@Mare, yes, looks a lot like this:<br>http://ie.farnell.com/lm-technologies/lm072/module-bluetooth-class-1-bc04/dp/1675413</p><span id="bc_0_4MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-508096842"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=4556553159275601541&amp;postID=162946355685371781">Delete</a></span></span></div><div id="bc_0_4BR" class="comment-replies"></div><div id="bc_0_4B_box" class="comment-replybox-single"></div></li><li id="bc_0_5B" class="comment" kind="b"><div class="avatar-image-container"><img src="rayson-btm222-btm112-bluetooth-modules_elemei/wloczykij.jpg"></div><div id="c5851184340481486966" class="comment-block"><div id="bc_0_5M" class="comment-header" kind="m"><cite class="user"><a rel="nofollow" href="http://www.blogger.com/profile/02363314614116162674">Axe</a></cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment=1323882323381#c5851184340481486966">December 14, 2011 9:05 AM</a></span></div><p id="bc_0_5MC" class="comment-content">Thanks
+ a lot man, I am just playing with a couple of BTM-112's and Your post 
+was a big help :) Love the sample configuration, it allowed me to get 
+started.</p><span id="bc_0_5MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1061314969"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=4556553159275601541&amp;postID=5851184340481486966">Delete</a></span></span></div><div id="bc_0_5BR" class="comment-replies"></div><div id="bc_0_5B_box" class="comment-replybox-single"></div></li><li id="bc_0_6B" class="comment" kind="b"><div class="avatar-image-container"><img src="rayson-btm222-btm112-bluetooth-modules_elemei/anon36.png"></div><div id="c3801274880947727779" class="comment-block"><div id="bc_0_6M" class="comment-header" kind="m"><cite class="user">kazu</cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment=1329234567811#c3801274880947727779">February 14, 2012 7:49 AM</a></span></div><p id="bc_0_6MC" class="comment-content">i'm
+ also experimenting with the BTM-222 for my bachelor thesis. the module 
+tells you when it goes for a restart. it sends a '\0'. having received a
+ '\0' one must wait about 1 second until the next character can be sent.
+ the module will echo this character back to you about additional 2 
+seconds.<br><br>also: the modules ship with different firmware versions.
+ older versions behave strangely sometimes and need more waiting between
+ characters and commands.</p><span id="bc_0_6MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1534876944"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=4556553159275601541&amp;postID=3801274880947727779">Delete</a></span></span></div><div id="bc_0_6BR" class="comment-replies"></div><div id="bc_0_6B_box" class="comment-replybox-single"></div></li><li id="bc_0_8B" class="comment" kind="b"><div class="avatar-image-container"><img src="rayson-btm222-btm112-bluetooth-modules_elemei/anon36.png"></div><div id="c1530710833671618635" class="comment-block"><div id="bc_0_8M" class="comment-header" kind="m"><cite class="user">Anonymous</cite><span class="icon user"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment=1331172589422#c1530710833671618635">March 7, 2012 6:09 PM</a></span></div><p id="bc_0_8MC" class="comment-content">Where I can get BTM-222?</p><span id="bc_0_8MN" class="comment-actions secondary-text" kind="m"><a kind="i" href="javascript:;" target="_self" o="r">Reply</a><span class="item-control blog-admin pid-1824443110"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=4556553159275601541&amp;postID=1530710833671618635">Delete</a></span></span></div><div id="bc_0_8BR" class="comment-replies"><span id="bc_0_8b+seedBCiSrD" kind="d"><div id="bc_0_7T" class="comment-thread inline-thread" kind="t" t="0" u="0"><span id="bc_0_7TT" class="thread-toggle thread-expanded" kind="g"><span id="bc_0_7TA" class="thread-arrow"></span><span id="bc_0_7TN" class="thread-count"><span id="bc_0_7TNT" style="display: none;"></span><span id="bc_0_7TNU" style="display: none;"></span><a href="javascript:;" target="_self">Replies</a><div id="bc_0_7TD" class="thread-dropContainer thread-expanded"><span class="thread-drop"></span></div></span></span><ol id="bc_0_7TC" class="thread-chrome thread-expanded"><div><li id="bc_0_7B" class="comment" kind="b"><div class="avatar-image-container"><img src="rayson-btm222-btm112-bluetooth-modules_elemei/blog_cpv_001_dmB.jpg"></div><div id="c2983596260194779328" class="comment-block"><div id="bc_0_7M" class="comment-header" kind="m"><cite class="user blog-author"><a rel="nofollow" href="http://www.blogger.com/profile/12206591477280744658">Elektor Embedded</a></cite><span class="icon user blog-author"></span><span class="datetime secondary-text"><a rel="nofollow" href="http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html?showComment=1331201986727#c2983596260194779328">March 8, 2012 2:19 AM</a></span></div><p id="bc_0_7MC" class="comment-content">I got some <a href="http://bluecontroller.com/index.php?option=com_content&amp;view=article&amp;id=15:using-btm-222-with-atmega-avr&amp;catid=5:bca8-btm&amp;Itemid=15" rel="nofollow">here</a>.</p><span id="bc_0_7MN" class="comment-actions secondary-text" kind="m"><span class="item-control blog-admin pid-963779820"><a o="d" target="_self" href="http://www.blogger.com/delete-comment.g?blogID=4556553159275601541&amp;postID=2983596260194779328">Delete</a></span></span></div><div id="bc_0_7BR" class="comment-replies"></div><div id="bc_0_7B_box" class="comment-replybox-single"></div></li></div><div id="bc_0_7I" class="continue" kind="ci"><a href="javascript:;" target="_self">Reply</a></div></ol><div id="bc_0_7T_box" class="comment-replybox-thread"></div></div></span></div><div id="bc_0_8B_box" class="comment-replybox-single"></div></li></ol><div style="display: none;" id="bc_0_9I" class="continue" kind="ci"><a href="javascript:;" target="_self">Add comment</a></div><div id="bc_0_9T_box" class="comment-replybox-thread"><iframe style="display: block;" allowtransparency="true" class="blogger-iframe-colorize blogger-comment-from-post" id="comment-editor" name="comment-editor" src="rayson-btm222-btm112-bluetooth-modules_elemei/comment-iframe.htm" frameborder="0" height="234px" width="100%"></iframe></div><div id="bc_0_9L" class="loadmore loaded" kind="rb"><a href="javascript:;" target="_self">Load more...</a></div></div></div></div></div>
+</div>
+<p class="comment-footer">
+</p><div class="comment-form">
+<a name="comment-form"></a>
+<p>
+</p>
+<a href="http://www.blogger.com/comment-iframe.g?blogID=4556553159275601541&amp;postID=1335298280872799719&amp;blogspotRpcToken=3255858" id="comment-editor-src"></a>
+
+<script type="text/javascript" src="rayson-btm222-btm112-bluetooth-modules_elemei/124404617-comment_from_post_iframe.js"></script>
+<script type="text/javascript">
+      BLOG_CMT_createIframe('http://www.blogger.com/rpc_relay.html', '18282992343149920863');
+    </script>
+</div>
+<p></p>
+<div id="backlinks-container">
+<div id="Blog1_backlinks-container">
+</div>
+</div>
+</div>
+</div>
+
+        </div></div>
+      
+<!-- google_ad_section_end -->
+</div>
+<div class="blog-pager" id="blog-pager">
+<span id="blog-pager-newer-link">
+<a class="blog-pager-newer-link" href="http://elektorembedded.blogspot.hu/2010/09/rfid-made-simple.html" id="Blog1_blog-pager-newer-link" title="Newer Post">Newer Post</a>
+</span>
+<span id="blog-pager-older-link">
+<a class="blog-pager-older-link" href="http://elektorembedded.blogspot.hu/2010/08/many-people-are-afraid-of-32-bit.html" id="Blog1_blog-pager-older-link" title="Older Post">Older Post</a>
+</span>
+<a class="home-link" href="http://elektorembedded.blogspot.hu/">Home</a>
+</div>
+<div class="clear"></div>
+<div class="post-feeds">
+<div class="feed-links">
+Subscribe to:
+<a class="feed-link" href="http://elektorembedded.blogspot.com/feeds/1335298280872799719/comments/default" target="_blank" type="application/atom+xml">Post Comments (Atom)</a>
+</div>
+</div>
+</div></div>
+</div></div>
+<div id="sidebar-wrap">
+<div id="sidebartop-wrap"><div id="sidebartop-wrap2">
+<div class="sidebar section" id="sidebartop"><div class="widget Profile" id="Profile1">
+<h2>About Me</h2>
+<div class="widget-content">
+<a href="http://www.blogger.com/profile/12206591477280744658"><img alt="My Photo" class="profile-img" src="rayson-btm222-btm112-bluetooth-modules_elemei/blog_cpv_001_dmB_002.jpg" height="63" width="81"></a>
+<dl class="profile-datablock">
+<dt class="profile-data">
+<a class="profile-name-link" href="http://www.blogger.com/profile/12206591477280744658" rel="author" style="background-image: url(//www.blogger.com/img/logo-16.png);">
+Elektor Embedded
+</a>
+</dt>
+<dd class="profile-textblock">I started life embedded in my mother and 
+I’ve been an embedded system ever since. In this blog I will share my 
+experiences, opinions &amp; questions related to embedded systems &amp; 
+microcontrollers. Enjoy and feel free to join in.</dd>
+</dl>
+<a class="profile-link" href="http://www.blogger.com/profile/12206591477280744658" rel="author">View my complete profile</a>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=4556553159275601541&amp;widgetType=Profile&amp;widgetId=Profile1&amp;action=editWidget&amp;sectionId=sidebartop" onclick='return _WidgetManager._PopupConfig(document.getElementById("Profile1"));' target="configProfile1" title="Edit">
+<img alt="" src="rayson-btm222-btm112-bluetooth-modules_elemei/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+</div></div>
+<div id="sidebarbottom-wrap1"><div id="sidebarbottom-wrap2">
+<div class="sidebar section" id="sidebar"><div class="widget PageList" id="PageList1">
+<h2>Pages</h2>
+<div class="widget-content">
+<ul>
+<li><a href="http://elektorembedded.blogspot.hu/p/product-reviews.html">Product reviews</a></li>
+<li><a href="http://elektorembedded.blogspot.hu/p/new-products.html">New products</a></li>
+<li><a href="http://elektorembedded.blogspot.hu/p/fun-stuff.html">Fun stuff</a></li>
+<li><a href="http://elektorembedded.blogspot.hu/p/rants.html">Rants</a></li>
+<li><a href="http://elektorembedded.blogspot.hu/p/sceptre.html">Sceptre - an open 32-bit fast prototyping platform...</a></li>
+<li><a href="http://elektorembedded.blogspot.hu/">Home</a></li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=4556553159275601541&amp;widgetType=PageList&amp;widgetId=PageList1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("PageList1"));' target="configPageList1" title="Edit">
+<img alt="" src="rayson-btm222-btm112-bluetooth-modules_elemei/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget LinkList" id="LinkList1">
+<h2>Elektor blogs</h2>
+<div class="widget-content">
+<ul>
+<li><a href="http://elektorproton.blogspot.com/">Elektor Proton robot</a></li>
+<li><a href="http://ewheelie.blogspot.com/">Elektor Wheelie</a></li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=4556553159275601541&amp;widgetType=LinkList&amp;widgetId=LinkList1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("LinkList1"));' target="configLinkList1" title="Edit">
+<img alt="" src="rayson-btm222-btm112-bluetooth-modules_elemei/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget LinkList" id="LinkList2">
+<h2>Elektor sites</h2>
+<div class="widget-content">
+<ul>
+<li><a href="http://www.elektor.cn/">Elektor China</a></li>
+<li><a href="http://www.elektorbrasil.com.br/">Elektor Brasil</a></li>
+<li><a href="http://www.elektor.in/">Elektor India</a></li>
+<li><a href="http://www.elektor.it/">Elektor Italy</a></li>
+<li><a href="http://www.elektor.com/">Elektor UK/US</a></li>
+<li><a href="http://www.elektor.de/">Elektor Germany</a></li>
+<li><a href="http://www.elektor.es/">Elektor Spain</a></li>
+<li><a href="http://www.elektor.fr/">Elektor France</a></li>
+<li><a href="http://www.elektor.nl/">Elektor Netherlands</a></li>
+</ul>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=4556553159275601541&amp;widgetType=LinkList&amp;widgetId=LinkList2&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("LinkList2"));' target="configLinkList2" title="Edit">
+<img alt="" src="rayson-btm222-btm112-bluetooth-modules_elemei/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget Followers" id="Followers1">
+<h2 class="title">Followers</h2>
+<div class="widget-content">
+<div id="Followers1-wrapper">
+<div style="margin-right:2px;">
+<script type="text/javascript">
+        if (!window.google || !google.friendconnect) {
+          document.write('<script type="text/javascript"' +
+              'src="http://www.google.com/friendconnect/script/friendconnect.js">' +
+              '</scr' + 'ipt>');
+        }
+      </script><script type="text/javascript" src="rayson-btm222-btm112-bluetooth-modules_elemei/friendconnect.js"></script>
+<script type="text/javascript">
+      if (!window.registeredBloggerCallbacks) {
+        window.registeredBloggerCallbacks = true;
+
+        
+
+        
+        gadgets.rpc.register('requestReload', function() {
+          document.location.reload();
+        });
+
+        
+        gadgets.rpc.register('requestSignOut', function(siteId) {
+          
+          google.friendconnect.container.openSocialSiteId = siteId;
+          google.friendconnect.requestSignOut();
+        });
+      }
+    </script>
+<script type="text/javascript">
+    
+    function registerGetBlogUrls() {
+      gadgets.rpc.register('getBlogUrls', function() {
+        var holder = {};
+        
+          
+            
+            
+              holder.currentPost = "http://www.blogger.com/feeds/4556553159275601541/posts/default/1335298280872799719";
+            
+            
+            
+              holder.currentComments = "http://www.blogger.com/feeds/4556553159275601541/1335298280872799719/comments/default";
+            
+            holder.currentPostUrl = "";
+            holder.currentPostId = 1335298280872799719
+          
+          
+          
+            holder.postFeed = "http://www.blogger.com/feeds/4556553159275601541/posts/default";
+          
+          
+          
+            holder.commentFeed = "http://www.blogger.com/feeds/4556553159275601541/comments/default";
+          
+          holder.currentBlogUrl = "http://elektorembedded.blogspot.com/";
+          holder.currentBlogId = "4556553159275601541";
+        
+        return holder;
+      });
+    }
+  </script>
+<script type="text/javascript">
+  if (!window.registeredCommonBloggerCallbacks) {
+    window.registeredCommonBloggerCallbacks = true;
+
+    gadgets.rpc.register('resize_iframe', function(height) {
+      var el = document.getElementById(this['f']);
+      if (el) {
+        el.style.height = height + 'px';
+      }
+    });
+
+    
+    gadgets.rpc.register('set_pref', function() {});
+
+    registerGetBlogUrls();
+  }
+  </script>
+<div class="gadgets-gadget-container" id="div-ph2jh3lqyxoz" style="width: 100%; visibility: visible;"><div id="gfc_iframe_87591752_0_body"><iframe id="gfc_iframe_87591752_0" name="gfc_iframe_87591752_0" style="width: 100%; height: 244px;" allowtransparency="true" frameborder="0" height="260" scrolling="no"></iframe></div></div>
+<script type="text/javascript">
+    var skin = {};
+    skin['FACE_SIZE'] = '32';
+    skin['HEIGHT'] = "260";
+    skin['TITLE'] = "Followers";
+    skin['BORDER_COLOR'] = "transparent";
+    skin['ENDCAP_BG_COLOR'] = "transparent";
+    skin['ENDCAP_TEXT_COLOR'] = "#333333";
+    skin['ENDCAP_LINK_COLOR'] = "#000000";
+    skin['ALTERNATE_BG_COLOR'] = "transparent";
+    
+    skin['CONTENT_BG_COLOR'] = "transparent";
+    skin['CONTENT_LINK_COLOR'] = "#000000";
+    skin['CONTENT_TEXT_COLOR'] = "#333333";
+    skin['CONTENT_SECONDARY_LINK_COLOR'] = "#FFFFFF";
+    skin['CONTENT_SECONDARY_TEXT_COLOR'] = "#000000";
+    skin['CONTENT_HEADLINE_COLOR'] = "#000000";
+    skin['FONT_FACE'] = "normal normal 100% \x27Trebuchet MS\x27,Verdana,Arial,Sans-serif";
+    google.friendconnect.container.setParentUrl("/");
+    google.friendconnect.container["renderMembersGadget"](
+    {id: "div-ph2jh3lqyxoz",
+     height: 260,
+     
+     
+     
+     site: "18282992343149920863",
+     
+     locale: 'en' },
+     skin);
+  </script>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=4556553159275601541&amp;widgetType=Followers&amp;widgetId=Followers1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("Followers1"));' target="configFollowers1" title="Edit">
+<img alt="" src="rayson-btm222-btm112-bluetooth-modules_elemei/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget BlogArchive" id="BlogArchive1">
+<h2>Blog archive</h2>
+<div class="widget-content">
+<div id="ArchiveList">
+<div id="BlogArchive1_ArchiveList">
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/search?updated-min=2012-01-01T00:00:00-08:00&amp;updated-max=2013-01-01T00:00:00-08:00&amp;max-results=4">2012</a>
+<span class="post-count" dir="ltr">(4)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2012_06_01_archive.html">June</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2012_04_01_archive.html">April</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2012_03_01_archive.html">March</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2012_02_01_archive.html">February</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/search?updated-min=2011-01-01T00:00:00-08:00&amp;updated-max=2012-01-01T00:00:00-08:00&amp;max-results=29">2011</a>
+<span class="post-count" dir="ltr">(29)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2011_12_01_archive.html">December</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2011_11_01_archive.html">November</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2011_10_01_archive.html">October</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2011_09_01_archive.html">September</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2011_08_01_archive.html">August</a>
+<span class="post-count" dir="ltr">(10)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2011_07_01_archive.html">July</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2011_05_01_archive.html">May</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2011_04_01_archive.html">April</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2011_03_01_archive.html">March</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2011_02_01_archive.html">February</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2011_01_01_archive.html">January</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy toggle-open">▼&nbsp;</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/search?updated-min=2010-01-01T00:00:00-08:00&amp;updated-max=2011-01-01T00:00:00-08:00&amp;max-results=25">2010</a>
+<span class="post-count" dir="ltr">(25)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_12_01_archive.html">December</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_11_01_archive.html">November</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_10_01_archive.html">October</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_09_01_archive.html">September</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate expanded">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy toggle-open">▼&nbsp;</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_08_01_archive.html">August</a>
+<span class="post-count" dir="ltr">(2)</span>
+<ul class="posts">
+<li><a href="http://elektorembedded.blogspot.hu/2010/08/rayson-btm222-btm112-bluetooth-modules.html">Rayson BTM222 &amp; BTM112 Bluetooth modules</a></li>
+<li><a href="http://elektorembedded.blogspot.hu/2010/08/many-people-are-afraid-of-32-bit.html">Forget about the hardware and learn C</a></li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_07_01_archive.html">July</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_06_01_archive.html">June</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_05_01_archive.html">May</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_04_01_archive.html">April</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_03_01_archive.html">March</a>
+<span class="post-count" dir="ltr">(2)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_02_01_archive.html">February</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2010_01_01_archive.html">January</a>
+<span class="post-count" dir="ltr">(4)</span>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/search?updated-min=2009-01-01T00:00:00-08:00&amp;updated-max=2010-01-01T00:00:00-08:00&amp;max-results=4">2009</a>
+<span class="post-count" dir="ltr">(4)</span>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2009_12_01_archive.html">December</a>
+<span class="post-count" dir="ltr">(3)</span>
+</li>
+</ul>
+<ul class="hierarchy">
+<li class="archivedate collapsed">
+<a class="toggle" href="javascript:void(0)">
+<span class="zippy">
+
+          ►&nbsp;
+        
+</span>
+</a>
+<a class="post-count-link" href="http://elektorembedded.blogspot.hu/2009_11_01_archive.html">November</a>
+<span class="post-count" dir="ltr">(1)</span>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=4556553159275601541&amp;widgetType=BlogArchive&amp;widgetId=BlogArchive1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("BlogArchive1"));' target="configBlogArchive1" title="Edit">
+<img alt="" src="rayson-btm222-btm112-bluetooth-modules_elemei/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div><div class="widget AdSense" id="AdSense1">
+<div class="widget-content">
+<script type="text/javascript"><!--
+google_ad_client="pub-9006222392165629";
+google_ad_host="pub-1556223355139109";
+google_ad_width=160;
+google_ad_height=600;
+google_ad_format="160x600_as";
+google_ad_type="text_image";
+google_ad_host_channel="00000";
+google_color_border="FFFFFF";
+google_color_bg="BBC4D5";
+google_color_link="223344";
+google_color_url="223344";
+google_color_text="335577";
+//--></script>
+<script type="text/javascript" src="rayson-btm222-btm112-bluetooth-modules_elemei/show_ads.js">
+</script>
+<div class="clear"></div>
+<span class="widget-item-control">
+<span class="item-control blog-admin">
+<a class="quickedit" href="http://www.blogger.com/rearrange?blogID=4556553159275601541&amp;widgetType=AdSense&amp;widgetId=AdSense1&amp;action=editWidget&amp;sectionId=sidebar" onclick='return _WidgetManager._PopupConfig(document.getElementById("AdSense1"));' target="configAdSense1" title="Edit">
+<img alt="" src="rayson-btm222-btm112-bluetooth-modules_elemei/icon18_wrench_allbkg.png" height="18" width="18">
+</a>
+</span>
+</span>
+<div class="clear"></div>
+</div>
+</div></div>
+</div></div>
+</div>
+<div id="footer-wrap1"><div id="footer-wrap2">
+<div class="footer section" id="footer"></div>
+</div></div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="comment-iframe_data/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11902291-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<script type="text/javascript">
+if (window.jstiming) window.jstiming.load.tick('widgetJsBefore');
+</script><script type="text/javascript" src="rayson-btm222-btm112-bluetooth-modules_elemei/4127629733-widgets.js"></script>
+<script type="text/javascript">
+if (typeof(BLOG_attachCsiOnload) != 'undefined' && BLOG_attachCsiOnload != null) { window['blogger_templates_experiment_id'] = "templatesV1";window['blogger_blog_id'] = '4556553159275601541';BLOG_attachCsiOnload('item_'); }_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d4556553159275601541','//elektorembedded.blogspot.hu/2010/08/rayson-btm222-btm112-bluetooth-modules.html','4556553159275601541');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '4556553159275601541', 'bloggerUrl': 'http://www.blogger.com', 'title': 'ElektorEmbedded', 'pageType': 'item', 'url': 'http://elektorembedded.blogspot.hu/2010/08/rayson-btm222-btm112-bluetooth-modules.html', 'canonicalUrl': 'http://elektorembedded.blogspot.com/2010/08/rayson-btm222-btm112-bluetooth-modules.html', 'canonicalHomepageUrl': 'http://elektorembedded.blogspot.com/', 'homepageUrl': 'http://elektorembedded.blogspot.hu/', 'blogspotFaviconUrl': 'http://elektorembedded.blogspot.hu/favicon.ico', 'enabledCommentProfileImages': true, 'adultContent': false, 'disableAdSenseWidget': false, 'analyticsAccountNumber': '', 'searchLabel': '', 'searchQuery': '', 'pageName': 'Rayson BTM222 \46 BTM112 Bluetooth modules', 'pageTitle': 'ElektorEmbedded: Rayson BTM222 \46 BTM112 Bluetooth modules', 'encoding': 'UTF-8', 'locale': 'en', 'localeLanguage': 'en', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'languageDirection': 'ltr', 'feedLinks': '\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42ElektorEmbedded - Atom\42 href\75\42http://elektorembedded.blogspot.com/feeds/posts/default\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/rss+xml\42 title\75\42ElektorEmbedded - RSS\42 href\75\42http://elektorembedded.blogspot.com/feeds/posts/default?alt\75rss\42 /\76\n\74link rel\75\42service.post\42 type\75\42application/atom+xml\42 title\75\42ElektorEmbedded - Atom\42 href\75\42http://www.blogger.com/feeds/4556553159275601541/posts/default\42 /\76\n\74link rel\75\42EditURI\42 type\75\42application/rsd+xml\42 title\75\42RSD\42 href\75\42http://www.blogger.com/rsd.g?blogID\0754556553159275601541\42 /\76\n\74link rel\75\42alternate\42 type\75\42application/atom+xml\42 title\75\42ElektorEmbedded - Atom\42 href\75\42http://elektorembedded.blogspot.com/feeds/1335298280872799719/comments/default\42 /\76\n', 'meTag': '', 'openIdOpTag': '', 'postImageThumbnailUrl': 'http://1.bp.blogspot.com/_bDJ_hte7vS8/THT12PWe8fI/AAAAAAAAADI/Sfvut9bOmU8/s72-c/sceptre-btm222-btm112.jpg', 'imageSrcTag': '\74link rel\75\42image_src\42 href\75\42http://1.bp.blogspot.com/_bDJ_hte7vS8/THT12PWe8fI/AAAAAAAAADI/Sfvut9bOmU8/s72-c/sceptre-btm222-btm112.jpg\42 /\76\n', 'latencyHeadScript': '\74script type\75\42text/javascript\42\76(function() { var a\75window,b\75\42jstiming\42,d\75\42tick\42;var e\75function(c){this.t\75{};this.tick\75function(c,p,h){h\75void 0!\75h?h:(new Date).getTime();this.t[c]\75[h,p]};this[d](\42start\42,null,c)},f\75new e;a.jstiming\75{Timer:e,load:f};if(a.performance\46\46a.performance.timing){var g\75a.performance.timing,j\75a[b].load,k\75g.navigationStart,l\75g.responseStart;0\74k\46\46l\76\75k\46\46(j[d](\42_wtsrt\42,void 0,k),j[d](\42wtsrt_\42,\42_wtsrt\42,l),j[d](\42tbsd_\42,\42wtsrt_\42))}\ntry{var m\75null;a.chrome\46\46a.chrome.csi\46\46(m\75Math.floor(a.chrome.csi().pageT),j\46\0460\74k\46\46(j[d](\42_tbnd\42,void 0,a.chrome.csi().startE),j[d](\42tbnd_\42,\42_tbnd\42,k)));null\75\75m\46\46a.gtbExternal\46\46(m\75a.gtbExternal.pageT());null\75\75m\46\46a.external\46\46(m\75a.external.pageT,j\46\0460\74k\46\46(j[d](\42_tbnd\42,void 0,a.external.startE),j[d](\42tbnd_\42,\42_tbnd\42,k)));m\46\46(a[b].pt\75m)}catch(n){};a.tickAboveFold\75function(c){var i\0750;if(c.offsetParent){do i+\75c.offsetTop;while(c\75c.offsetParent)}c\75i;750\76\75c\46\46a[b].load[d](\42aft\42)};var q\75!1;function r(){q||(q\75!0,a[b].load[d](\42firstScrollTime\42))}a.addEventListener?a.addEventListener(\42scroll\42,r,!1):a.attachEvent(\42onscroll\42,r);\n })();\74/script\076', 'mobileHeadScript': '', 'adsenseClientId': 'pub-9006222392165629', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/20497177ec370ede', 'plusOneApiSrc': 'https://apis.google.com/js/plusone.js'}}, {'name': 'skin', 'data': {'vars': {'mainVisitedLinkColor': '#cc071e', 'postTitleFont': 'normal bold 135% \47Trebuchet MS\47,Verdana,Arial,Sans-serif', 'borderColor': '#205085', 'mainTextColor': '#333333', 'pageTitleFont': 'normal bold 200% \47Trebuchet MS\47,Verdana,Arial,Sans-serif', 'titleTextColor': '#ffffff', 'topSidebarVisitedLinkColor': '#225588', 'postTitleColor': '#333333', 'mainBgColor': '#ffffff', 'titleBgColor': '#ffffff', 'mainLinkColor': '#cc071e', 'topSidebarTextColor': '#334455', 'headerFont': 'normal bold 100% \47Trebuchet MS\47,Verdana,Arial,Sans-serif', 'topSidebarBgColor': '#bbc4d5', 'bodyFont': 'normal normal 100% \47Trebuchet MS\47,Verdana,Arial,Sans-serif', 'descriptionFont': 'normal normal 100% \47Trebuchet MS\47,Verdana,Arial,Sans-serif', 'dateHeaderColor': '#335577', 'endSide': 'right', 'topSidebarLinkColor': '#225588', 'startSide': 'left', 'topSidebarHeaderColor': '#223344'}, 'override': ''}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '/?view\75classic'}, 'flipcard': {'name': 'flipcard', 'url': '/?view\75flipcard'}, 'magazine': {'name': 'magazine', 'url': '/?view\75magazine'}, 'mosaic': {'name': 'mosaic', 'url': '/?view\75mosaic'}, 'sidebar': {'name': 'sidebar', 'url': '/?view\75sidebar'}, 'snapshot': {'name': 'snapshot', 'url': '/?view\75snapshot'}, 'timeslide': {'name': 'timeslide', 'url': '/?view\75timeslide'}}}]);
+_WidgetManager._RegisterWidget('_ProfileView', new _WidgetInfo('Profile1', 'sidebartop', null, document.getElementById('Profile1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_PageListView', new _WidgetInfo('PageList1', 'sidebar', null, document.getElementById('PageList1'), {'title': 'Pages', 'links': [{'href': 'http://elektorembedded.blogspot.hu/p/product-reviews.html', 'title': 'Product reviews', 'isCurrentPage': false}, {'href': 'http://elektorembedded.blogspot.hu/p/new-products.html', 'title': 'New products', 'isCurrentPage': false}, {'href': 'http://elektorembedded.blogspot.hu/p/fun-stuff.html', 'title': 'Fun stuff', 'isCurrentPage': false}, {'href': 'http://elektorembedded.blogspot.hu/p/rants.html', 'title': 'Rants', 'isCurrentPage': false}, {'href': 'http://elektorembedded.blogspot.hu/p/sceptre.html', 'title': 'Sceptre - an open 32-bit fast prototyping platform...', 'isCurrentPage': false}, {'href': 'http://elektorembedded.blogspot.hu/', 'title': 'Home', 'isCurrentPage': false}], 'mobile': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList1', 'sidebar', null, document.getElementById('LinkList1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_LinkListView', new _WidgetInfo('LinkList2', 'sidebar', null, document.getElementById('LinkList2'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_FollowersView', new _WidgetInfo('Followers1', 'sidebar', null, document.getElementById('Followers1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogArchiveView', new _WidgetInfo('BlogArchive1', 'sidebar', null, document.getElementById('BlogArchive1'), {'languageDirection': 'ltr'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AdSenseView', new _WidgetInfo('AdSense1', 'sidebar', null, document.getElementById('AdSense1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_NavbarView', new _WidgetInfo('Navbar1', 'navbar', null, document.getElementById('Navbar1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', 'main', null, document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': '//www.blogger.com/static/v1/jsbin/223420870-lbx.js', 'lightboxCssUrl': '//www.blogger.com/static/v1/v-css/228702327-lightbox_bundle.css'}, 'displayModeFull'));
+</script>
+
+<link href="rayson-btm222-btm112-bluetooth-modules_elemei/228702327-lightbox_bundle.css" rel="stylesheet" type="text/css"><script src="rayson-btm222-btm112-bluetooth-modules_elemei/223420870-lbx.js" type="text/javascript"></script></body></html>

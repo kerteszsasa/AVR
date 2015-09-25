@@ -1,0 +1,232 @@
+
+TEST.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000f0  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000002  00800060  000000f0  00000164  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .debug_aranges 00000020  00000000  00000000  00000166  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  3 .debug_pubnames 0000003f  00000000  00000000  00000186  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   0000014e  00000000  00000000  000001c5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_abbrev 000000cc  00000000  00000000  00000313  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_line   0000017d  00000000  00000000  000003df  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_frame  00000040  00000000  00000000  0000055c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_str    000000d8  00000000  00000000  0000059c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_loc    00000018  00000000  00000000  00000674  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	5b c0       	rjmp	.+182    	; 0xba <__vector_1>
+   4:	3e c0       	rjmp	.+124    	; 0x82 <__vector_2>
+   6:	2a c0       	rjmp	.+84     	; 0x5c <__bad_interrupt>
+   8:	29 c0       	rjmp	.+82     	; 0x5c <__bad_interrupt>
+   a:	28 c0       	rjmp	.+80     	; 0x5c <__bad_interrupt>
+   c:	27 c0       	rjmp	.+78     	; 0x5c <__bad_interrupt>
+   e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
+  10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
+  12:	24 c0       	rjmp	.+72     	; 0x5c <__bad_interrupt>
+  14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
+  16:	22 c0       	rjmp	.+68     	; 0x5c <__bad_interrupt>
+  18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
+  1a:	20 c0       	rjmp	.+64     	; 0x5c <__bad_interrupt>
+  1c:	1f c0       	rjmp	.+62     	; 0x5c <__bad_interrupt>
+  1e:	1e c0       	rjmp	.+60     	; 0x5c <__bad_interrupt>
+  20:	1d c0       	rjmp	.+58     	; 0x5c <__bad_interrupt>
+  22:	1c c0       	rjmp	.+56     	; 0x5c <__bad_interrupt>
+  24:	1b c0       	rjmp	.+54     	; 0x5c <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_copy_data>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	e0 ef       	ldi	r30, 0xF0	; 240
+  3a:	f0 e0       	ldi	r31, 0x00	; 0
+  3c:	02 c0       	rjmp	.+4      	; 0x42 <.do_copy_data_start>
+
+0000003e <.do_copy_data_loop>:
+  3e:	05 90       	lpm	r0, Z+
+  40:	0d 92       	st	X+, r0
+
+00000042 <.do_copy_data_start>:
+  42:	a2 36       	cpi	r26, 0x62	; 98
+  44:	b1 07       	cpc	r27, r17
+  46:	d9 f7       	brne	.-10     	; 0x3e <.do_copy_data_loop>
+
+00000048 <__do_clear_bss>:
+  48:	10 e0       	ldi	r17, 0x00	; 0
+  4a:	a2 e6       	ldi	r26, 0x62	; 98
+  4c:	b0 e0       	ldi	r27, 0x00	; 0
+  4e:	01 c0       	rjmp	.+2      	; 0x52 <.do_clear_bss_start>
+
+00000050 <.do_clear_bss_loop>:
+  50:	1d 92       	st	X+, r1
+
+00000052 <.do_clear_bss_start>:
+  52:	a2 36       	cpi	r26, 0x62	; 98
+  54:	b1 07       	cpc	r27, r17
+  56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
+  58:	02 d0       	rcall	.+4      	; 0x5e <main>
+  5a:	48 c0       	rjmp	.+144    	; 0xec <_exit>
+
+0000005c <__bad_interrupt>:
+  5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
+
+0000005e <main>:
+ 
+volatile uint8_t a=2;
+   
+void main(void)
+{
+DDRB=255;
+  5e:	8f ef       	ldi	r24, 0xFF	; 255
+  60:	87 bb       	out	0x17, r24	; 23
+DDRD=1<<0|1<<1;
+  62:	83 e0       	ldi	r24, 0x03	; 3
+  64:	81 bb       	out	0x11, r24	; 17
+PORTD=0;
+  66:	12 ba       	out	0x12, r1	; 18
+
+
+
+PORTB=1;
+  68:	81 e0       	ldi	r24, 0x01	; 1
+  6a:	88 bb       	out	0x18, r24	; 24
+
+
+//külsõ megszakítás
+MCUCR=1<<ISC01|1<<ISC11; //int1 megszakítást fogom használni, lefutó élre reagáljon
+  6c:	8a e0       	ldi	r24, 0x0A	; 10
+  6e:	85 bf       	out	0x35, r24	; 53
+GICR=1<<INT0|1<<INT1;	// külsõ megszakítások engedélyezése 
+  70:	80 ec       	ldi	r24, 0xC0	; 192
+  72:	8b bf       	out	0x3b, r24	; 59
+
+sei();
+  74:	78 94       	sei
+
+while(1)
+{
+
+
+if(PORTB>=64)PORTB=1;
+  76:	91 e0       	ldi	r25, 0x01	; 1
+  78:	88 b3       	in	r24, 0x18	; 24
+  7a:	80 34       	cpi	r24, 0x40	; 64
+  7c:	e8 f3       	brcs	.-6      	; 0x78 <main+0x1a>
+  7e:	98 bb       	out	0x18, r25	; 24
+  80:	fb cf       	rjmp	.-10     	; 0x78 <main+0x1a>
+
+00000082 <__vector_2>:
+
+
+
+
+ISR (INT1_vect)
+{
+  82:	1f 92       	push	r1
+  84:	0f 92       	push	r0
+  86:	0f b6       	in	r0, 0x3f	; 63
+  88:	0f 92       	push	r0
+  8a:	11 24       	eor	r1, r1
+  8c:	8f 93       	push	r24
+  8e:	9f 93       	push	r25
+
+PORTB*=2;			//***	
+  90:	88 b3       	in	r24, 0x18	; 24
+  92:	90 e0       	ldi	r25, 0x00	; 0
+  94:	88 0f       	add	r24, r24
+  96:	99 1f       	adc	r25, r25
+  98:	88 bb       	out	0x18, r24	; 24
+if(PORTB>=64)PORTB=1;//***ezeknek kell lefutni
+  9a:	88 b3       	in	r24, 0x18	; 24
+  9c:	80 34       	cpi	r24, 0x40	; 64
+  9e:	10 f0       	brcs	.+4      	; 0xa4 <__vector_2+0x22>
+  a0:	81 e0       	ldi	r24, 0x01	; 1
+  a2:	88 bb       	out	0x18, r24	; 24
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+  a4:	88 ea       	ldi	r24, 0xA8	; 168
+  a6:	91 e6       	ldi	r25, 0x61	; 97
+  a8:	01 97       	sbiw	r24, 0x01	; 1
+  aa:	f1 f7       	brne	.-4      	; 0xa8 <__vector_2+0x26>
+
+
+_delay_ms(100);
+//GIFR=1<<INTF1;
+
+}
+  ac:	9f 91       	pop	r25
+  ae:	8f 91       	pop	r24
+  b0:	0f 90       	pop	r0
+  b2:	0f be       	out	0x3f, r0	; 63
+  b4:	0f 90       	pop	r0
+  b6:	1f 90       	pop	r1
+  b8:	18 95       	reti
+
+000000ba <__vector_1>:
+
+
+
+
+ISR (INT0_vect)
+{
+  ba:	1f 92       	push	r1
+  bc:	0f 92       	push	r0
+  be:	0f b6       	in	r0, 0x3f	; 63
+  c0:	0f 92       	push	r0
+  c2:	11 24       	eor	r1, r1
+  c4:	8f 93       	push	r24
+	PORTB/=2;					//***	
+  c6:	88 b3       	in	r24, 0x18	; 24
+  c8:	86 95       	lsr	r24
+  ca:	88 bb       	out	0x18, r24	; 24
+	if(PORTB==64)PORTB=1;	//***ezeknek is
+  cc:	88 b3       	in	r24, 0x18	; 24
+  ce:	80 34       	cpi	r24, 0x40	; 64
+  d0:	11 f4       	brne	.+4      	; 0xd6 <__vector_1+0x1c>
+  d2:	81 e0       	ldi	r24, 0x01	; 1
+  d4:	88 bb       	out	0x18, r24	; 24
+	if(PORTB==0)PORTB=32;
+  d6:	88 b3       	in	r24, 0x18	; 24
+  d8:	88 23       	and	r24, r24
+  da:	11 f4       	brne	.+4      	; 0xe0 <__vector_1+0x26>
+  dc:	80 e2       	ldi	r24, 0x20	; 32
+  de:	88 bb       	out	0x18, r24	; 24
+
+}
+  e0:	8f 91       	pop	r24
+  e2:	0f 90       	pop	r0
+  e4:	0f be       	out	0x3f, r0	; 63
+  e6:	0f 90       	pop	r0
+  e8:	1f 90       	pop	r1
+  ea:	18 95       	reti
+
+000000ec <_exit>:
+  ec:	f8 94       	cli
+
+000000ee <__stop_program>:
+  ee:	ff cf       	rjmp	.-2      	; 0xee <__stop_program>

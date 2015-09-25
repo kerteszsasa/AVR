@@ -1,0 +1,497 @@
+Archive member included because of file (symbol)
+
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
+                              DDS.o (__udivmodhi4)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_divmodhi4.o)
+                              DDS.o (__divmodhi4)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o (exit)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                              DDS.o (__do_copy_data)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                              DDS.o (__do_clear_bss)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(itoa.o)
+                              usart.o (itoa)
+c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(strrev.o)
+                              c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(itoa.o) (strrev)
+
+Allocating common symbols
+Common symbol       size              file
+
+numbers             0x20              console.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+text             0x00000000         0x00002000         xr
+data             0x00800060         0x0000ffa0         rw !x
+eeprom           0x00810000         0x00010000         rw !x
+fuse             0x00820000         0x00000400         rw !x
+lock             0x00830000         0x00000400         rw !x
+signature        0x00840000         0x00000400         rw !x
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+LOAD DDS.o
+LOAD usart.o
+LOAD adc.o
+LOAD console.o
+LOAD commands.o
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a
+LOAD c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a
+
+.hash
+ *(.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+ *(.rel.text.*)
+ *(.rel.gnu.linkonce.t*)
+
+.rela.text
+ *(.rela.text)
+ *(.rela.text.*)
+ *(.rela.gnu.linkonce.t*)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+ *(.rel.rodata.*)
+ *(.rel.gnu.linkonce.r*)
+
+.rela.rodata
+ *(.rela.rodata)
+ *(.rela.rodata.*)
+ *(.rela.gnu.linkonce.r*)
+
+.rel.data
+ *(.rel.data)
+ *(.rel.data.*)
+ *(.rel.gnu.linkonce.d*)
+
+.rela.data
+ *(.rela.data)
+ *(.rela.data.*)
+ *(.rela.gnu.linkonce.d*)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.text           0x00000000     0x10c0
+ *(.vectors)
+ .vectors       0x00000000       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x00000000                __vectors
+                0x00000000                __vector_default
+ *(.vectors)
+ *(.progmem.gcc*)
+ .progmem.gcc_sw_table
+                0x00000026       0x18 console.o
+ *(.progmem*)
+                0x0000003e                . = ALIGN (0x2)
+                0x0000003e                __trampolines_start = .
+ *(.trampolines)
+ .trampolines   0x0000003e        0x0 linker stubs
+ *(.trampolines*)
+                0x0000003e                __trampolines_end = .
+ *(.jumptables)
+ *(.jumptables*)
+ *(.lowtext)
+ *(.lowtext*)
+                0x0000003e                __ctors_start = .
+ *(.ctors)
+                0x0000003e                __ctors_end = .
+                0x0000003e                __dtors_start = .
+ *(.dtors)
+                0x0000003e                __dtors_end = .
+ SORT(*)(.ctors)
+ SORT(*)(.dtors)
+ *(.init0)
+ .init0         0x0000003e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x0000003e                __init
+ *(.init0)
+ *(.init1)
+ *(.init1)
+ *(.init2)
+ .init2         0x0000003e        0xc c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ *(.init2)
+ *(.init3)
+ *(.init3)
+ *(.init4)
+ .init4         0x0000004a       0x16 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+                0x0000004a                __do_copy_data
+ .init4         0x00000060       0x10 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+                0x00000060                __do_clear_bss
+ *(.init4)
+ *(.init5)
+ *(.init5)
+ *(.init6)
+ *(.init6)
+ *(.init7)
+ *(.init7)
+ *(.init8)
+ *(.init8)
+ *(.init9)
+ .init9         0x00000070        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ *(.init9)
+ *(.text)
+ .text          0x00000074        0x2 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+                0x00000074                __vector_12
+                0x00000074                __bad_interrupt
+                0x00000074                __vector_6
+                0x00000074                __vector_3
+                0x00000074                __vector_13
+                0x00000074                __vector_17
+                0x00000074                __vector_7
+                0x00000074                __vector_5
+                0x00000074                __vector_4
+                0x00000074                __vector_2
+                0x00000074                __vector_15
+                0x00000074                __vector_8
+                0x00000074                __vector_14
+                0x00000074                __vector_10
+                0x00000074                __vector_16
+                0x00000074                __vector_18
+ .text          0x00000076      0x680 DDS.o
+                0x00000106                __vector_1
+                0x000000fc                InitEXTINT
+                0x00000124                main
+                0x00000080                __vector_9
+                0x00000076                InitTimer
+ .text          0x000006f6       0xd4 usart.o
+                0x00000742                __vector_11
+                0x000006f6                USART_Init
+                0x00000708                USART_Transmit
+                0x0000078a                putnum
+                0x00000718                UART_Receive
+                0x00000726                putstring
+ .text          0x000007ca       0x50 adc.o
+                0x000007ca                Konfig10bitADC
+                0x000007da                Beolvas10bitADC
+ .text          0x0000081a      0x5ce console.o
+                0x00000c7c                Console_reset
+                0x00000dc4                InitMessage
+                0x00000da6                Incoming_char
+                0x00000a84                Console_SetMax
+                0x000008bc                Console_SetFreq
+                0x0000081a                Console_xxx
+                0x00000b80                Console_SetMin
+                0x00000d1e                Console_help
+ .text          0x00000de8      0x228 commands.o
+                0x00000fa4                EncoderUp
+                0x00000de8                EncoderDown
+                0x00001008                DDS_SetFreq
+                0x00000e4c                DDS_reset
+ .text          0x00001010        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
+ .text          0x00001010        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_divmodhi4.o)
+ .text          0x00001010        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text          0x00001010        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text          0x00001010        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .text          0x00001010        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(itoa.o)
+ .text          0x00001010        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(strrev.o)
+                0x00001010                . = ALIGN (0x2)
+ *(.text.*)
+ .text.libgcc   0x00001010       0x28 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
+                0x00001010                __udivmodhi4
+ .text.libgcc   0x00001038       0x26 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_divmodhi4.o)
+                0x00001038                __divmodhi4
+                0x00001038                _div
+ .text.libgcc   0x0000105e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .text.libgcc   0x0000105e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .text.libgcc   0x0000105e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .text.avr-libc
+                0x0000105e       0x3e c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(itoa.o)
+                0x0000105e                itoa
+ .text.avr-libc
+                0x0000109c       0x20 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(strrev.o)
+                0x0000109c                strrev
+                0x000010bc                . = ALIGN (0x2)
+ *(.fini9)
+ .fini9         0x000010bc        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+                0x000010bc                exit
+                0x000010bc                _exit
+ *(.fini9)
+ *(.fini8)
+ *(.fini8)
+ *(.fini7)
+ *(.fini7)
+ *(.fini6)
+ *(.fini6)
+ *(.fini5)
+ *(.fini5)
+ *(.fini4)
+ *(.fini4)
+ *(.fini3)
+ *(.fini3)
+ *(.fini2)
+ *(.fini2)
+ *(.fini1)
+ *(.fini1)
+ *(.fini0)
+ .fini0         0x000010bc        0x4 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ *(.fini0)
+                0x000010c0                _etext = .
+
+.data           0x00800060       0xfe load address 0x000010c0
+                0x00800060                PROVIDE (__data_start, .)
+ *(.data)
+ .data          0x00800060        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .data          0x00800060       0x70 DDS.o
+                0x008000ce                runningtime
+ .data          0x008000d0        0x0 usart.o
+ .data          0x008000d0        0x0 adc.o
+ .data          0x008000d0       0x8e console.o
+ .data          0x0080015e        0x0 commands.o
+ .data          0x0080015e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
+ .data          0x0080015e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_divmodhi4.o)
+ .data          0x0080015e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .data          0x0080015e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .data          0x0080015e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .data          0x0080015e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(itoa.o)
+ .data          0x0080015e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(strrev.o)
+ *(.data*)
+ *(.rodata)
+ *(.rodata*)
+ *(.gnu.linkonce.d*)
+                0x0080015e                . = ALIGN (0x2)
+                0x0080015e                _edata = .
+                0x0080015e                PROVIDE (__data_end, .)
+
+.bss            0x0080015e       0x31
+                0x0080015e                PROVIDE (__bss_start, .)
+ *(.bss)
+ .bss           0x0080015e        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4/crtm8.o
+ .bss           0x0080015e        0x7 DDS.o
+                0x00800160                sweeptype
+                0x0080015e                timerdivider
+                0x00800161                measure_running
+                0x00800164                start
+                0x00800162                sweepcounter
+ .bss           0x00800165        0x0 usart.o
+ .bss           0x00800165        0x0 adc.o
+ .bss           0x00800165        0x9 console.o
+                0x00800166                helpcounter
+                0x0080016c                temp_tizes
+                0x00800169                freqcounter
+                0x00800165                resetcounter
+                0x00800168                maxcounter
+                0x0080016b                temp_egyes
+                0x0080016d                temp_szazas
+                0x0080016a                xxxcounter
+                0x00800167                mincounter
+ .bss           0x0080016e        0x1 commands.o
+                0x0080016e                encoder_state
+ .bss           0x0080016f        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_udivmodhi4.o)
+ .bss           0x0080016f        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_divmodhi4.o)
+ .bss           0x0080016f        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_exit.o)
+ .bss           0x0080016f        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_copy_data.o)
+ .bss           0x0080016f        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/avr4\libgcc.a(_clear_bss.o)
+ .bss           0x0080016f        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(itoa.o)
+ .bss           0x0080016f        0x0 c:/winavr-20100110/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr4\libc.a(strrev.o)
+ *(.bss*)
+ *(COMMON)
+ COMMON         0x0080016f       0x20 console.o
+                0x0080016f                numbers
+                0x0080018f                PROVIDE (__bss_end, .)
+                0x000010c0                __data_load_start = LOADADDR (.data)
+                0x000011be                __data_load_end = (__data_load_start + SIZEOF (.data))
+
+.noinit         0x0080018f        0x0
+                0x0080018f                PROVIDE (__noinit_start, .)
+ *(.noinit*)
+                0x0080018f                PROVIDE (__noinit_end, .)
+                0x0080018f                _end = .
+                0x0080018f                PROVIDE (__heap_start, .)
+
+.eeprom         0x00810000        0x0
+ *(.eeprom*)
+                0x00810000                __eeprom_end = .
+
+.fuse
+ *(.fuse)
+ *(.lfuse)
+ *(.hfuse)
+ *(.efuse)
+
+.lock
+ *(.lock*)
+
+.signature
+ *(.signature*)
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment
+ *(.comment)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x00000000       0xa0
+ *(.debug_aranges)
+ .debug_aranges
+                0x00000000       0x20 DDS.o
+ .debug_aranges
+                0x00000020       0x20 usart.o
+ .debug_aranges
+                0x00000040       0x20 adc.o
+ .debug_aranges
+                0x00000060       0x20 console.o
+ .debug_aranges
+                0x00000080       0x20 commands.o
+
+.debug_pubnames
+                0x00000000      0x2f4
+ *(.debug_pubnames)
+ .debug_pubnames
+                0x00000000       0xb4 DDS.o
+ .debug_pubnames
+                0x000000b4       0x6e usart.o
+ .debug_pubnames
+                0x00000122       0x39 adc.o
+ .debug_pubnames
+                0x0000015b      0x139 console.o
+ .debug_pubnames
+                0x00000294       0x60 commands.o
+
+.debug_info     0x00000000     0x1a1e
+ *(.debug_info)
+ .debug_info    0x00000000      0xc7e DDS.o
+ .debug_info    0x00000c7e      0x158 usart.o
+ .debug_info    0x00000dd6       0x99 adc.o
+ .debug_info    0x00000e6f      0x34c console.o
+ .debug_info    0x000011bb      0x863 commands.o
+ *(.gnu.linkonce.wi.*)
+
+.debug_abbrev   0x00000000      0x48f
+ *(.debug_abbrev)
+ .debug_abbrev  0x00000000      0x119 DDS.o
+ .debug_abbrev  0x00000119       0xc3 usart.o
+ .debug_abbrev  0x000001dc       0x63 adc.o
+ .debug_abbrev  0x0000023f      0x137 console.o
+ .debug_abbrev  0x00000376      0x119 commands.o
+
+.debug_line     0x00000000     0x1332
+ *(.debug_line)
+ .debug_line    0x00000000      0x92f DDS.o
+ .debug_line    0x0000092f      0x11e usart.o
+ .debug_line    0x00000a4d       0xaa adc.o
+ .debug_line    0x00000af7      0x404 console.o
+ .debug_line    0x00000efb      0x437 commands.o
+
+.debug_frame    0x00000000      0x1e0
+ *(.debug_frame)
+ .debug_frame   0x00000000       0x60 DDS.o
+ .debug_frame   0x00000060       0x70 usart.o
+ .debug_frame   0x000000d0       0x30 adc.o
+ .debug_frame   0x00000100       0x90 console.o
+ .debug_frame   0x00000190       0x50 commands.o
+
+.debug_str      0x00000000      0x31b
+ *(.debug_str)
+ .debug_str     0x00000000      0x138 DDS.o
+                                0x171 (size before relaxing)
+ .debug_str     0x00000138       0x59 usart.o
+                                0x108 (size before relaxing)
+ .debug_str     0x00000191       0x31 adc.o
+                                 0xdb (size before relaxing)
+ .debug_str     0x000001c2       0xec console.o
+                                0x1de (size before relaxing)
+ .debug_str     0x000002ae       0x6d commands.o
+                                0x167 (size before relaxing)
+
+.debug_loc      0x00000000      0xf1c
+ *(.debug_loc)
+ .debug_loc     0x00000000      0x8b0 DDS.o
+ .debug_loc     0x000008b0       0x76 usart.o
+ .debug_loc     0x00000926       0x13 adc.o
+ .debug_loc     0x00000939      0x2cb console.o
+ .debug_loc     0x00000c04      0x318 commands.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+OUTPUT(DDS.elf elf32-avr)
+LOAD linker stubs
+
+.debug_ranges   0x00000000       0x90
+ .debug_ranges  0x00000000       0x90 DDS.o
