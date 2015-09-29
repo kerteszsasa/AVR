@@ -12,6 +12,7 @@
 
 
 volatile int timerdivider=0;
+int  ADVALUE = 0;
 char sweeptype=0;
 char measure_running=0;
 int sweepcounter=0;
@@ -114,7 +115,14 @@ int main( void )
 			
 			
 			// Beállított frekvencia beolvasása
-			sweeptype=Beolvas10bitADC(5) /256;
+			ADVALUE=Beolvas10bitADC(5);
+
+			if(0   <= ADVALUE && ADVALUE <= 102) sweeptype = 1;
+			if(102 <= ADVALUE && ADVALUE <= 307) sweeptype = 2;
+			if(307 <= ADVALUE && ADVALUE <= 512) sweeptype = 3;
+			if(512 <= ADVALUE && ADVALUE <= 716) sweeptype = 4;
+			if(716 <= ADVALUE && ADVALUE <= 921) sweeptype = 5;
+			if(921 <= ADVALUE && ADVALUE <=1024) sweeptype = 6;
 
 
 
@@ -131,25 +139,36 @@ int main( void )
 
 
 
-
-			if(sweeptype==0){
+			// Lépésköz beállítása, + kiírás
+			if(sweeptype==1){
 				putstring("50Hz sweep 1Hz lépéssel ");
 				LEFT_btn();
 				}
 
-			if(sweeptype==1){
+			if(sweeptype==2){
+				putstring("100Hz sweep 1Hz lépéssel ");
+				LEFT_btn();
+				}
+
+			if(sweeptype==3){
 				putstring("250Hz sweep 1Hz lépéssel ");
 				LEFT_btn();
 				}
 
-			if(sweeptype==2){
+			if(sweeptype==4){
+				putstring("500Hz sweep 10Hz lépéssel ");
+				LEFT_btn();
+				LEFT_btn();
+				}
+
+			if(sweeptype==5){
 				putstring("1kHz sweep 10Hz lépéssel ");
 				LEFT_btn();
 				LEFT_btn();
 				}
 
-			if(sweeptype==3){
-				putstring("5kHz sweep 10Hz lépéssel ");
+			if(sweeptype==6){
+				putstring("2kHz sweep 10Hz lépéssel ");
 				LEFT_btn();
 				LEFT_btn();
 				}
@@ -157,7 +176,7 @@ int main( void )
 			
 			while(measure_running){
 
-				if(sweeptype==0){
+				if(sweeptype==1){
 					for(sweepcounter=0;sweepcounter<50;sweepcounter++){
 						EncoderUp();
 						_delay_ms(10);
@@ -167,21 +186,6 @@ int main( void )
 						_delay_ms(10);
 						}
 					for(sweepcounter=0;sweepcounter<50;sweepcounter++){
-						EncoderUp();
-						_delay_ms(10);
-						}
-					}
-
-				if(sweeptype==1){
-					for(sweepcounter=0;sweepcounter<250;sweepcounter++){
-						EncoderUp();
-						_delay_ms(10);
-						}
-					for(sweepcounter=0;sweepcounter<500;sweepcounter++){
-						EncoderDown();
-						_delay_ms(10);
-						}
-					for(sweepcounter=0;sweepcounter<250;sweepcounter++){
 						EncoderUp();
 						_delay_ms(10);
 						}
@@ -203,15 +207,60 @@ int main( void )
 					}
 
 				if(sweeptype==3){
-					for(sweepcounter=0;sweepcounter<500;sweepcounter++){
+					for(sweepcounter=0;sweepcounter<250;sweepcounter++){
 						EncoderUp();
 						_delay_ms(10);
 						}
-					for(sweepcounter=0;sweepcounter<1000;sweepcounter++){
+					for(sweepcounter=0;sweepcounter<500;sweepcounter++){
 						EncoderDown();
 						_delay_ms(10);
 						}
-					for(sweepcounter=0;sweepcounter<500;sweepcounter++){
+					for(sweepcounter=0;sweepcounter<250;sweepcounter++){
+						EncoderUp();
+						_delay_ms(10);
+						}
+					}
+
+				if(sweeptype==4){
+					for(sweepcounter=0;sweepcounter<50;sweepcounter++){
+						EncoderUp();
+						_delay_ms(10);
+						}
+					for(sweepcounter=0;sweepcounter<100;sweepcounter++){
+						EncoderDown();
+						_delay_ms(10);
+						}
+					for(sweepcounter=0;sweepcounter<50;sweepcounter++){
+						EncoderUp();
+						_delay_ms(10);
+						}
+					}
+
+				if(sweeptype==5){
+					for(sweepcounter=0;sweepcounter<100;sweepcounter++){
+						EncoderUp();
+						_delay_ms(10);
+						}
+					for(sweepcounter=0;sweepcounter<200;sweepcounter++){
+						EncoderDown();
+						_delay_ms(10);
+						}
+					for(sweepcounter=0;sweepcounter<100;sweepcounter++){
+						EncoderUp();
+						_delay_ms(10);
+						}
+					}
+
+				if(sweeptype==6){
+					for(sweepcounter=0;sweepcounter<200;sweepcounter++){
+						EncoderUp();
+						_delay_ms(10);
+						}
+					for(sweepcounter=0;sweepcounter<400;sweepcounter++){
+						EncoderDown();
+						_delay_ms(10);
+						}
+					for(sweepcounter=0;sweepcounter<200;sweepcounter++){
 						EncoderUp();
 						_delay_ms(10);
 						}
